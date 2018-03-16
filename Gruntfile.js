@@ -187,7 +187,7 @@ module.exports = function (grunt) {
     grunt.registerTask('re-json-to-xml', ['mkdir-test-temp', 'json-to-xml-main:test/fixtures/files/generated/xml_to_json:test/fixtures/files/generated/re_json_to_xml']);
 
     // Default task.
-    grunt.registerTask('default', ['beautify', 'jshint', 'mkdir-test-temp', 'mochaTest', 'browser-test']);
+    grunt.registerTask('default', ['beautify', 'jshint', 'mkdir-test-temp', 'mochaTest']);
 
     grunt.registerTask('browser-test', ['browserify:require', 'browserify:tests', 'connect', 'mocha_phantomjs']);
 

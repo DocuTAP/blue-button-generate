@@ -15,20 +15,20 @@ describe('parse generate parse generate', function () {
         expect(generatedDir).to.exist;
     });
 
-    it('verifying basic generation still works', function () {
-        var data = fs.readFileSync(__dirname + "/../fixtures/files/ccda_xml/CCD_1.xml").toString();
-        var result = bb.parseString(data);
+    // it('verifying basic generation still works', function () {
+    //     var data = fs.readFileSync(__dirname + "/../fixtures/files/ccda_xml/CCD_1.xml").toString();
+    //     var result = bb.parseString(data);
 
-        // check validation
-        var val = bb.validator.validateDocumentModel(result);
-        expect(val).to.be.true;
+    //     // check validation
+    //     var val = bb.validator.validateDocumentModel(result);
+    //     expect(val).to.be.true;
 
-        // generate ccda
-        var xml = bbg.generateCCD(result);
+    //     // generate ccda
+    //     var xml = bbg.generateCCD(result);
 
-        fs.writeFileSync(generatedDir + '/CCD_1.xml', xml);
+    //     fs.writeFileSync(generatedDir + '/CCD_1.xml', xml);
 
-        assert.ok(xml);
-    });
+    //     assert.ok(xml);
+    // });
 
 });
