@@ -1,5 +1,5 @@
 {
-  "name": "@docutap/blue-button-generate",
+  "name": "@docutap-api/blue-button-generate",
   "version": "0.0.0-development",
   "description": "Blue Button CCDA Generator.",
   "main": "./index.js",
