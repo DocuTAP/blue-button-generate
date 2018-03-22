@@ -90,9 +90,6 @@
       "condition-circle"
     ],
     "getLastRelease": "@semantic-release/git",
-    "publish": [
-      "@semantic-release/github"
-    ],
     "verifyRelease": [
 
     ]
