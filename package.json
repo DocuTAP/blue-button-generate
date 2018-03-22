@@ -95,6 +95,7 @@
     ]
   },
   "publishConfig": {
-    "tag": "next"
+    "tag": "next",
+    "access": "public"
   }
 }
