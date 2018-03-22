@@ -35,5 +35,7 @@ jobs:
 
       # run tests!
       - run: yarn run lint
+      # - run: yarn run semantic-commitlint --ci
       - run: yarn unit
       - run: yarn run e2e
+      - run: yarn run semantic-release
