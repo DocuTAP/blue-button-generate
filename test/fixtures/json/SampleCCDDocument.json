@@ -533,7 +533,24 @@
       "procedures",
       "results",
       "payers"
-    ]
+    ],
+    "ccda_header": {
+      "author": {
+        "id": "2.16.840.1.113883.4.6",
+        "name": "NAME",
+        "addresses": [
+          {
+            "street_lines": [
+              "1357 Amber Drive"
+            ],
+            "city": "Beaverton",
+            "state": "OR",
+            "zip": "97867",
+            "country": "US"
+          }
+        ]
+      }
+    }
   },
   "errors": [
     "cardinality error: found 2 when expecting 0..1 at h:entryRelationship/h:observation",
