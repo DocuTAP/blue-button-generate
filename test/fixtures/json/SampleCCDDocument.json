@@ -549,8 +549,39 @@
             "country": "US"
           }
         ]
-      }
-    }
+      },
+      "custodian": [
+        {
+          "identifiers": [
+            {
+              "identifier": "2.16.840.1.113883.3.79",
+              "extension": "3123462"
+            }
+          ],
+          "name": [
+            "Custodian Name"
+          ],
+          "address": [
+            {
+              "street_lines": [
+                "123 Custodian Street"
+              ],
+              "city": "Anytown",
+              "state": "CA",
+              "zip": "12345",
+              "country": "US"
+            }
+          ],
+          "phone": [
+            {
+              "number": "+1-916-555-7782",
+              "type": "work place"
+            }
+          ]
+        }
+      ]
+    },
+    "confidentiality": "Normal"
   },
   "errors": [
     "cardinality error: found 2 when expecting 0..1 at h:entryRelationship/h:observation",
