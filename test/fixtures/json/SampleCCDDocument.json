@@ -536,9 +536,25 @@
     ],
     "ccda_header": {
       "author": {
-        "id": "2.16.840.1.113883.4.6",
-        "name": "NAME",
-        "addresses": [
+        "identifiers": [
+          {
+            "identifier": "2.16.840.1.113883.4.6",
+            "extension": "3123462"
+          }
+        ],
+        "taxonomy_code": {
+          "code": "261QU0200X",
+          "name": "Urgent Care"
+        },
+        "name": {
+          "middle": [
+            "M"
+          ],
+          "last": "Last",
+          "suffix": "MD",
+          "first": "First"
+        },
+        "address": [
           {
             "street_lines": [
               "1357 Amber Drive"
@@ -546,7 +562,14 @@
             "city": "Beaverton",
             "state": "OR",
             "zip": "97867",
-            "country": "US"
+            "country": "US",
+            "use": "work place"
+          }
+        ],
+        "phone": [
+          {
+            "number": "+1-916-555-8899",
+            "type": "work place"
           }
         ]
       },
