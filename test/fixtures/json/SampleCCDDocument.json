@@ -3,20 +3,105 @@
     "demographics": {
       "name": {
         "last": "Levin",
+        "first": "Henry",
+        "middle": "George",
         "suffix": "the 7th",
-        "first": "Henry"
+        "prefix": "Dr."
       },
-      "dob": {
-        "point": {
-          "date": "1932-09-24T00:00:00.000Z",
-          "precision": "day"
-        }
-      },
-      "gender": "Male",
       "identifiers": [
         {
           "identifier": "2.16.840.1.113883.19.5",
-          "extension": "996-756-495"
+          "extension": "996495"
+        }
+      ],
+      "dob": {
+        "date": "1932-09-24T00:00:00.000Z",
+        "precision": "day"
+      },
+      "gender": "Male",
+      "marital_status": "Married",
+      "religion": "Cyberculture Religions",
+      "ethnicity": "Not Hispanic or Latino",
+      "race": "Asian",
+      "birthplace": {
+        "address": [
+          {
+            "street_lines": [
+              "123 Old Main Street"
+            ],
+            "city": "Beaverton",
+            "state": "OR",
+            "zip": "97867",
+            "country": "US"
+          }
+        ]
+      },
+      "languages": {
+        "language": "en",
+        "proficiency": "Excellent",
+        "preferred": "true"
+      },
+      "addresses": [
+        {
+          "street_lines": [
+            "123 Main Street"
+          ],
+          "city": "Beaverton",
+          "state": "OR",
+          "zip": "97867",
+          "country": "US",
+          "use": "primary home"
+        }, {
+          "street_lines": [
+            "123 Main Street"
+          ],
+          "city": "Beaverton",
+          "state": "OR",
+          "zip": "97867",
+          "country": "US",
+          "use": "work place"
+        }
+      ],
+      "email": [
+        { "address": "john.doe@gmail.com",
+          "type": "primary home"
+        }
+      ],
+      "phone": [
+        {
+          "number": "+1-916-555-4444",
+          "type": "primary home"
+        }
+      ],
+      "guardians": [
+        {
+          "name": {
+            "last": "Levin",
+            "suffix": "the 6th",
+            "first": "Henry"
+          },
+          "relation": {
+            "relationship_code": "GUARD",
+            "display_name": "Guardian"
+          },
+          "phone": [
+            {
+              "number": "+1-916-555-3333",
+              "type": "primary home"
+            }
+          ],
+          "address": [
+            {
+              "street_lines": [
+                "123 Main Street"
+              ],
+              "city": "Washington",
+              "state": "DC",
+              "zip": "11111",
+              "country": "US",
+              "use": "home primary"
+            }
+          ]
         }
       ]
     },
@@ -519,7 +604,6 @@
     ]
   },
   "meta": {
-    "version": "1.3.1",
     "identifiers": [
       {
         "identifier": "db734647-fc99-424c-a864-7e3cda82e703"
@@ -535,6 +619,7 @@
       "payers"
     ],
     "ccda_header": {
+      "title": "CCDA Summary Note",
       "author": {
         "identifiers": [
           {
