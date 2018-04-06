@@ -25,12 +25,19 @@ var createContext = (function () {
         sameReference: function (referenceKey) {
             var index = this.references[referenceKey] || 0;
             return "#" + referenceKey + index;
+        },
+        nextReferenceId: function (referenceKey) {
+            var index = this.referenceIds[referenceKey] || 0;
+            ++index;
+            this.referenceIds[referenceKey] = index;
+            return referenceKey + index;
         }
     };
 
     return function (options) {
         var result = Object.create(base);
         result.references = {};
+        result.referenceIds = {};
         if (options.meta && options.addUniqueIds) {
             result.rootId = bbuo.deepValue(options.meta, 'identifiers.0.identifier');
         } else {
