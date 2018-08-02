@@ -36,13 +36,13 @@ module.exports = function (grunt) {
                 node: true,
                 expr: true,
                 globals: {
-                    'it': true,
-                    'xit': true,
-                    'xdescribe': true,
-                    'describe': true,
-                    'before': true,
-                    'after': true,
-                    'done': true
+                    it: true,
+                    xit: true,
+                    xdescribe: true,
+                    describe: true,
+                    before: true,
+                    after: true,
+                    done: true
                 }
             }
         },
@@ -54,13 +54,27 @@ module.exports = function (grunt) {
         },
         jsbeautifier: {
             beautify: {
-                src: ['Gruntfile.js', 'lib/*.js', 'lib/**/*.js', 'test/**/*.js', '*.js', 'test/xmlmods/*.json'],
+                src: [
+                    'Gruntfile.js',
+                    'lib/*.js',
+                    'lib/**/*.js',
+                    'test/**/*.js',
+                    '*.js',
+                    'test/xmlmods/*.json'
+                ],
                 options: {
                     config: '.jsbeautifyrc'
                 }
             },
             check: {
-                src: ['Gruntfile.js', 'lib/*.js', 'lib/**/*.js', 'test/**/*.js', '*.js', 'test/xmlmods/*.json'],
+                src: [
+                    'Gruntfile.js',
+                    'lib/*.js',
+                    'lib/**/*.js',
+                    'test/**/*.js',
+                    '*.js',
+                    'test/xmlmods/*.json'
+                ],
                 options: {
                     mode: 'VERIFY_ONLY',
                     config: '.jsbeautifyrc'
@@ -87,7 +101,7 @@ module.exports = function (grunt) {
                 // an error, to prevent CI builds from failing unnecessarily (e.g. if
                 // coveralls.io is down). Optional, defaults to false.
                 force: false
-            },
+            }
             //your_target: {
             // Target-specific LCOV coverage file
             //src: 'coverage-results/extra-results-*.info'
@@ -96,10 +110,10 @@ module.exports = function (grunt) {
         coverage: {
             options: {
                 thresholds: {
-                    'statements': 50,
-                    'branches': 25,
-                    'lines': 50,
-                    'functions': 50
+                    statements: 50,
+                    branches: 25,
+                    lines: 50,
+                    functions: 50
                 },
                 dir: 'coverage/',
                 root: '.'
@@ -119,7 +133,7 @@ module.exports = function (grunt) {
                 dest: 'dist/<%=pkg.name%>.js',
                 options: {
                     external: ['blue-button', 'blue-button-xml'],
-                    alias: [__dirname + "/index.js:<%=pkg.name%>"]
+                    alias: [__dirname + '/index.js:<%=pkg.name%>']
                 }
             },
             tests: {
@@ -131,17 +145,17 @@ module.exports = function (grunt) {
                 }
             }
         },
-        "blue-button": {
-            "gen-json": {
-                "src": ['test/fixtures/files/ccda_xml/*', 'test/fixtures/files/cms_txt/*'],
-                "dest": 'test/fixtures/json',
+        'blue-button': {
+            'gen-json': {
+                src: ['test/fixtures/files/ccda_xml/*', 'test/fixtures/files/cms_txt/*'],
+                dest: 'test/fixtures/json',
                 options: {
                     validate: true
                 }
             },
-            "re-gen-json": {
-                "src": ['test/fixtures/files/generated/json_to_xml/*'],
-                "dest": 'test/fixtures/files/generated/xml_to_json'
+            're-gen-json': {
+                src: ['test/fixtures/files/generated/json_to_xml/*'],
+                dest: 'test/fixtures/files/generated/xml_to_json'
             }
         },
         connect: {
@@ -152,12 +166,10 @@ module.exports = function (grunt) {
                 }
             }
         },
-        'mocha_phantomjs': {
+        mocha_phantomjs: {
             all: {
                 options: {
-                    urls: [
-                        'http://127.0.0.1:8000/dist/mocha_runner.html'
-                    ]
+                    urls: ['http://127.0.0.1:8000/dist/mocha_runner.html']
                 }
             }
         }
@@ -182,14 +194,25 @@ module.exports = function (grunt) {
     grunt.registerTask('beautify', ['jsbeautifier:beautify']);
 
     // generates xml files from source jsons.
-    grunt.registerTask('json-to-xml', ['mkdir-test-temp', 'json-to-xml-main:test/fixtures/json:test/fixtures/files/generated/json_to_xml']);
+    grunt.registerTask('json-to-xml', [
+        'mkdir-test-temp',
+        'json-to-xml-main:test/fixtures/json:test/fixtures/files/generated/json_to_xml'
+    ]);
     // generates xml files from generated jsons.
-    grunt.registerTask('re-json-to-xml', ['mkdir-test-temp', 'json-to-xml-main:test/fixtures/files/generated/xml_to_json:test/fixtures/files/generated/re_json_to_xml']);
+    grunt.registerTask('re-json-to-xml', [
+        'mkdir-test-temp',
+        'json-to-xml-main:test/fixtures/files/generated/xml_to_json:test/fixtures/files/generated/re_json_to_xml'
+    ]);
 
     // Default task.
     grunt.registerTask('default', ['beautify', 'jshint', 'mkdir-test-temp', 'mochaTest']);
 
-    grunt.registerTask('browser-test', ['browserify:require', 'browserify:tests', 'connect', 'mocha_phantomjs']);
+    grunt.registerTask('browser-test', [
+        'browserify:require',
+        'browserify:tests',
+        'connect',
+        'mocha_phantomjs'
+    ]);
 
     grunt.registerTask('commit', ['jshint', 'mkdir-test-temp', 'mochaTest']);
     grunt.registerTask('mocha', ['mkdir-test-temp', 'mochaTest']);
