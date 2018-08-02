@@ -33,3 +33,6 @@ bower_components
 test/fixtures/files/generated/
 
 resources
+
+dist
+.vscode
