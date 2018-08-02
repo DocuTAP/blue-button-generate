@@ -205,7 +205,7 @@ module.exports = function (grunt) {
     ]);
 
     // Default task.
-    grunt.registerTask('default', ['beautify', 'jshint', 'mkdir-test-temp', 'mochaTest']);
+    grunt.registerTask('default', ['mkdir-test-temp', 'mochaTest']);
 
     grunt.registerTask('browser-test', [
         'browserify:require',
@@ -214,7 +214,7 @@ module.exports = function (grunt) {
         'mocha_phantomjs'
     ]);
 
-    grunt.registerTask('commit', ['jshint', 'mkdir-test-temp', 'mochaTest']);
+    grunt.registerTask('commit', ['mkdir-test-temp', 'mochaTest']);
     grunt.registerTask('mocha', ['mkdir-test-temp', 'mochaTest']);
     grunt.registerTask('timestamp', function () {
         grunt.log.subhead(Date());

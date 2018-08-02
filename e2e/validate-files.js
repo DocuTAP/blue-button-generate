@@ -19,8 +19,7 @@ async function validateFile(filePath) {
   const url =
     'https://ttpds.sitenv.org:8443/referenceccdaservice/?validationObjective=C-CDA_IG_Plus_Vocab&referenceFileName=Readme.txt';
   return new Promise((resolve, reject) => {
-    request.post(
-      {
+    request.post({
         url,
         formData: {
           ccdaFile: fs.createReadStream(filePath)
