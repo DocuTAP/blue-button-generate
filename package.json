@@ -83,7 +83,7 @@
   },
   "homepage": "https://github.com/docutap/blue-button-generate",
   "release": {
-    "branch": "master",
+    "branch": "develop",
     "verifyConditions": [
       "@semantic-release/git",
       "@semantic-release/github",
