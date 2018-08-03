@@ -15,8 +15,10 @@
         }
       ],
       "dob": {
-        "date": "1932-09-24T00:00:00.000Z",
-        "precision": "day"
+        "point": {
+          "date": "1932-09-24T00:00:00.000Z",
+          "precision": "day"
+        }
       },
       "gender": "Male",
       "marital_status": "Married",
@@ -26,9 +28,7 @@
       "birthplace": {
         "address": [
           {
-            "street_lines": [
-              "123 Old Main Street"
-            ],
+            "street_lines": ["123 Old Main Street"],
             "city": "Beaverton",
             "state": "OR",
             "zip": "97867",
@@ -43,18 +43,15 @@
       },
       "addresses": [
         {
-          "street_lines": [
-            "123 Main Street"
-          ],
+          "street_lines": ["123 Main Street"],
           "city": "Beaverton",
           "state": "OR",
           "zip": "97867",
           "country": "US",
           "use": "primary home"
-        }, {
-          "street_lines": [
-            "123 Main Street"
-          ],
+        },
+        {
+          "street_lines": ["123 Main Street"],
           "city": "Beaverton",
           "state": "OR",
           "zip": "97867",
@@ -63,7 +60,8 @@
         }
       ],
       "email": [
-        { "address": "john.doe@gmail.com",
+        {
+          "address": "john.doe@gmail.com",
           "type": "primary home"
         }
       ],
@@ -92,9 +90,7 @@
           ],
           "address": [
             {
-              "street_lines": [
-                "123 Main Street"
-              ],
+              "street_lines": ["123 Main Street"],
               "city": "Washington",
               "state": "DC",
               "zip": "11111",
@@ -133,9 +129,7 @@
               "identifier": "2.16.840.1.113883.19.5"
             }
           ],
-          "name": [
-            "Good Health Clinic"
-          ]
+          "name": ["Good Health Clinic"]
         }
       }
     ],
@@ -333,9 +327,7 @@
             "reference_range": {
               "range": "M 13-18 g/dl; F 12-16 g/dl"
             },
-            "interpretations": [
-              "Normal"
-            ],
+            "interpretations": ["Normal"],
             "value": 13.2,
             "unit": "g/dl"
           },
@@ -362,9 +354,7 @@
               "high": "10.8",
               "unit": "10+3/ul"
             },
-            "interpretations": [
-              "Normal"
-            ],
+            "interpretations": ["Normal"],
             "value": 6.7,
             "unit": "10+3/ul"
           },
@@ -391,9 +381,7 @@
               "high": "350",
               "unit": "10+3/ul"
             },
-            "interpretations": [
-              "Low"
-            ],
+            "interpretations": ["Low"],
             "value": 123,
             "unit": "10+3/ul"
           }
@@ -434,9 +422,7 @@
               "high": "145",
               "unit": "meq/l"
             },
-            "interpretations": [
-              "Normal"
-            ],
+            "interpretations": ["Normal"],
             "value": 140,
             "unit": "meq/l"
           },
@@ -463,9 +449,7 @@
               "high": "5.0",
               "unit": "meq/l"
             },
-            "interpretations": [
-              "Normal"
-            ],
+            "interpretations": ["Normal"],
             "value": 4,
             "unit": "meq/l"
           },
@@ -492,9 +476,7 @@
               "high": "106",
               "unit": "meq/l"
             },
-            "interpretations": [
-              "Normal"
-            ],
+            "interpretations": ["Normal"],
             "value": 102,
             "unit": "meq/l"
           },
@@ -521,9 +503,7 @@
               "high": "23",
               "unit": "meq/l"
             },
-            "interpretations": [
-              "High"
-            ],
+            "interpretations": ["High"],
             "value": 35,
             "unit": "meq/l"
           }
@@ -557,9 +537,7 @@
               ],
               "organization": [
                 {
-                  "name": [
-                    "Good Health Insurance"
-                  ]
+                  "name": ["Good Health Insurance"]
                 }
               ]
             }
@@ -632,18 +610,14 @@
           "name": "Urgent Care"
         },
         "name": {
-          "middle": [
-            "M"
-          ],
+          "middle": ["M"],
           "last": "Last",
           "suffix": "MD",
           "first": "First"
         },
         "address": [
           {
-            "street_lines": [
-              "1357 Amber Drive"
-            ],
+            "street_lines": ["1357 Amber Drive"],
             "city": "Beaverton",
             "state": "OR",
             "zip": "97867",
@@ -666,14 +640,10 @@
               "extension": "3123462"
             }
           ],
-          "name": [
-            "Custodian Name"
-          ],
+          "name": ["Custodian Name"],
           "address": [
             {
-              "street_lines": [
-                "123 Custodian Street"
-              ],
+              "street_lines": ["123 Custodian Street"],
               "city": "Anytown",
               "state": "CA",
               "zip": "12345",

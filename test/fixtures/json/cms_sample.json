@@ -25,9 +25,7 @@
       "addresses": [
         {
           "use": "primary home",
-          "street_lines": [
-            "123 ANY ROAD"
-          ],
+          "street_lines": ["123 ANY ROAD"],
           "city": "ANYTOWN",
           "state": "VA",
           "zip": "00001",
@@ -368,9 +366,7 @@
                   "address": [
                     {
                       "use": "primary home",
-                      "street_lines": [
-                        "123 Any Road"
-                      ],
+                      "street_lines": ["123 Any Road"],
                       "city": "Anytown",
                       "state": "PA",
                       "zip": "00003",
@@ -421,9 +417,7 @@
                   "address": [
                     {
                       "use": "primary home",
-                      "street_lines": [
-                        "123 Any Road"
-                      ],
+                      "street_lines": ["123 Any Road"],
                       "city": "Anytown",
                       "state": "PA",
                       "zip": "00003",
@@ -442,10 +436,7 @@
             "performer": {
               "organization": [
                 {
-                  "name": [
-                    "STATE HEALTH BENEFITS PROGRAM",
-                    "EMPLOYER SUBSIDY"
-                  ]
+                  "name": ["STATE HEALTH BENEFITS PROGRAM", "EMPLOYER SUBSIDY"]
                 }
               ]
             }
@@ -498,16 +489,11 @@
             "performer": {
               "organization": [
                 {
-                  "name": [
-                    "Insurer1",
-                    "Medicare MSP: End stage Renal Disease (ESRD)"
-                  ],
+                  "name": ["Insurer1", "Medicare MSP: End stage Renal Disease (ESRD)"],
                   "address": [
                     {
                       "use": "primary home",
-                      "street_lines": [
-                        "PO BOX 0000"
-                      ],
+                      "street_lines": ["PO BOX 0000"],
                       "city": "Anytown",
                       "state": "CO",
                       "zip": "00002-0000",
@@ -554,16 +540,11 @@
             "performer": {
               "organization": [
                 {
-                  "name": [
-                    "Insurer2",
-                    "Medicare MSP: End stage Renal Disease (ESRD)"
-                  ],
+                  "name": ["Insurer2", "Medicare MSP: End stage Renal Disease (ESRD)"],
                   "address": [
                     {
                       "use": "primary home",
-                      "street_lines": [
-                        "0000 Any ROAD"
-                      ],
+                      "street_lines": ["0000 Any ROAD"],
                       "city": "ANYWHERE",
                       "state": "VA",
                       "zip": "00000-0000",
@@ -610,15 +591,11 @@
             "performer": {
               "organization": [
                 {
-                  "name": [
-                    "Insurer"
-                  ],
+                  "name": ["Insurer"],
                   "address": [
                     {
                       "use": "primary home",
-                      "street_lines": [
-                        "00 Address STREET"
-                      ],
+                      "street_lines": ["00 Address STREET"],
                       "city": "ANYWHERE",
                       "state": "PA",
                       "zip": "00000",
@@ -634,9 +611,7 @@
     ],
     "claims": [
       {
-        "payer": [
-          "medicare"
-        ],
+        "payer": ["medicare"],
         "number": "1234567890000",
         "date_time": {
           "low": {
@@ -663,7 +638,8 @@
             },
             "procedure": {
               "code": "98941",
-              "description": "Chiropractic Manipulative Treatment (Cmt); Spinal, Three To Four Regions"
+              "description":
+                "Chiropractic Manipulative Treatment (Cmt); Spinal, Three To Four Regions"
             },
             "quantity": {
               "value": 1,
@@ -672,7 +648,8 @@
             "modifier": [
               {
                 "code": "AT",
-                "description": "Acute Treatment (This Modifier Should Be Used When Reporting Service 98940, 98941, 98942)"
+                "description":
+                  "Acute Treatment (This Modifier Should Be Used When Reporting Service 98940, 98941, 98942)"
               }
             ],
             "charges": {
@@ -707,9 +684,7 @@
           "provider_paid": "$27.20",
           "patient_responsibility": "$6.80"
         },
-        "type": [
-          "medicare PartB"
-        ],
+        "type": ["medicare PartB"],
         "diagnosis": [
           {
             "code": "3534"
@@ -726,9 +701,7 @@
         ]
       },
       {
-        "payer": [
-          "medicare"
-        ],
+        "payer": ["medicare"],
         "number": "12345678900000VAA",
         "date_time": {
           "low": {
@@ -773,7 +746,8 @@
             },
             "procedure": {
               "code": "74020",
-              "description": "Radiologic Examination, Abdomen; Complete, Including Decubitus And/Or Erect Views"
+              "description":
+                "Radiologic Examination, Abdomen; Complete, Including Decubitus And/Or Erect Views"
             },
             "quantity": {
               "value": 1,
@@ -799,7 +773,8 @@
             },
             "procedure": {
               "code": "99283",
-              "description": "Emergency Department Visit For The Evaluation And Management Of A Patient, Which Requires Th"
+              "description":
+                "Emergency Department Visit For The Evaluation And Management Of A Patient, Which Requires Th"
             },
             "quantity": {
               "value": 1,
@@ -808,7 +783,8 @@
             "modifier": [
               {
                 "code": "25",
-                "description": "Significant, Separately Identifiable Evaluation And Management Service By The Same Physician On"
+                "description":
+                  "Significant, Separately Identifiable Evaluation And Management Service By The Same Physician On"
               }
             ],
             "charges": {
@@ -840,9 +816,7 @@
           "provider_paid": "$126.31",
           "patient_responsibility": "$38.84"
         },
-        "type": [
-          "medicare Outpatient"
-        ],
+        "type": ["medicare Outpatient"],
         "diagnosis": [
           {
             "code": "56400"
@@ -856,9 +830,7 @@
         ]
       },
       {
-        "payer": [
-          "medicare"
-        ],
+        "payer": ["medicare"],
         "number": "1234567890123",
         "lines": [
           {
@@ -884,7 +856,8 @@
             "modifier": [
               {
                 "code": "GA",
-                "description": "Waiver Of Liability Statement Issued As Required By Payer Policy, Individual Case"
+                "description":
+                  "Waiver Of Liability Statement Issued As Required By Payer Policy, Individual Case"
               }
             ],
             "place_of_service": {
@@ -921,7 +894,8 @@
             },
             "procedure": {
               "code": "G0283",
-              "description": "Electrical Stimulation (Unattended), To One Or More Areas For Indication(S) Other Than Wound"
+              "description":
+                "Electrical Stimulation (Unattended), To One Or More Areas For Indication(S) Other Than Wound"
             },
             "quantity": {
               "value": 1,
@@ -930,7 +904,8 @@
             "modifier": [
               {
                 "code": "GY",
-                "description": "Item Or Service Statutorily Excluded, Does Not Meet The Definition Of Any Medicare Benefit Or,"
+                "description":
+                  "Item Or Service Statutorily Excluded, Does Not Meet The Definition Of Any Medicare Benefit Or,"
               }
             ],
             "place_of_service": {
@@ -966,9 +941,7 @@
         }
       },
       {
-        "payer": [
-          "medicare"
-        ],
+        "payer": ["medicare"],
         "number": "123456789012",
         "date_time": {
           "point": {
@@ -976,9 +949,7 @@
             "precision": "day"
           }
         },
-        "type": [
-          "medicare Part D"
-        ],
+        "type": ["medicare Part D"],
         "lines": [
           {
             "date_time": {
@@ -1015,9 +986,7 @@
                     "extension": "123456789"
                   }
                 ],
-                "name": [
-                  "PHARMACY2 #00000"
-                ]
+                "name": ["PHARMACY2 #00000"]
               }
             ]
           }
@@ -1046,16 +1015,12 @@
                 "extension": "123456789"
               }
             ],
-            "name": [
-              "PHARMACY2 #00000"
-            ]
+            "name": ["PHARMACY2 #00000"]
           }
         ]
       },
       {
-        "payer": [
-          "medicare"
-        ],
+        "payer": ["medicare"],
         "number": "123456789011",
         "date_time": {
           "point": {
@@ -1063,9 +1028,7 @@
             "precision": "day"
           }
         },
-        "type": [
-          "medicare Part D"
-        ],
+        "type": ["medicare Part D"],
         "lines": [
           {
             "date_time": {
@@ -1102,9 +1065,7 @@
                     "extension": "1234567890"
                   }
                 ],
-                "name": [
-                  "PHARMACY3 #00000"
-                ]
+                "name": ["PHARMACY3 #00000"]
               }
             ]
           }
@@ -1133,9 +1094,7 @@
                 "extension": "1234567890"
               }
             ],
-            "name": [
-              "PHARMACY3 #00000"
-            ]
+            "name": ["PHARMACY3 #00000"]
           }
         ]
       }
@@ -1206,9 +1165,7 @@
       {
         "address": {
           "use": "primary home",
-          "street_lines": [
-            "123 Any Rd"
-          ],
+          "street_lines": ["123 Any Rd"],
           "city": "Anywhere",
           "state": "MD",
           "zip": "99999",
@@ -1218,9 +1175,7 @@
           "name": "NHC"
         },
         "organization": {
-          "name": [
-            "ANY CARE"
-          ]
+          "name": ["ANY CARE"]
         }
       },
       {
@@ -1230,9 +1185,7 @@
         },
         "address": {
           "use": "primary home",
-          "street_lines": [
-            "123 Road"
-          ],
+          "street_lines": ["123 Road"],
           "city": "Anywhere",
           "state": "VA",
           "zip": "00001",
