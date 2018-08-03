@@ -21,9 +21,7 @@
       "marital_status": "Married",
       "addresses": [
         {
-          "street_lines": [
-            "123 Anywhere Road"
-          ],
+          "street_lines": ["123 Anywhere Road"],
           "city": "Anywhere",
           "state": "DC",
           "zip": "00001",
