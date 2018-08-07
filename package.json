@@ -11,6 +11,7 @@
     "lib": "lib"
   },
   "scripts": {
+    "cz": "git-cz",
     "test": "yarn run lint && yarn run unit && yarn run e2e",
     "unit": "grunt",
     "lint.markdown": "markdownlint -c .markdownlintrc.json 'README.md'",
@@ -19,21 +20,6 @@
     "semantic-commitlint": "semantic-commitlint",
     "semantic-release": "semantic-release"
   },
-  "author": "Dmitry Kachaev <dmitry@amida-tech.com>",
-  "contributors": [
-    {
-      "name": "Matthew McCall",
-      "email": "matt@amida-tech.com"
-    },
-    {
-      "name": "Afsin Ustundag",
-      "email": "afsin.ustundag@us.pwc.com"
-    },
-    {
-      "name": "Matt Martz",
-      "email": "matt.martz@amida-tech.com"
-    }
-  ],
   "license": "Apache-2.0",
   "engines": {
     "node": ">= 0.10.0"

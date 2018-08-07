@@ -2,11 +2,11 @@
 
 Blue Button CCDA Generator
 
-[![NPM](https://nodei.co/npm/blue-button-generate.png)](https://nodei.co/npm/blue-button-generate/)
-
-[![Build Status](https://travis-ci.org/amida-tech/blue-button-generate.svg)](https://travis-ci.org/amida-tech/blue-button-generate)
-[![Coverage Status](https://coveralls.io/repos/amida-tech/blue-button-generate/badge.png)](https://coveralls.io/r/amida-tech/blue-button-generate)
-[![Dependency Status](https://david-dm.org/amida-tech/blue-button-generate.svg)](https://david-dm.org/amida-tech/blue-button-generate)
+[![npm](https://img.shields.io/npm/v/%40docutap-api%2Fblue-button-generate.svg?logo=npm&style=flat-square)](https://www.npmjs.com/package/@docutap-api/blue-button-generate)
+[![npm](https://img.shields.io/npm/l/%40docutap-api%2Fblue-button-generate.svg?style=flat-square)](https://github.com/DocuTAP/blue-button-generate/blob/develop/LICENSE)
+[![CircleCI](https://img.shields.io/circleci/project/github/DocuTAP/blue-button-generate.svg?style=flat-square&logo=circleci)](https://circleci.com/gh/DocuTAP/blue-button-generate)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release)
 
 blue-button-generate is a module to generate CCDA files from JSON data. Currently it only supports [blue-button](https://github.com/amida-tech/blue-button) JSON data model.
 
@@ -15,7 +15,7 @@ blue-button-generate is a module to generate CCDA files from JSON data. Currentl
 ``` javascript
 var fs = require('fs');
 var bb = require('blue-button');
-var bbg = require('blue-button-generate');
+var bbg = require('@docutap-api/blue-button-generate');
 
 var xmlString = fs.readFileSync('test/fixtures/files/ccda_xml/CCD_1.xml', 'utf-8');
 var record = bb.parseString(xmlString);
