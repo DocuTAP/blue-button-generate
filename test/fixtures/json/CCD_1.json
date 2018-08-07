@@ -469,7 +469,7 @@
                 "extension": "2981823"
               }
             ],
-            "address": [
+            "addresses": [
               {
                 "street_lines": ["1001 Village Avenue"],
                 "city": "Portland",
@@ -541,7 +541,7 @@
               "code": "1160-1",
               "code_system_name": "HealthcareServiceLocation"
             },
-            "address": [
+            "addresses": [
               {
                 "street_lines": ["17 Daws Rd."],
                 "city": "Blue Bell",
@@ -898,7 +898,7 @@
               "first": "Amanda"
             }
           ],
-          "address": [
+          "addresses": [
             {
               "street_lines": ["1021 Health Drive"],
               "city": "Ann Arbor",
@@ -980,7 +980,7 @@
               "first": "Amanda"
             }
           ],
-          "address": [
+          "addresses": [
             {
               "street_lines": ["1021 Health Drive"],
               "city": "Ann Arbor",
@@ -1062,7 +1062,7 @@
               "first": "Amanda"
             }
           ],
-          "address": [
+          "addresses": [
             {
               "street_lines": ["1021 Health Drive"],
               "city": "Ann Arbor",
@@ -1136,7 +1136,7 @@
               "first": "Amanda"
             }
           ],
-          "address": [
+          "addresses": [
             {
               "street_lines": ["1021 Health Drive"],
               "city": "Ann Arbor",
@@ -1402,7 +1402,7 @@
                 "extension": "2981823"
               }
             ],
-            "address": [
+            "addresses": [
               {
                 "street_lines": ["1001 Village Avenue"],
                 "city": "Portland",
@@ -1425,7 +1425,7 @@
                   }
                 ],
                 "name": ["Community Health and Hospitals"],
-                "address": [
+                "addresses": [
                   {
                     "street_lines": ["1001 Village Avenue"],
                     "city": "Portland",
@@ -1485,7 +1485,7 @@
                 "extension": "1234"
               }
             ],
-            "address": [
+            "addresses": [
               {
                 "street_lines": ["17 Daws Rd."],
                 "city": "Blue Bell",
@@ -1520,7 +1520,7 @@
               "code": "1118-9",
               "code_system_name": "HealthcareServiceLocation"
             },
-            "address": [
+            "addresses": [
               {
                 "street_lines": ["17 Daws Rd."],
                 "city": "Blue Bell",
@@ -1565,7 +1565,7 @@
                 "extension": "1234"
               }
             ],
-            "address": [
+            "addresses": [
               {
                 "street_lines": ["17 Daws Rd."],
                 "city": "Blue Bell",
@@ -1600,7 +1600,7 @@
               "code": "1118-9",
               "code_system_name": "HealthcareServiceLocation"
             },
-            "address": [
+            "addresses": [
               {
                 "street_lines": ["17 Daws Rd."],
                 "city": "Blue Bell",
@@ -1720,7 +1720,7 @@
                   "identifier": "2.16.840.1.113883.19"
                 }
               ],
-              "address": [
+              "addresses": [
                 {
                   "street_lines": ["123 Insurance Road"],
                   "city": "Blue Bell",
@@ -1739,7 +1739,7 @@
               "organization": [
                 {
                   "name": ["Good Health Insurance"],
-                  "address": [
+                  "addresses": [
                     {
                       "street_lines": ["123 Insurance Road"],
                       "city": "Blue Bell",
@@ -1784,7 +1784,7 @@
               "first": "Adam"
             }
           ],
-          "address": [
+          "addresses": [
             {
               "street_lines": ["17 Daws Rd."],
               "city": "Blue Bell",
@@ -1814,7 +1814,7 @@
                 "extension": "1138345"
               }
             ],
-            "address": [
+            "addresses": [
               {
                 "street_lines": ["17 Daws Rd."],
                 "city": "Blue Bell",
@@ -1849,7 +1849,7 @@
                 "extension": "1138345"
               }
             ],
-            "address": [
+            "addresses": [
               {
                 "street_lines": ["17 Daws Rd."],
                 "city": "Blue Bell",
@@ -1879,7 +1879,7 @@
     ]
   },
   "meta": {
-    "version": "1.5.0-beta.2",
+    "version": "1",
     "identifiers": [
       {
         "identifier": "2.16.840.1.113883.19.5.99999.1",
@@ -1890,6 +1890,69 @@
     "setId": {
       "identifier": "2.16.840.1.113883.19.5.99999.19",
       "extension": "sTT988"
+    },
+    "ccda_header": {
+      "title": "CCDA Summary Note",
+      "author": {
+        "identifiers": [
+          {
+            "identifier": "2.16.840.1.113883.4.6",
+            "extension": "3123462"
+          }
+        ],
+        "taxonomy_code": {
+          "code": "261QU0200X",
+          "name": "Urgent Care"
+        },
+        "name": {
+          "middle": ["M"],
+          "last": "Last",
+          "suffix": "MD",
+          "first": "First"
+        },
+        "addresses": [
+          {
+            "street_lines": ["1357 Amber Drive"],
+            "city": "Beaverton",
+            "state": "OR",
+            "zip": "97867",
+            "country": "US",
+            "use": "work place"
+          }
+        ],
+        "phone": [
+          {
+            "number": "+1-916-555-8899",
+            "type": "work place"
+          }
+        ]
+      },
+      "custodian": [
+        {
+          "identifiers": [
+            {
+              "identifier": "2.16.840.1.113883.3.79",
+              "extension": "3123462"
+            }
+          ],
+          "name": ["Custodian Name"],
+          "addresses": [
+            {
+              "street_lines": ["123 Custodian Street"],
+              "city": "Anytown",
+              "state": "CA",
+              "zip": "12345",
+              "country": "US"
+            }
+          ],
+          "phone": [
+            {
+              "number": "+1-916-555-7782",
+              "type": "work place"
+            }
+          ]
+        }
+      ]
     },
     "sections": [
       "demographics",

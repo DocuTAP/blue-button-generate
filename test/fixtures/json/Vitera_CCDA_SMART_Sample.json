@@ -50,7 +50,7 @@
             ],
             "email": [
                 {
-                    "address": "carlsonsa@e4health.com"
+                    "addresses": "carlsonsa@e4health.com"
                 }
             ],
             "race": "White",
@@ -3277,7 +3277,7 @@
                                 "extension": "3123462"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "3469 Altamonte Springs Terrace"
@@ -3299,7 +3299,7 @@
                                 "name": [
                                     "Altamonte Medical Center Pharmacy"
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "3469 Altamonte Springs Terrace"
@@ -3384,7 +3384,7 @@
                                 "extension": "7700063"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "123 Test Street"
@@ -3405,7 +3405,7 @@
                                 "name": [
                                     "SelfTest NEWRX in REFREQ out"
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "123 Test Street"
@@ -3489,7 +3489,7 @@
                                 "extension": "7700063"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "123 Test Street"
@@ -3510,7 +3510,7 @@
                                 "name": [
                                     "SelfTest NEWRX in REFREQ out"
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "123 Test Street"
@@ -3594,7 +3594,7 @@
                                 "extension": "3123460"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "1191 Main Street"
@@ -3616,7 +3616,7 @@
                                 "name": [
                                     "Sunshine Drugs"
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "1191 Main Street"
@@ -3752,7 +3752,7 @@
                                 "extension": "3123459"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "3170 NW Virginia Place"
@@ -3774,7 +3774,7 @@
                                 "name": [
                                     "Evan's Discount Drugs"
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "3170 NW Virginia Place"
@@ -3859,7 +3859,7 @@
                                 "extension": "3123459"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "3170 NW Virginia Place"
@@ -3881,7 +3881,7 @@
                                 "name": [
                                     "Evan's Discount Drugs"
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "3170 NW Virginia Place"
@@ -3966,7 +3966,7 @@
                                 "extension": "3123459"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "3170 NW Virginia Place"
@@ -3988,7 +3988,7 @@
                                 "name": [
                                     "Evan's Discount Drugs"
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "3170 NW Virginia Place"
@@ -4078,7 +4078,7 @@
                                 "extension": "3123459"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "3170 NW Virginia Place"
@@ -4100,7 +4100,7 @@
                                 "name": [
                                     "Evan's Discount Drugs"
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "3170 NW Virginia Place"
@@ -4190,7 +4190,7 @@
                                 "extension": "3123459"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "3170 NW Virginia Place"
@@ -4212,7 +4212,7 @@
                                 "name": [
                                     "Evan's Discount Drugs"
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "3170 NW Virginia Place"
@@ -4302,7 +4302,7 @@
                                 "extension": "3123459"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "3170 NW Virginia Place"
@@ -4324,7 +4324,7 @@
                                 "name": [
                                     "Evan's Discount Drugs"
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "3170 NW Virginia Place"
@@ -4414,7 +4414,7 @@
                                 "extension": "3123459"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "3170 NW Virginia Place"
@@ -4436,7 +4436,7 @@
                                 "name": [
                                     "Evan's Discount Drugs"
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "3170 NW Virginia Place"
@@ -4633,7 +4633,7 @@
                                 "extension": "3123459"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "3170 NW Virginia Place"
@@ -4655,7 +4655,7 @@
                                 "name": [
                                     "Evan's Discount Drugs"
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "3170 NW Virginia Place"
@@ -4745,7 +4745,7 @@
                                 "extension": "3123459"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "3170 NW Virginia Place"
@@ -4767,7 +4767,7 @@
                                 "name": [
                                     "Evan's Discount Drugs"
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "3170 NW Virginia Place"
@@ -4827,7 +4827,7 @@
                                 "first": "David"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "87 Bayshore Drive"
@@ -4855,7 +4855,7 @@
                                 "name": [
                                     "Madison Medical Center P. A."
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "99 Sycamore Street",
@@ -4918,7 +4918,7 @@
                                 "first": "David"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "87 Bayshore Drive"
@@ -4946,7 +4946,7 @@
                                 "name": [
                                     "Madison Medical Center P. A."
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "99 Sycamore Street",
@@ -5009,7 +5009,7 @@
                                 "first": "David"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "87 Bayshore Drive"
@@ -5037,7 +5037,7 @@
                                 "name": [
                                     "Madison Medical Center P. A."
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "99 Sycamore Street",
@@ -5100,7 +5100,7 @@
                                 "first": "David"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "87 Bayshore Drive"
@@ -5128,7 +5128,7 @@
                                 "name": [
                                     "Madison Medical Center P. A."
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "99 Sycamore Street",
@@ -5191,7 +5191,7 @@
                                 "first": "Depak"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "8620 Palmetto Drive"
@@ -5219,7 +5219,7 @@
                                 "name": [
                                     "Madison Medical Center P. A."
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "99 Sycamore Street",
@@ -5253,7 +5253,7 @@
                             "code": "PROFF",
                             "code_system_name": "HL7 Role"
                         },
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "34 Sycamore Street, Suite 3"
@@ -5309,7 +5309,7 @@
                                 "first": "David"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "87 Bayshore Drive"
@@ -5337,7 +5337,7 @@
                                 "name": [
                                     "Madison Medical Center P. A."
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "99 Sycamore Street",
@@ -5407,7 +5407,7 @@
                                 "first": "Gary"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "34 Sycamore Street",
@@ -5436,7 +5436,7 @@
                                 "name": [
                                     "Madison Medical Center P. A."
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "99 Sycamore Street",
@@ -5470,7 +5470,7 @@
                             "code": "PROFF",
                             "code_system_name": "HL7 Role"
                         },
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "34 Sycamore Street, Suite 3"
@@ -5526,7 +5526,7 @@
                                 "first": "James"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "11554 Weedside Lane"
@@ -5554,7 +5554,7 @@
                                 "name": [
                                     "Madison Medical Center P. A."
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "99 Sycamore Street",
@@ -5588,7 +5588,7 @@
                             "code": "PROFF",
                             "code_system_name": "HL7 Role"
                         },
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "34 Sycamore Street, Suite 3"
@@ -5644,7 +5644,7 @@
                                 "first": "James"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "11554 Weedside Lane"
@@ -5672,7 +5672,7 @@
                                 "name": [
                                     "Madison Medical Center P. A."
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "99 Sycamore Street",
@@ -5706,7 +5706,7 @@
                             "code": "PROFF",
                             "code_system_name": "HL7 Role"
                         },
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "34 Sycamore Street, Suite 3"
@@ -5762,7 +5762,7 @@
                                 "first": "James"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "11554 Weedside Lane"
@@ -5790,7 +5790,7 @@
                                 "name": [
                                     "Madison Medical Center P. A."
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "99 Sycamore Street",
@@ -5824,7 +5824,7 @@
                             "code": "PROFF",
                             "code_system_name": "HL7 Role"
                         },
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "34 Sycamore Street, Suite 3"
@@ -5880,7 +5880,7 @@
                                 "first": "James"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "11554 Weedside Lane"
@@ -5908,7 +5908,7 @@
                                 "name": [
                                     "Madison Medical Center P. A."
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "99 Sycamore Street",
@@ -5942,7 +5942,7 @@
                             "code": "PROFF",
                             "code_system_name": "HL7 Role"
                         },
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "34 Sycamore Street, Suite 3"
@@ -5998,7 +5998,7 @@
                                 "first": "James"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "11554 Weedside Lane"
@@ -6026,7 +6026,7 @@
                                 "name": [
                                     "Madison Medical Center P. A."
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "99 Sycamore Street",
@@ -6060,7 +6060,7 @@
                             "code": "PROFF",
                             "code_system_name": "HL7 Role"
                         },
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "34 Sycamore Street, Suite 3"
@@ -6116,7 +6116,7 @@
                                 "first": "David"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "87 Bayshore Drive"
@@ -6144,7 +6144,7 @@
                                 "name": [
                                     "Madison Medical Center P. A."
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "99 Sycamore Street",
@@ -6536,7 +6536,7 @@
                             "first": "David"
                         }
                     ],
-                    "address": [
+                    "addresses": [
                         {
                             "street_lines": [
                                 "87 Bayshore Drive"
@@ -6564,7 +6564,7 @@
                             "name": [
                                 "Madison Medical Center P. A."
                             ],
-                            "address": [
+                            "addresses": [
                                 {
                                     "street_lines": [
                                         "99 Sycamore Street",
@@ -6722,7 +6722,7 @@
                                 "first": "James"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "11554 Weedside Lane"
@@ -6750,7 +6750,7 @@
                                 "name": [
                                     "Madison Medical Center P. A."
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "99 Sycamore Street",
@@ -6779,7 +6779,7 @@
                             "name": "Provider's Office",
                             "code": "PROFF"
                         },
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "34 Sycamore Street, Suite 3"
@@ -6837,7 +6837,7 @@
                                 "first": "James"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "11554 Weedside Lane"
@@ -6865,7 +6865,7 @@
                                 "name": [
                                     "Madison Medical Center P. A."
                                 ],
-                                "address": [
+                                "addresses": [
                                     {
                                         "street_lines": [
                                             "99 Sycamore Street",
@@ -6894,7 +6894,7 @@
                             "name": "Provider's Office",
                             "code": "PROFF"
                         },
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "34 Sycamore Street, Suite 3"
@@ -7023,7 +7023,7 @@
                             "code_system_name": "HL7 RoleCode"
                         },
                         "performer": {
-                            "address": [
+                            "addresses": [
                                 {
                                     "street_lines": [
                                         "8147 NW 128th Place"
@@ -7081,7 +7081,7 @@
                                 "extension": "643005639"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "3456 West Palm",
@@ -7161,7 +7161,7 @@
                                     "extension": "SMCA1"
                                 }
                             ],
-                            "address": [
+                            "addresses": [
                                 {
                                     "street_lines": [
                                         "263 Sunnydale Way"
@@ -7226,7 +7226,7 @@
                                 "extension": "643005639"
                             }
                         ],
-                        "address": [
+                        "addresses": [
                             {
                                 "street_lines": [
                                     "3456 West Palm",
