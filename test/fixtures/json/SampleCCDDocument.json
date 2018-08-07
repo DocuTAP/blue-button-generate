@@ -26,7 +26,7 @@
       "ethnicity": "Not Hispanic or Latino",
       "race": "Asian",
       "birthplace": {
-        "address": [
+        "addresses": [
           {
             "street_lines": ["123 Old Main Street"],
             "city": "Beaverton",
@@ -61,7 +61,7 @@
       ],
       "email": [
         {
-          "address": "john.doe@gmail.com",
+          "addresses": "john.doe@gmail.com",
           "type": "primary home"
         }
       ],
@@ -88,7 +88,7 @@
               "type": "primary home"
             }
           ],
-          "address": [
+          "addresses": [
             {
               "street_lines": ["123 Main Street"],
               "city": "Washington",
@@ -615,7 +615,7 @@
           "suffix": "MD",
           "first": "First"
         },
-        "address": [
+        "addresses": [
           {
             "street_lines": ["1357 Amber Drive"],
             "city": "Beaverton",
@@ -641,7 +641,7 @@
             }
           ],
           "name": ["Custodian Name"],
-          "address": [
+          "addresses": [
             {
               "street_lines": ["123 Custodian Street"],
               "city": "Anytown",

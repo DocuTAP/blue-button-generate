@@ -742,7 +742,7 @@
     },
     "email": [
       {
-        "address": "isabella@amida.com",
+        "addresses": "isabella@amida.com",
         "type": ""
       }
     ],
@@ -841,7 +841,7 @@
       "procedure_type": "act",
       "locations": [
         {
-          "address": [
+          "addresses": [
             {
               "country": "US",
               "zip": "02368",
@@ -876,7 +876,7 @@
               "number": "(555)555-555-1234"
             }
           ],
-          "address": [
+          "addresses": [
             {
               "country": "US",
               "zip": "02368",
@@ -950,7 +950,7 @@
                   "number": "555-555-5000"
                 }
               ],
-              "address": [
+              "addresses": [
                 {
                   "country": "US",
                   "zip": "99123",
@@ -973,7 +973,7 @@
               "number": "555-555-5000"
             }
           ],
-          "address": [
+          "addresses": [
             {
               "country": "US",
               "zip": "99123",
@@ -1052,7 +1052,7 @@
       "procedure_type": "observation",
       "locations": [
         {
-          "address": [
+          "addresses": [
             {
               "country": "US",
               "zip": "02368",
@@ -1087,7 +1087,7 @@
               "number": "(555)555-555-1234"
             }
           ],
-          "address": [
+          "addresses": [
             {
               "country": "US",
               "zip": "02368",
@@ -1157,7 +1157,7 @@
               "number": "+1-(555)555-1122"
             }
           ],
-          "address": [
+          "addresses": [
             {
               "country": "US",
               "zip": "97005",
@@ -1254,7 +1254,7 @@
       ],
       "locations": [
         {
-          "address": [
+          "addresses": [
             {
               "country": "US",
               "zip": "02368",
@@ -1342,7 +1342,7 @@
               "number": "+1-(555)555-1122"
             }
           ],
-          "address": [
+          "addresses": [
             {
               "country": "US",
               "zip": "97005",
@@ -1366,7 +1366,7 @@
               "number": "+1-(555)555-1122"
             }
           ],
-          "address": [
+          "addresses": [
             {
               "country": "US",
               "zip": "97005",
@@ -1449,7 +1449,7 @@
       ],
       "locations": [
         {
-          "address": [
+          "addresses": [
             {
               "country": "US",
               "zip": "02368",
@@ -1543,7 +1543,7 @@
       ],
       "locations": [
         {
-          "address": [
+          "addresses": [
             {
               "country": "US",
               "zip": "02368",
@@ -2105,7 +2105,7 @@
             ]
           }
         ],
-        "address": [
+        "addresses": [
           {
             "country": "US",
             "zip": "99099",
@@ -2208,7 +2208,7 @@
             ]
           }
         ],
-        "address": [
+        "addresses": [
           {
             "country": "US",
             "zip": "99099",
@@ -2311,7 +2311,7 @@
             ]
           }
         ],
-        "address": [
+        "addresses": [
           {
             "country": "US",
             "zip": "99099",
@@ -2415,7 +2415,7 @@
             ]
           }
         ],
-        "address": [
+        "addresses": [
           {
             "country": "US",
             "zip": "99099",
@@ -2504,7 +2504,7 @@
             "number": "+1-(555)555-1002"
           }
         ],
-        "address": [
+        "addresses": [
           {
             "country": "US",
             "zip": "97005",
@@ -2781,7 +2781,7 @@
               ]
             }
           ],
-          "address": [
+          "addresses": [
             {
               "country": "US",
               "zip": "99123",

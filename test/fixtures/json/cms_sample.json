@@ -13,7 +13,7 @@
       },
       "email": [
         {
-          "address": "JOHNDOE@example.com"
+          "addresses": "JOHNDOE@example.com"
         }
       ],
       "phone": [
@@ -363,7 +363,7 @@
                     "HealthCare Payer",
                     "3 - Coordinated Care Plan (HMO, PPO, PSO, SNP)"
                   ],
-                  "address": [
+                  "addresses": [
                     {
                       "use": "primary home",
                       "street_lines": ["123 Any Road"],
@@ -414,7 +414,7 @@
                     "Another HealthCare Payer",
                     "11 - Medicare Prescription Drug Plan"
                   ],
-                  "address": [
+                  "addresses": [
                     {
                       "use": "primary home",
                       "street_lines": ["123 Any Road"],
@@ -490,7 +490,7 @@
               "organization": [
                 {
                   "name": ["Insurer1", "Medicare MSP: End stage Renal Disease (ESRD)"],
-                  "address": [
+                  "addresses": [
                     {
                       "use": "primary home",
                       "street_lines": ["PO BOX 0000"],
@@ -541,7 +541,7 @@
               "organization": [
                 {
                   "name": ["Insurer2", "Medicare MSP: End stage Renal Disease (ESRD)"],
-                  "address": [
+                  "addresses": [
                     {
                       "use": "primary home",
                       "street_lines": ["0000 Any ROAD"],
@@ -592,7 +592,7 @@
               "organization": [
                 {
                   "name": ["Insurer"],
-                  "address": [
+                  "addresses": [
                     {
                       "use": "primary home",
                       "street_lines": ["00 Address STREET"],
@@ -1163,7 +1163,7 @@
     ],
     "providers": [
       {
-        "address": {
+        "addresses": {
           "use": "primary home",
           "street_lines": ["123 Any Rd"],
           "city": "Anywhere",
@@ -1183,7 +1183,7 @@
           "first": "Jane",
           "last": "Doe"
         },
-        "address": {
+        "addresses": {
           "use": "primary home",
           "street_lines": ["123 Road"],
           "city": "Anywhere",
