@@ -9,8 +9,7 @@
       "type": "node",
       "request": "launch",
       "name": "BBG JSON to XML",
-      "program": "${workspaceFolder}/blue-button-generate/node_modules/.bin/grunt",
-      "cwd": "${workspaceFolder}/blue-button-generate",
+      "program": "${workspaceFolder}/node_modules/.bin/grunt",
       "args": ["json-to-xml"],
       "console": "internalConsole"
     }
