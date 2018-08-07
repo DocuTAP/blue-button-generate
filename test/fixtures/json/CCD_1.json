@@ -1887,9 +1887,10 @@
       }
     ],
     "confidentiality": "Normal",
-    "setId": {
+    "set_id": {
       "identifier": "2.16.840.1.113883.19.5.99999.19",
-      "extension": "sTT988"
+      "extension": "sTT988",
+      "version": "1"
     },
     "ccda_header": {
       "title": "CCDA Summary Note",
