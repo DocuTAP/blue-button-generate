@@ -35,4 +35,5 @@ test/fixtures/files/generated/
 resources
 
 dist
-.vscode
+.vscode/*
+!.vscode/launch.json
