@@ -749,7 +749,7 @@
     "gender": "Female",
     "guardians": [
       {
-        "relation": "Parent",
+        "relation": { "relationship_code": "PRN", "display_name": "Parent" },
         "addresses": [
           {
             "street_lines": ["1357 Amber Drive"],
