@@ -585,6 +585,18 @@
         "identifier": "db734647-fc99-424c-a864-7e3cda82e703"
       }
     ],
+    "event": {
+      "date_time": {
+        "low": {
+          "date": "2008-01-04T08:00:00.000Z",
+          "precision": "second"
+        },
+        "high": {
+          "date": "2008-01-04T09:00:00.000Z",
+          "precision": "second"
+        }
+      }
+    },
     "sections": [
       "demographics",
       "providers",

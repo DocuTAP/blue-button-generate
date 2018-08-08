@@ -1889,6 +1889,18 @@
         "extension": "TT988"
       }
     ],
+    "event": {
+      "date_time": {
+        "low": {
+          "date": "2007-01-03T08:00:00.000Z",
+          "precision": "second"
+        },
+        "high": {
+          "date": "2007-01-03T09:00:00.000Z",
+          "precision": "second"
+        }
+      }
+    },
     "confidentiality": "Normal",
     "set_id": {
       "identifier": "2.16.840.1.113883.19.5.99999.19",
