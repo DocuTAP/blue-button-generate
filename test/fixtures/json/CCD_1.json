@@ -1344,10 +1344,6 @@
             "low": {
               "date": "2008-01-03T00:00:00.000Z",
               "precision": "day"
-            },
-            "high": {
-              "date": "2009-02-27T08:00:00.000Z",
-              "precision": "second"
             }
           }
         },
