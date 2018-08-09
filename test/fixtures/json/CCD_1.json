@@ -585,8 +585,9 @@
             "identifier": "36e3e930-7b14-11db-9fe1-0800200c9a66"
           }
         ],
+        "status": "active",
         "date_time": {
-          "point": {
+          "low": {
             "date": "2007-05-01T00:00:00.000Z",
             "precision": "day"
           }
@@ -609,13 +610,13 @@
           },
           "date_time": {
             "low": {
-              "date": "2007-05-01T00:00:00.000Z",
+              "date": "2007-04-01T00:00:00.000Z",
               "precision": "day"
             }
           },
           "status": {
-            "name": "Inactive",
-            "code": "73425007",
+            "name": "Active",
+            "code": "55561003",
             "code_system_name": "SNOMED CT"
           },
           "reactions": [
@@ -638,6 +639,11 @@
               "reaction": {
                 "name": "Nausea",
                 "code": "422587007",
+                "code_system_name": "SNOMED CT"
+              },
+              "code": {
+                "name": "Propensity to adverse reactions to drug",
+                "code": "419511003",
                 "code_system_name": "SNOMED CT"
               },
               "severity": {
@@ -674,8 +680,9 @@
             "identifier": "36e3e930-7b14-11db-9fe1-0800200c9a66"
           }
         ],
+        "status": "completed",
         "date_time": {
-          "point": {
+          "high": {
             "date": "2006-05-01T00:00:00.000Z",
             "precision": "day"
           }
@@ -729,6 +736,11 @@
                 "code": "56018004",
                 "code_system_name": "SNOMED CT"
               },
+              "code": {
+                "name": "Propensity to adverse reactions to drug",
+                "code": "419511003",
+                "code_system_name": "SNOMED CT"
+              },
               "severity": {
                 "code": {
                   "name": "Mild",
@@ -763,8 +775,9 @@
             "identifier": "36e3e930-7b14-11db-9fe1-0800200c9a66"
           }
         ],
+        "status": "active",
         "date_time": {
-          "point": {
+          "low": {
             "date": "2008-05-01T00:00:00.000Z",
             "precision": "day"
           }
@@ -816,6 +829,11 @@
               "reaction": {
                 "name": "Hives",
                 "code": "247472004",
+                "code_system_name": "SNOMED CT"
+              },
+              "code": {
+                "name": "Drug intolerance",
+                "code": "59037007",
                 "code_system_name": "SNOMED CT"
               },
               "severity": {
