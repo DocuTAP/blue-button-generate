@@ -334,7 +334,7 @@
             "identifier": "cdbd33f0-6cde-11db-9fe1-0800200c9a66"
           }
         ],
-        "status": "Completed",
+        "status": "completed",
         "sig": "Proventil HFA",
         "product": {
           "identifiers": [
@@ -1385,7 +1385,7 @@
             "identifier": "d68b7e32-7810-4f5b-9cc2-acd54b0fd85d"
           }
         ],
-        "status": "Completed",
+        "status": "completed",
         "date_time": {
           "point": {
             "date": "2012-05-12T00:00:00.000Z",
@@ -1394,9 +1394,9 @@
         },
         "body_sites": [
           {
-            "name": "colon",
-            "code": "appropriate_code",
-            "code_system_name": "Body Site Value Set"
+            "name": "Abdomen and pelvis",
+            "code": "416949008",
+            "code_system_name": "SNOMED CT"
           }
         ],
         "specimen": {
@@ -1475,7 +1475,7 @@
             "extension": "123456789"
           }
         ],
-        "status": "Aborted",
+        "status": "aborted",
         "date_time": {
           "point": {
             "date": "2011-02-03T00:00:00.000Z",
@@ -1524,6 +1524,21 @@
                     "identifier": "2.16.840.1.113883.19.5"
                   }
                 ],
+                "addresses": [
+                  {
+                    "street_lines": ["1001 Village Avenue"],
+                    "city": "Portland",
+                    "state": "OR",
+                    "zip": "99123",
+                    "country": "US"
+                  }
+                ],
+                "phone": [
+                  {
+                    "number": "555-555-5000",
+                    "type": "work place"
+                  }
+                ],
                 "name": ["Community Health and Hospitals"]
               }
             ]
@@ -1562,7 +1577,7 @@
             "extension": "1234567"
           }
         ],
-        "status": "Completed",
+        "status": "completed",
         "date_time": {
           "point": {
             "date": "2011-02-03T00:00:00.000Z",
@@ -1604,7 +1619,22 @@
                     "identifier": "2.16.840.1.113883.19.5"
                   }
                 ],
-                "name": ["Community Health and Hospitals"]
+                "name": ["Community Health and Hospitals"],
+                "addresses": [
+                  {
+                    "street_lines": ["1001 Village Avenue"],
+                    "city": "Portland",
+                    "state": "OR",
+                    "zip": "99123",
+                    "country": "US"
+                  }
+                ],
+                "phone": [
+                  {
+                    "number": "555-555-5000",
+                    "type": "work place"
+                  }
+                ]
               }
             ]
           }
