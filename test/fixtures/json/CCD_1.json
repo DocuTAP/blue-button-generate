@@ -1862,7 +1862,7 @@
         "guarantor": {
           "code": {
             "code": "GUAR",
-            "code_system_name": "HL7 Role"
+            "code_system_name": "HL7 RoleCode"
           },
           "identifiers": [
             {
