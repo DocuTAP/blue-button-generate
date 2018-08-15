@@ -362,6 +362,10 @@
             "low": {
               "date": "2007-01-03T00:00:00.000Z",
               "precision": "day"
+            },
+            "high": {
+              "date": "2007-01-04T00:00:00.000Z",
+              "precision": "day"
             }
           },
           "repeatNumber": "1",
@@ -377,6 +381,27 @@
               "last": "Seven",
               "first": "Henry"
             }
+          },
+          "product": {
+            "identifiers": [
+              {
+                "identifier": "2a620155-9d11-439e-92b3-5d9815ff4ee8"
+              }
+            ],
+            "unencoded_name": "Proventil HFA",
+            "product": {
+              "name": "Proventil HFA",
+              "code": "219483",
+              "translations": [
+                {
+                  "name": "Proventil 0.09 MG/ACTUAT inhalant solution",
+                  "code": "573621",
+                  "code_system_name": "RXNORM"
+                }
+              ],
+              "code_system_name": "RXNORM"
+            },
+            "manufacturer": "Medication Factory Inc."
           }
         },
         "administration": {
@@ -491,6 +516,27 @@
                 "name": ["Community Health and Hospitals"]
               }
             ]
+          },
+          "product": {
+            "identifiers": [
+              {
+                "identifier": "2a620155-9d11-439e-92b3-5d9815ff4ee8"
+              }
+            ],
+            "unencoded_name": "Proventil HFA",
+            "product": {
+              "name": "Proventil HFA",
+              "code": "219483",
+              "translations": [
+                {
+                  "name": "Proventil 0.09 MG/ACTUAT inhalant solution",
+                  "code": "573621",
+                  "code_system_name": "RXNORM"
+                }
+              ],
+              "code_system_name": "RXNORM"
+            },
+            "manufacturer": "Medication Factory Inc."
           }
         }
       }
