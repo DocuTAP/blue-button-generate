@@ -107,7 +107,7 @@
             "precision": "day"
           }
         },
-        "interpretations": ["Normal"],
+        "interpretation": "Normal",
         "value": 177,
         "unit": "cm"
       },
@@ -129,7 +129,7 @@
             "precision": "day"
           }
         },
-        "interpretations": ["Normal"],
+        "interpretation": "Normal",
         "value": 86,
         "unit": "kg"
       },
@@ -151,7 +151,7 @@
             "precision": "day"
           }
         },
-        "interpretations": ["Normal"],
+        "interpretation": "Normal",
         "value": 132,
         "unit": "mm[Hg]"
       },
@@ -173,7 +173,7 @@
             "precision": "day"
           }
         },
-        "interpretations": ["Normal"],
+        "interpretation": "Normal",
         "value": 177,
         "unit": "cm"
       },
@@ -195,7 +195,7 @@
             "precision": "day"
           }
         },
-        "interpretations": ["Normal"],
+        "interpretation": "Normal",
         "value": 88,
         "unit": "kg"
       },
@@ -217,7 +217,7 @@
             "precision": "day"
           }
         },
-        "interpretations": ["Normal"],
+        "interpretation": "Normal",
         "value": 145,
         "unit": "mm[Hg]"
       }
