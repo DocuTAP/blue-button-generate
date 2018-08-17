@@ -159,7 +159,13 @@
           {
             "identifier": "6a2fa88d-4174-4909-aece-db44b60a3abb"
           }
-        ]
+        ],
+        "date_time": {
+          "low": {
+            "date": "1950-01-01T00:00:00.000Z",
+            "precision": "year"
+          }
+        }
       },
       {
         "identifiers": [
@@ -188,7 +194,13 @@
           {
             "identifier": "ec8a6ff8-ed4b-4f7e-82c3-e98e58b45de7"
           }
-        ]
+        ],
+        "date_time": {
+          "low": {
+            "date": "1997-01-01T00:00:00.000Z",
+            "precision": "month"
+          }
+        }
       },
       {
         "identifiers": [
@@ -217,7 +229,13 @@
           {
             "identifier": "d11275e9-67ae-11db-bd13-0800200c9a66"
           }
-        ]
+        ],
+        "date_time": {
+          "low": {
+            "date": "1999-03-01T00:00:00.000Z",
+            "precision": "month"
+          }
+        }
       },
       {
         "negation_indicator": false,
@@ -241,7 +259,13 @@
           {
             "identifier": "5a2c903c-bd77-4bd1-ad9d-452383fbfefa"
           }
-        ]
+        ],
+        "date_time": {
+          "low": {
+            "date": "1997-01-01T00:00:00.000Z",
+            "precision": "month"
+          }
+        }
       }
     ],
     "encounters": [
@@ -281,7 +305,7 @@
             "identifier": "e401f340-7be2-11db-9fe1-0800200c9a66"
           }
         ],
-        "status": "Completed",
+        "status": "completed",
         "date_time": {
           "point": {
             "date": "1998-01-01T00:00:00.000Z",
