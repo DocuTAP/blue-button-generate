@@ -571,6 +571,13 @@
             "code": "SELF",
             "code_system_name": "HL7 Role"
           },
+          "name": {
+            "last": "Levin",
+            "first": "Henry",
+            "middle": "George",
+            "suffix": "the 7th",
+            "prefix": "Dr."
+          },
           "performer": {
             "identifiers": [
               {
