@@ -7,59 +7,43 @@ var translate = require('../../lib/translate');
 var expect = chai.expect;
 
 describe('time generation', function() {
+  const testDate = '2012-09-16T02:14:42.123Z';
   var testCases = [
     {
       hl7: '2012',
-      date: '2012-01-01T00:00:00.000Z',
       precision: 'year'
     },
     {
       hl7: '201209',
-      date: '2012-09-01T00:00:00.000Z',
       precision: 'month'
     },
     {
-      hl7: '20120915',
-      date: '2012-09-15T00:00:00.000Z',
+      hl7: '20120916',
       precision: 'day'
     },
     {
-      hl7: '20120915',
-      date: '2012-09-15T00:00:00.000Z',
-      precision: 'day'
+      hl7: '2012091602',
+      precision: 'hour'
     },
     {
-      hl7: '20120915',
-      date: '2012-09-15T00:00:00.000Z',
-      precision: 'day'
+      hl7: '201209160214+0000',
+      precision: 'minute'
     },
     {
-      hl7: '20120915',
-      date: '2012-09-15T00:00:00.000Z',
-      precision: 'day'
-    },
-    {
-      hl7: '20120915191442+0000',
-      date: '2012-09-15T19:14:42.000Z',
+      hl7: '20120916021442+0000',
       precision: 'second'
     },
     {
-      hl7: '20120915',
-      date: '2012-09-15T00:00:00.000Z',
-      precision: 'day'
-    },
-    {
       hl7: '20120916021442.123+0000',
-      date: '2012-09-16T02:14:42.123Z',
       precision: 'subsecond'
     }
   ];
 
   testCases.forEach(function(testCase) {
-    var description = testCase.date + ' (' + testCase.precision + ')';
+    var description = testDate + ' (' + testCase.precision + ')';
     it(description, function() {
       var input = {
-        date: testCase.date,
+        date: testDate,
         precision: testCase.precision
       };
       var hl7 = translate.time(input);
