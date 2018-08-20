@@ -283,7 +283,7 @@
         "date_time": {
           "point": {
             "date": "2000-04-07T00:00:00.000Z",
-            "precision": "day"
+            "precision": "minute"
           }
         },
         "locations": [
@@ -342,7 +342,7 @@
             "date_time": {
               "point": {
                 "date": "2000-03-23T00:00:00.000Z",
-                "precision": "day"
+                "precision": "minute"
               }
             },
             "status": "completed",
@@ -367,7 +367,7 @@
             "date_time": {
               "point": {
                 "date": "2000-03-23T00:00:00.000Z",
-                "precision": "day"
+                "precision": "minute"
               }
             },
             "status": "completed",
@@ -394,7 +394,7 @@
             "date_time": {
               "point": {
                 "date": "2000-03-23T00:00:00.000Z",
-                "precision": "day"
+                "precision": "minute"
               }
             },
             "status": "completed",
