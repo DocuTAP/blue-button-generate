@@ -13,7 +13,7 @@
   "scripts": {
     "cz": "git-cz",
     "test": "yarn run lint && yarn run unit && yarn run e2e",
-    "unit": "grunt",
+    "unit": "jest",
     "json-to-xml": "grunt json-to-xml",
     "lint.markdown": "markdownlint -c .markdownlintrc.json 'README.md'",
     "e2e": "grunt json-to-xml && node ./e2e/validate-files.js",
@@ -52,6 +52,7 @@
     "grunt-jsbeautifier": "0.2.13",
     "grunt-mocha-phantomjs": "4.0.0",
     "grunt-mocha-test": "0.12.7",
+    "jest": "^23.5.0",
     "markdownlint-cli": "^0.7.1",
     "mocha": "2.2.5",
     "mocha-lcov-reporter": "0.0.2",
