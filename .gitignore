@@ -13,9 +13,6 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
-# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
-.grunt
-
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
@@ -24,13 +21,12 @@ build/Release
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
 node_modules
 
-bower_components
-
 # Users Environment Variables
 .lock-wscript
 
 # Generated Files For Tests
-test/fixtures/files/generated/
+e2e/generated/*
+!e2e/generated/.keep
 
 resources
 
