@@ -40,7 +40,7 @@ async function validateFile(filePath) {
 }
 
 async function getFiles() {
-  const testFolder = 'test/fixtures/files/generated/json_to_xml';
+  const testFolder = 'e2e/generated';
   return new Promise((resolve, reject) => {
     fs.readdir(testFolder, (err, files) => {
       resolve(files.map((file) => `${testFolder}/${file}`));
