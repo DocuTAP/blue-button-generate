@@ -55,7 +55,7 @@ var generate = (exports.generate = function(template, input, options) {
   }
 
   var context = createContext(options);
-  return engine.create(documentLevel.ccd2(options.html_renderer), input, context);
+  return engine.create(documentLevel.ccd(options.html_renderer), input, context);
 });
 
 exports.generateCCD = function(input, options) {
