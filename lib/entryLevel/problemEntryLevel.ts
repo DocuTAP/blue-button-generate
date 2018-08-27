@@ -1,11 +1,11 @@
 'use strict';
 
-var fieldLevel = require('../fieldLevel');
-var leafLevel = require('../leafLevel');
-var condition = require('../condition');
-var contentModifier = require('../contentModifier');
+import * as fieldLevel from '../fieldLevel'
+import * as leafLevel from '../leafLevel'
+import * as condition from '../condition'
+import * as contentModifier from '../contentModifier'
 
-var sharedEntryLevel = require('./sharedEntryLevel');
+import * as sharedEntryLevel from './sharedEntryLevel'
 
 var key = contentModifier.key;
 var required = contentModifier.required;
@@ -147,7 +147,7 @@ var problemObservation = {
   notImplemented: ['code']
 };
 
-exports.problemConcernAct = {
+export const problemConcernAct = {
   key: 'act',
   attributes: {
     classCode: 'ACT',

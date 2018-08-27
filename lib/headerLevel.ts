@@ -1,9 +1,9 @@
 'use strict';
 
-var fieldLevel = require('./fieldLevel');
-var leafLevel = require('./leafLevel');
-var condition = require('./condition');
-var contentModifier = require('./contentModifier');
+import * as fieldLevel from './fieldLevel';
+import * as leafLevel from './leafLevel';
+import * as condition from './condition';
+import * as contentModifier from './contentModifier';
 
 var key = contentModifier.key;
 var required = contentModifier.required;
@@ -14,7 +14,7 @@ patientName.attributes = {
   use: 'L'
 };
 
-var patient = (exports.patient = {
+export const patient = {
   key: 'patient',
   content: [
     patientName,
@@ -119,9 +119,9 @@ var patient = (exports.patient = {
       ]
     }
   ]
-});
+};
 
-var provider = (exports.provider = {
+export const provider = {
   key: 'performer',
   attributes: {
     typeCode: 'PRF'
@@ -180,9 +180,9 @@ var provider = (exports.provider = {
     }
   ],
   dataKey: 'providers'
-});
+};
 
-var attributed_provider = (exports.attributed_provider = {
+export const attributed_provider = {
   key: 'providerOrganization',
   content: [
     {
@@ -212,9 +212,9 @@ var attributed_provider = (exports.attributed_provider = {
     }
   ],
   dataKey: 'meta'
-});
+};
 
-var recordTarget = (exports.recordTarget = {
+export const recordTarget = {
   key: 'recordTarget',
   content: {
     key: 'patientRole',
@@ -227,9 +227,9 @@ var recordTarget = (exports.recordTarget = {
     ]
   },
   dataKey: 'data.demographics'
-});
+};
 
-var headerAuthor = (exports.headerAuthor = {
+export const headerAuthor = {
   key: 'author',
   content: [
     [fieldLevel.timeNow, required],
@@ -259,9 +259,9 @@ var headerAuthor = (exports.headerAuthor = {
     }
   ],
   dataKey: 'meta.ccda_header.author'
-});
+};
 
-var headerInformant = (exports.headerInformant = {
+export const headerInformant = {
   key: 'informant',
   content: {
     key: 'assignedEntity',
@@ -295,8 +295,8 @@ var headerInformant = (exports.headerInformant = {
   },
   dataKey: 'meta.ccda_header',
   existsWhen: condition.keyExists('informant')
-});
-var headerCustodian = (exports.headerCustodian = {
+};
+export const headerCustodian = {
   key: 'custodian',
   content: {
     key: 'assignedCustodian',
@@ -310,9 +310,9 @@ var headerCustodian = (exports.headerCustodian = {
     ]
   },
   dataKey: 'meta.ccda_header'
-});
+};
 
-var providers = (exports.providers = {
+export const providers = {
   key: 'documentationOf',
   attributes: {
     typeCode: 'DOC'
@@ -325,4 +325,4 @@ var providers = (exports.providers = {
     content: [[fieldLevel.effectiveTime, dataKey('event.date_time')]],
     dataKey: 'meta'
   }
-});
+};

@@ -1,7 +1,7 @@
 'use strict';
 
-var moment = require('moment');
-var bbm = require('blue-button-meta');
+import * as moment from 'moment'
+import * as bbm from 'blue-button-meta'
 
 var css = bbm.code_systems;
 

@@ -1,9 +1,9 @@
 'use strict';
 
-var fieldLevel = require('../fieldLevel');
-var leafLevel = require('../leafLevel');
-var condition = require('../condition');
-var contentModifier = require('../contentModifier');
+import * as fieldLevel from '../fieldLevel'
+import * as leafLevel from '../leafLevel'
+import * as condition from '../condition'
+import * as contentModifier from '../contentModifier'
 
 var key = contentModifier.key;
 var required = contentModifier.required;
@@ -154,7 +154,7 @@ var policyActivity = {
   ]
 };
 
-exports.coverageActivity = {
+export const coverageActivity = {
   key: 'act',
   attributes: {
     classCode: 'ACT',

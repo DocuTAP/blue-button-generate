@@ -5,14 +5,14 @@ This script converts CCDA data in JSON format (originally generated from a Conti
 standard XML/CCDA format) back to XML/CCDA format.
 */
 
-var bbu = require('blue-button-util');
+import * as bbu from 'blue-button-util';
 
-var engine = require('./lib/engine');
-var documentLevel = require('./lib/documentLevel');
+import * as engine from './lib/engine';
+import * as documentLevel from './lib/documentLevel';
 
 var bbuo = bbu.object;
 
-var html_renderer = require('./lib/htmlHeaders');
+import * as html_renderer from './lib/htmlHeaders';
 
 var createContext = (function() {
   var base = {

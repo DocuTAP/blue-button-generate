@@ -1,10 +1,10 @@
 'use strict';
 
-var fieldLevel = require('../fieldLevel');
-var leafLevel = require('../leafLevel');
-var condition = require('../condition');
+import * as fieldLevel from '../fieldLevel';
+import * as leafLevel from '../leafLevel';
+import * as condition from '../condition';
 
-var severityObservation = (exports.severityObservation = (severityReference) => ({
+export const severityObservation = (severityReference) => ({
   key: 'observation',
   attributes: {
     classCode: 'OBS',
@@ -31,9 +31,9 @@ var severityObservation = (exports.severityObservation = (severityReference) => 
   ],
   dataKey: 'severity',
   existsWhen: condition.keyExists('code')
-}));
+});
 
-var reactionObservation = (exports.reactionObservation = {
+export const reactionObservation = {
   key: 'observation',
   attributes: {
     classCode: 'OBS',
@@ -69,9 +69,9 @@ var reactionObservation = (exports.reactionObservation = {
     }
   ],
   notImplemented: ['Procedure Activity Procedure', 'Medication Activity']
-});
+};
 
-exports.serviceDeliveryLocation = {
+export const serviceDeliveryLocation = {
   key: 'participantRole',
   attributes: {
     classCode: 'SDLOC'
@@ -100,7 +100,7 @@ exports.serviceDeliveryLocation = {
   ]
 };
 
-exports.ageObservation = {
+export const ageObservation = {
   key: 'observation',
   attributes: {
     classCode: 'OBS',
@@ -122,7 +122,7 @@ exports.ageObservation = {
   ]
 };
 
-exports.indication = {
+export const indication = {
   key: 'observation',
   attributes: {
     classCode: 'OBS',
@@ -149,7 +149,7 @@ exports.indication = {
   notImplemented: ['value should handle nullFlavor=OTH and translation']
 };
 
-exports.preconditionForSubstanceAdministration = {
+export const preconditionForSubstanceAdministration = {
   key: 'criterion',
   content: [
     fieldLevel.templateId('2.16.840.1.113883.10.20.22.4.25'),
@@ -170,7 +170,7 @@ exports.preconditionForSubstanceAdministration = {
   ]
 };
 
-exports.drugVehicle = {
+export const drugVehicle = {
   key: 'participantRole',
   attributes: {
     classCode: 'MANU'
@@ -207,7 +207,7 @@ exports.drugVehicle = {
   ]
 };
 
-exports.instructions = {
+export const instructions = {
   key: 'act',
   attributes: {
     classCode: 'ACT',

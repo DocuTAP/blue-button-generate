@@ -1,15 +1,15 @@
 'use strict';
 
-var fieldLevel = require('../fieldLevel');
-var leafLevel = require('../leafLevel');
-var condition = require('../condition');
-var contentModifier = require('../contentModifier');
+import * as fieldLevel from '../fieldLevel'
+import * as leafLevel from '../leafLevel'
+import * as condition from '../condition'
+import * as contentModifier from '../contentModifier'
 
 var key = contentModifier.key;
 var required = contentModifier.required;
 var dataKey = contentModifier.dataKey;
 
-exports.planOfCareActivityAct = {
+export const planOfCareActivityAct = {
   key: 'entry',
   dataKey: 'plan_of_care',
   content: {
@@ -36,7 +36,7 @@ exports.planOfCareActivityAct = {
   }
 };
 
-exports.planOfCareActivityObservation = {
+export const planOfCareActivityObservation = {
   key: 'entry',
   dataKey: 'plan_of_care',
   content: {
@@ -63,7 +63,7 @@ exports.planOfCareActivityObservation = {
   }
 };
 
-exports.planOfCareActivityProcedure = {
+export const planOfCareActivityProcedure = {
   key: 'entry',
   dataKey: 'plan_of_care',
   content: {
@@ -90,7 +90,7 @@ exports.planOfCareActivityProcedure = {
   }
 };
 
-exports.planOfCareActivityEncounter = {
+export const planOfCareActivityEncounter = {
   key: 'entry',
   dataKey: 'plan_of_care',
   content: {
@@ -117,7 +117,7 @@ exports.planOfCareActivityEncounter = {
   }
 };
 
-exports.planOfCareActivitySubstanceAdministration = {
+export const planOfCareActivitySubstanceAdministration = {
   key: 'entry',
   dataKey: 'plan_of_care',
   content: {
@@ -144,7 +144,7 @@ exports.planOfCareActivitySubstanceAdministration = {
   }
 };
 
-exports.planOfCareActivitySupply = {
+export const planOfCareActivitySupply = {
   key: 'entry',
   dataKey: 'plan_of_care',
   content: {
@@ -201,7 +201,7 @@ var intervention = {
   dataKey: 'intervention'
 };
 
-exports.planOfCareActivityInstructions = {
+export const planOfCareActivityInstructions = {
   key: 'instructions',
   attributes: {
     classCode: 'ACT',

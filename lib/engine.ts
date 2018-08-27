@@ -1,6 +1,6 @@
 'use strict';
 
-var xmlutil = require('./xmlutil');
+import * as xmlutil from './xmlutil';
 
 var expandText = function(input, template) {
   var text = template.text;
@@ -145,7 +145,7 @@ export function update(xmlDoc, input, context, template) {
 }
 
 export function create(template, input, context) {
-  var doc = new xmlutil.newDocument();
+  var doc = xmlutil.newDocument();
   update(doc, input, context, template);
   var result = xmlutil.serializeToString(doc);
   return result;

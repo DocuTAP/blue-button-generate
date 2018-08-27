@@ -1,11 +1,11 @@
 'use strict';
 
-var fieldLevel = require('../fieldLevel');
-var leafLevel = require('../leafLevel');
-var condition = require('../condition');
-var contentModifier = require('../contentModifier');
+import * as fieldLevel from '../fieldLevel';
+import * as leafLevel from '../leafLevel';
+import * as condition from '../condition';
+import * as contentModifier from '../contentModifier';
 
-var sel = require('./sharedEntryLevel');
+import * as sel from './sharedEntryLevel';
 
 var key = contentModifier.key;
 var required = contentModifier.required;
@@ -31,7 +31,7 @@ var allergyStatusObservation = {
   dataKey: 'status'
 };
 
-var allergyIntoleranceObservation = (exports.allergyIntoleranceObservation = {
+export const allergyIntoleranceObservation = {
   key: 'observation',
   attributes: {
     classCode: 'OBS',
@@ -129,9 +129,9 @@ var allergyIntoleranceObservation = (exports.allergyIntoleranceObservation = {
     }
   ],
   dataKey: 'observation'
-});
+};
 
-var allergyProblemAct = (exports.allergyProblemAct = {
+export const allergyProblemAct = {
   key: 'act',
   attributes: {
     classCode: 'ACT',
@@ -154,4 +154,4 @@ var allergyProblemAct = (exports.allergyProblemAct = {
       required: true
     }
   ]
-});
+};

@@ -1,16 +1,16 @@
 'use strict';
 
-var fieldLevel = require('../fieldLevel');
-var leafLevel = require('../leafLevel');
-var contentModifier = require('../contentModifier');
+import * as fieldLevel from '../fieldLevel'
+import * as leafLevel from '../leafLevel'
+import * as contentModifier from '../contentModifier'
 
-var sharedEntryLevel = require('./sharedEntryLevel');
+import * as sharedEntryLevel from './sharedEntryLevel'
 
 var key = contentModifier.key;
 var required = contentModifier.required;
 var dataKey = contentModifier.dataKey;
 
-exports.encounterActivities = {
+export const encounterActivities = {
   key: 'encounter',
   attributes: {
     classCode: 'ENC',
