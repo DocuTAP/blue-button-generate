@@ -49,20 +49,20 @@ var createContext = (function() {
   };
 })();
 
-var generate = (exports.generate = function(template, input, options) {
+export function generate(template, input, options) {
   if (!options.html_renderer) {
     options.html_renderer = html_renderer;
   }
 
   var context = createContext(options);
   return engine.create(documentLevel.ccd(options.html_renderer), input, context);
-});
+}
 
-exports.generateCCD = function(input, options) {
+export function generateCCD(input, options) {
   options = options || {};
   options.meta = input.meta;
   return generate(documentLevel.ccd, input, options);
-};
+}
 
 exports.fieldLevel = require('./lib/fieldLevel');
 exports.entryLevel = require('./lib/entryLevel');

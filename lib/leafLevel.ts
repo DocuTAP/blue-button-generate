@@ -7,17 +7,17 @@ import * as translate from './translate';
 var bbuo = bbu.object;
 var bbud = bbu.datetime;
 
-exports.input = function(input) {
+export function input(input) {
   return input;
 };
 
-exports.inputProperty = function(key) {
+export function inputProperty(key) {
   return function(input) {
     return input && input[key];
   };
 };
 
-exports.boolInputProperty = function(key) {
+export function boolInputProperty(key) {
   return function(input) {
     if (input && input.hasOwnProperty(key)) {
       return input[key].toString();
@@ -31,7 +31,7 @@ exports.code = translate.code;
 
 exports.codeFromName = translate.codeFromName;
 
-exports.codeOnlyFromName = function(OID, key) {
+export function codeOnlyFromName(OID, key) {
   var f = translate.codeFromName(OID);
   return function(input) {
     if (input && input[key]) {
@@ -44,7 +44,7 @@ exports.codeOnlyFromName = function(OID, key) {
 
 exports.time = translate.time;
 
-exports.use = function(key) {
+export function use(key) {
   return function(input) {
     var value = input && input[key];
     if (value) {
@@ -63,25 +63,25 @@ exports.typeCE = {
   'xsi:type': 'CE'
 };
 
-exports.nextReference = function(referenceKey) {
+export function nextReference(referenceKey) {
   return function(input, context) {
     return context.nextReference(referenceKey);
   };
 };
 
-exports.sameReference = function(referenceKey) {
+export function sameReference(referenceKey) {
   return function(input, context) {
     return context.sameReference(referenceKey);
   };
 };
 
-exports.nextReferenceId = function(referenceKey) {
+export function nextReferenceId(referenceKey) {
   return function(input, context) {
     return context.nextReferenceId(referenceKey);
   };
 };
 
-exports.deepInputProperty = function(deepProperty, defaultValue) {
+export function deepInputProperty(deepProperty, defaultValue) {
   return function(input) {
     var value = bbuo.deepValue(input, deepProperty);
     value = bbuo.exists(value) ? value : defaultValue;
@@ -92,7 +92,7 @@ exports.deepInputProperty = function(deepProperty, defaultValue) {
   };
 };
 
-exports.deepInputDate = function(deepProperty, defaultValue) {
+export function deepInputDate(deepProperty, defaultValue) {
   return function(input) {
     var value = bbuo.deepValue(input, deepProperty);
     if (!bbuo.exists(value)) {

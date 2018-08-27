@@ -1,17 +1,17 @@
 'use strict';
 
-exports.key = function(overrideKeyValue) {
+export function key(overrideKeyValue) {
   return function(template) {
     template.key = overrideKeyValue;
   };
-};
+}
 
-exports.required = function(template) {
+export function required(template) {
   template.required = true;
-};
+}
 
-exports.dataKey = function(overrideKeyValue) {
+export function dataKey(overrideKeyValue) {
   return function(template) {
     template.dataKey = overrideKeyValue;
   };
-};
+}

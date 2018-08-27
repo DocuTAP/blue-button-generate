@@ -8,7 +8,7 @@ var leafLevel = require('./leafLevel');
 
 var required = contentModifier.required;
 
-exports.allergiesSectionEntriesRequired = function(htmlHeader, na) {
+export function allergiesSectionEntriesRequired(htmlHeader, na) {
   return {
     key: 'component',
     content: [
@@ -41,9 +41,9 @@ exports.allergiesSectionEntriesRequired = function(htmlHeader, na) {
       }
     ]
   };
-};
+}
 
-exports.medicationsSectionEntriesRequired = function(htmlHeader, na) {
+export function medicationsSectionEntriesRequired(htmlHeader, na) {
   return {
     key: 'component',
     content: [
@@ -76,9 +76,9 @@ exports.medicationsSectionEntriesRequired = function(htmlHeader, na) {
       }
     ]
   };
-};
+}
 
-exports.problemsSectionEntriesRequired = function(htmlHeader, na) {
+export function problemsSectionEntriesRequired(htmlHeader, na) {
   return {
     key: 'component',
     content: [
@@ -128,9 +128,9 @@ exports.problemsSectionEntriesRequired = function(htmlHeader, na) {
       }
     ]
   };
-};
+}
 
-exports.proceduresSectionEntriesRequired = function(htmlHeader, na) {
+export function proceduresSectionEntriesRequired(htmlHeader, na) {
   return {
     key: 'component',
     content: [
@@ -166,9 +166,9 @@ exports.proceduresSectionEntriesRequired = function(htmlHeader, na) {
     ],
     notImplemented: ['entry required']
   };
-};
+}
 
-exports.resultsSectionEntriesRequired = function(htmlHeader, na) {
+export function resultsSectionEntriesRequired(htmlHeader, na) {
   return {
     key: 'component',
     content: [
@@ -198,9 +198,9 @@ exports.resultsSectionEntriesRequired = function(htmlHeader, na) {
       }
     ]
   };
-};
+}
 
-exports.encountersSectionEntriesOptional = function(htmlHeader, na) {
+export function encountersSectionEntriesOptional(htmlHeader, na) {
   return {
     key: 'component',
     content: [
@@ -229,9 +229,9 @@ exports.encountersSectionEntriesOptional = function(htmlHeader, na) {
       }
     ]
   };
-};
+}
 
-exports.immunizationsSectionEntriesOptional = function(htmlHeader, na) {
+export function immunizationsSectionEntriesOptional(htmlHeader, na) {
   return {
     key: 'component',
     content: [
@@ -264,9 +264,9 @@ exports.immunizationsSectionEntriesOptional = function(htmlHeader, na) {
       }
     ]
   };
-};
+}
 
-exports.payersSection = function(htmlHeader, na) {
+export function payersSection(htmlHeader, na) {
   return {
     key: 'component',
     content: [
@@ -294,9 +294,9 @@ exports.payersSection = function(htmlHeader, na) {
       }
     ]
   };
-};
+}
 
-exports.planOfCareSection = function(htmlHeader, na) {
+export function planOfCareSection(htmlHeader, na) {
   return {
     key: 'component',
     content: [
@@ -323,9 +323,9 @@ exports.planOfCareSection = function(htmlHeader, na) {
       }
     ]
   };
-};
+}
 
-exports.socialHistorySection = function(htmlHeader, na) {
+export function socialHistorySection(htmlHeader, na) {
   return {
     key: 'component',
     content: [
@@ -354,9 +354,9 @@ exports.socialHistorySection = function(htmlHeader, na) {
     ],
     notImplemented: ['pregnancyObservation', 'tobaccoUse']
   };
-};
+}
 
-exports.vitalSignsSectionEntriesOptional = function(htmlHeader, na) {
+export function vitalSignsSectionEntriesOptional(htmlHeader, na) {
   return {
     key: 'component',
     content: [
@@ -389,4 +389,4 @@ exports.vitalSignsSectionEntriesOptional = function(htmlHeader, na) {
       }
     ]
   };
-};
+}
