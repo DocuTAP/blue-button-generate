@@ -5,11 +5,11 @@ import * as leafLevel from '../leafLevel'
 import * as condition from '../condition'
 import * as contentModifier from '../contentModifier'
 
-var key = contentModifier.key;
-var required = contentModifier.required;
-var dataKey = contentModifier.dataKey;
+const key = contentModifier.key;
+const required = contentModifier.required;
+const dataKey = contentModifier.dataKey;
 
-var policyActivity = {
+const policyActivity = {
   key: 'act',
   attributes: {
     classCode: 'ACT',

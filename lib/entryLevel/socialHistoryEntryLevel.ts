@@ -5,7 +5,7 @@ import * as leafLevel from '../leafLevel'
 
 import * as contentModifier from '../contentModifier'
 
-var required = contentModifier.required;
+const required = contentModifier.required;
 
 export const socialHistoryObservation = {
   key: 'observation',

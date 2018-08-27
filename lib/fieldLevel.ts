@@ -8,10 +8,10 @@ import * as leafLevel from './leafLevel';
 import * as translate from './translate';
 import * as contentModifier from './contentModifier';
 
-var templateCodes = bbm.CCDA.sections_entries_codes.codes;
+const templateCodes = bbm.CCDA.sections_entries_codes.codes;
 
-var key = contentModifier.key;
-var required = contentModifier.required;
+const key = contentModifier.key;
+const required = contentModifier.required;
 
 import * as moment from 'moment'
 

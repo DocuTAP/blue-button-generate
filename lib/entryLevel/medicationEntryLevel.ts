@@ -7,11 +7,11 @@ import * as contentModifier from '../contentModifier'
 
 import * as sharedEntryLevel from './sharedEntryLevel'
 
-var key = contentModifier.key;
-var required = contentModifier.required;
-var dataKey = contentModifier.dataKey;
+const key = contentModifier.key;
+const required = contentModifier.required;
+const dataKey = contentModifier.dataKey;
 
-var medicationInformation = {
+const medicationInformation = {
   key: 'manufacturedProduct',
   attributes: {
     classCode: 'MANU'
@@ -64,7 +64,7 @@ var medicationInformation = {
   }
 };
 
-var medicationSupplyOrder = {
+const medicationSupplyOrder = {
   key: 'supply',
   attributes: {
     classCode: 'SPLY',
@@ -109,7 +109,7 @@ var medicationSupplyOrder = {
   notImplemented: ['product:immunizationMedicationInformation']
 };
 
-var medicationDispense = {
+const medicationDispense = {
   key: 'supply',
   attributes: {
     classCode: 'SPLY',

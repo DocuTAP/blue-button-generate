@@ -2,7 +2,7 @@
 
 import * as xmlutil from './xmlutil';
 
-var expandText = function(input, template) {
+const expandText = function(input, template) {
   var text = template.text;
   if (text) {
     if (typeof text === 'function') {
@@ -15,7 +15,7 @@ var expandText = function(input, template) {
   return null;
 };
 
-var expandAttributes = function expandAttributes(input, context, attrObj, attrs) {
+const expandAttributes = function expandAttributes(input, context, attrObj, attrs) {
   if (Array.isArray(attrObj)) {
     attrObj.forEach(function(attrObjElem) {
       expandAttributes(input, context, attrObjElem, attrs);
@@ -35,7 +35,7 @@ var expandAttributes = function expandAttributes(input, context, attrObj, attrs)
   }
 };
 
-var fillAttributes = function(node, input, context, template) {
+const fillAttributes = function(node, input, context, template) {
   var attrObj = template.attributes;
   if (attrObj) {
     var inputAttrKey = template.attributeKey;
@@ -50,7 +50,7 @@ var fillAttributes = function(node, input, context, template) {
   }
 };
 
-var fillContent = function(node, input, context, template) {
+const fillContent = function(node, input, context, template) {
   var content = template.content;
   if (content) {
     if (!Array.isArray(content)) {
@@ -70,7 +70,7 @@ var fillContent = function(node, input, context, template) {
   }
 };
 
-var updateUsingTemplate = function updateUsingTemplate(xmlDoc, input, context, template) {
+const updateUsingTemplate = function updateUsingTemplate(xmlDoc, input, context, template) {
   var condition = template.existsWhen;
   if (!condition || condition(input, context)) {
     var name = template.key;
@@ -89,7 +89,7 @@ var updateUsingTemplate = function updateUsingTemplate(xmlDoc, input, context, t
   addNullFlavor(template, context, xmlDoc);
 };
 
-var transformInput = function(input, template) {
+const transformInput = function(input, template) {
   var inputKey = template.dataKey;
   if (inputKey) {
     var pieces = inputKey.split('.');

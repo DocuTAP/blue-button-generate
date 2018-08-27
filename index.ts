@@ -10,11 +10,11 @@ import * as bbu from 'blue-button-util';
 import * as engine from './lib/engine';
 import * as documentLevel from './lib/documentLevel';
 
-var bbuo = bbu.object;
+const bbuo = bbu.object;
 
 import * as html_renderer from './lib/htmlHeaders';
 
-var createContext = (function() {
+const createContext = (function() {
   var base = {
     nextReference: function(referenceKey) {
       var index = this.references[referenceKey] || 0;

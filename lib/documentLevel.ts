@@ -7,8 +7,8 @@ import * as sectionLevel from './sectionLevel';
 import * as contentModifier from './contentModifier';
 import * as condition from './condition';
 
-var required = contentModifier.required;
-var dataKey = contentModifier.dataKey;
+const required = contentModifier.required;
+const dataKey = contentModifier.dataKey;
 
 export function ccd(html_renderer) {
   var ccd_template = {

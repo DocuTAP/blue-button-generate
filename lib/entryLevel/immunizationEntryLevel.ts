@@ -7,11 +7,11 @@ import * as contentModifier from '../contentModifier'
 
 import * as sharedEntryLevel from './sharedEntryLevel'
 
-var key = contentModifier.key;
-var required = contentModifier.required;
-var dataKey = contentModifier.dataKey;
+const key = contentModifier.key;
+const required = contentModifier.required;
+const dataKey = contentModifier.dataKey;
 
-var immunizationMedicationInformation = {
+const immunizationMedicationInformation = {
   key: 'manufacturedProduct',
   attributes: {
     classCode: 'MANU'
@@ -67,7 +67,7 @@ var immunizationMedicationInformation = {
   }
 };
 
-var immunizationRefusalReason = {
+const immunizationRefusalReason = {
   key: 'observation',
   attributes: {
     classCode: 'OBS',
@@ -85,7 +85,7 @@ var immunizationRefusalReason = {
   ]
 };
 
-var immunizationActivityAttributes = function(input) {
+const immunizationActivityAttributes = function(input) {
   if (input.status) {
     if (input.status === 'refused') {
       return {

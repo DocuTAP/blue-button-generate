@@ -6,9 +6,9 @@ import * as condition from '../condition'
 
 import * as contentModifier from '../contentModifier'
 
-var required = contentModifier.required;
+const required = contentModifier.required;
 
-var resultObservation = {
+const resultObservation = {
   key: 'observation',
   attributes: {
     classCode: 'OBS',

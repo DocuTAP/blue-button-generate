@@ -7,11 +7,11 @@ import * as contentModifier from '../contentModifier';
 
 import * as sel from './sharedEntryLevel';
 
-var key = contentModifier.key;
-var required = contentModifier.required;
-var dataKey = contentModifier.dataKey;
+const key = contentModifier.key;
+const required = contentModifier.required;
+const dataKey = contentModifier.dataKey;
 
-var allergyStatusObservation = {
+const allergyStatusObservation = {
   key: 'observation',
   attributes: {
     classCode: 'OBS',

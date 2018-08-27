@@ -5,22 +5,22 @@ import * as bbu from 'blue-button-util';
 import * as leafLevel from './leafLevel';
 import * as contentModifier from './contentModifier';
 
-var required = contentModifier.required;
-var bbud = bbu.datetime;
-var bbuo = bbu.object;
+const required = contentModifier.required;
+const bbud = bbu.datetime;
+const bbuo = bbu.object;
 
-var nda = 'No Data Available';
+const nda = 'No Data Available';
 
 import * as condition from './condition';
 
-var allergiesTextHeaders = [
+const allergiesTextHeaders = [
   'Substance',
   'Overall Severity',
   'Reaction',
   'Reaction Severity',
   'Status'
 ];
-var allergiesTextRow = [
+const allergiesTextRow = [
   leafLevel.deepInputProperty('observation.allergen.name', ''),
   leafLevel.deepInputProperty('observation.severity.code.name', ''),
   leafLevel.deepInputProperty('observation.reactions.0.reaction.name', ''),
@@ -34,8 +34,8 @@ exports.allergiesSectionEntriesRequiredHtmlHeader = getText(
   allergiesTextRow
 );
 
-var medicationsTextHeaders = ['Medication Class', 'Number of fills', 'Last fill date'];
-var medicationsTextRow = [
+const medicationsTextHeaders = ['Medication Class', 'Number of fills', 'Last fill date'];
+const medicationsTextRow = [
   // Name, did not find class in the medication blue-button-data
   function(input) {
     var value = bbuo.deepValue(input, 'product.product.name');

@@ -5,11 +5,11 @@ import * as leafLevel from './leafLevel';
 import * as condition from './condition';
 import * as contentModifier from './contentModifier';
 
-var key = contentModifier.key;
-var required = contentModifier.required;
-var dataKey = contentModifier.dataKey;
+const key = contentModifier.key;
+const required = contentModifier.required;
+const dataKey = contentModifier.dataKey;
 
-var patientName = Object.create(fieldLevel.usRealmName);
+const patientName = Object.create(fieldLevel.usRealmName);
 patientName.attributes = {
   use: 'L'
 };

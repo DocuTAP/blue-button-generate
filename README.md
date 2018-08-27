@@ -13,19 +13,19 @@ blue-button-generate is a module to generate CCDA files from JSON data. Currentl
 ## Usage
 
 ``` javascript
-var fs = require('fs');
-var bb = require('blue-button');
-var bbg = require('@docutap-api/blue-button-generate');
+const fs = require('fs');
+const bb = require('blue-button');
+const bbg = require('@docutap-api/blue-button-generate');
 
-var xmlString = fs.readFileSync('test/fixtures/files/ccda_xml/CCD_1.xml', 'utf-8');
-var record = bb.parseString(xmlString);
+const xmlString = fs.readFileSync('test/fixtures/files/ccda_xml/CCD_1.xml', 'utf-8');
+const record = bb.parseString(xmlString);
 
 // ...
 // changes to record
 // ...
 
 // get back xml as text
-var updatedXmlString = bbg.generateCCD(record);
+const updatedXmlString = bbg.generateCCD(record);
 
 ```
 
@@ -34,7 +34,7 @@ var updatedXmlString = bbg.generateCCD(record);
 blue-button-generate uses javascript template objects for implementation. Each template in CCDA is represented with an object. As an example Reaction Observation object is shown
 
 ``` javascript
-var reactionObservation = exports.reactionObservation = {
+const reactionObservation = exports.reactionObservation = {
     key: "observation",
     attributes: {
         "classCode": "OBS",
