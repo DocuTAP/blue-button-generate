@@ -1,96 +1,12 @@
 'use strict';
 
-var bbu = require('blue-button-util');
-
-var fieldLevel = require('./fieldLevel');
-var entryLevel = require('./entryLevel');
-var leafLevel = require('./leafLevel');
+var condition = require('./condition');
 var contentModifier = require('./contentModifier');
+var entryLevel = require('./entryLevel');
+var fieldLevel = require('./fieldLevel');
+var leafLevel = require('./leafLevel');
 
 var required = contentModifier.required;
-var bbud = bbu.datetime;
-var bbuo = bbu.object;
-
-var nda = 'No Data Available';
-
-var condition = require('./condition');
-
-var getText = function(topArrayKey, headers, values) {
-  var result = {
-    key: 'text',
-    existsWhen: condition.keyExists(topArrayKey),
-
-    content: [
-      {
-        key: 'table',
-        attributes: {
-          border: '1',
-          width: '100%'
-        },
-        content: [
-          {
-            key: 'thead',
-            content: [
-              {
-                key: 'tr',
-                content: []
-              }
-            ]
-          },
-          {
-            key: 'tbody',
-            content: [
-              {
-                key: 'tr',
-                content: [],
-                dataKey: topArrayKey
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  };
-  var headerTarget = result.content[0].content[0].content[0].content;
-  headers.forEach(function(header) {
-    var element = {
-      key: 'th',
-      text: header
-    };
-    headerTarget.push(element);
-  });
-  var valueTarget = result.content[0].content[1].content[0].content;
-  values.forEach(function(value) {
-    var data;
-    if (typeof value !== 'function') {
-      data = leafLevel.deepInputProperty(value, '');
-    } else {
-      data = value;
-    }
-
-    var element = {
-      key: 'td',
-      text: data
-    };
-    valueTarget.push(element);
-  });
-  return result;
-};
-
-var alllergiesTextHeaders = [
-  'Substance',
-  'Overall Severity',
-  'Reaction',
-  'Reaction Severity',
-  'Status'
-];
-var allergiesTextRow = [
-  leafLevel.deepInputProperty('observation.allergen.name', ''),
-  leafLevel.deepInputProperty('observation.severity.code.name', ''),
-  leafLevel.deepInputProperty('observation.reactions.0.reaction.name', ''),
-  leafLevel.deepInputProperty('observation.reactions.0.severity.code.name', ''),
-  leafLevel.deepInputProperty('observation.status.name', '')
-];
 
 exports.allergiesSectionEntriesRequired = function(htmlHeader, na) {
   return {
@@ -126,24 +42,6 @@ exports.allergiesSectionEntriesRequired = function(htmlHeader, na) {
     ]
   };
 };
-
-var medicationsTextHeaders = ['Medication Class', '# fills', 'Last fill date'];
-var medicationsTextRow = [
-  // Name, did not find class in the medication blue-button-data
-  function(input) {
-    var value = bbuo.deepValue(input, 'product.product.name');
-    if (!bbuo.exists(value)) {
-      value = bbuo.deepValue(input, 'product.unencoded_name');
-    }
-    if (!bbuo.exists(value)) {
-      return '';
-    } else {
-      return value;
-    }
-  },
-  leafLevel.deepInputProperty('supply.repeatNumber', ''),
-  leafLevel.deepInputDate('supply.date_time.point', '')
-];
 
 exports.medicationsSectionEntriesRequired = function(htmlHeader, na) {
   return {
