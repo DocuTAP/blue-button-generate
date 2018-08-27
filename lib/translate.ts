@@ -3,7 +3,7 @@
 import * as moment from 'moment'
 import * as bbm from 'blue-button-meta'
 
-var css = bbm.code_systems;
+const css = bbm.code_systems;
 
 export function codeFromName(OID) {
   return function(input) {
@@ -42,7 +42,7 @@ export function code(input) {
   return result;
 }
 
-var precisionToFormat = {
+const precisionToFormat = {
   year: 'YYYY',
   month: 'YYYYMM',
   day: 'YYYYMMDD',
@@ -120,7 +120,7 @@ export function telecom(input) {
   return result.length === 0 ? null : result;
 }
 
-var nameSingle = function(input) {
+const nameSingle = function(input) {
   var given = null;
   if (input.first) {
     given = [input.first];

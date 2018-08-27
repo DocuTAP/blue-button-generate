@@ -5,9 +5,9 @@ import * as leafLevel from '../leafLevel'
 import * as condition from '../condition'
 import * as contentModifier from '../contentModifier'
 
-var key = contentModifier.key;
-var required = contentModifier.required;
-var dataKey = contentModifier.dataKey;
+const key = contentModifier.key;
+const required = contentModifier.required;
+const dataKey = contentModifier.dataKey;
 
 export const planOfCareActivityAct = {
   key: 'entry',
@@ -171,7 +171,7 @@ export const planOfCareActivitySupply = {
   }
 };
 
-var goal = {
+const goal = {
   key: 'code',
   attributes: {
     code: leafLevel.deepInputProperty('code'),
@@ -186,7 +186,7 @@ var goal = {
   dataKey: 'goal'
 };
 
-var intervention = {
+const intervention = {
   key: 'code',
   attributes: {
     code: leafLevel.deepInputProperty('code'),

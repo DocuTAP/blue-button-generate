@@ -4,8 +4,8 @@ import * as bbu from 'blue-button-util';
 
 import * as translate from './translate';
 
-var bbuo = bbu.object;
-var bbud = bbu.datetime;
+const bbuo = bbu.object;
+const bbud = bbu.datetime;
 
 export function input(input) {
   return input;

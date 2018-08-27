@@ -7,11 +7,11 @@ import * as contentModifier from '../contentModifier'
 
 import * as sharedEntryLevel from './sharedEntryLevel'
 
-var key = contentModifier.key;
-var required = contentModifier.required;
-var dataKey = contentModifier.dataKey;
+const key = contentModifier.key;
+const required = contentModifier.required;
+const dataKey = contentModifier.dataKey;
 
-var problemStatus = {
+const problemStatus = {
   key: 'observation',
   attributes: {
     classCode: 'OBS',
@@ -37,7 +37,7 @@ var problemStatus = {
   ]
 };
 
-var healthStatusObservation = {
+const healthStatusObservation = {
   key: 'observation',
   attributes: {
     classCode: 'OBS',
@@ -63,7 +63,7 @@ var healthStatusObservation = {
   ]
 };
 
-var problemObservation = {
+const problemObservation = {
   key: 'observation',
   attributes: {
     classCode: 'OBS',

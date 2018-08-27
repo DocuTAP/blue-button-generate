@@ -6,9 +6,9 @@ import * as contentModifier from '../contentModifier'
 
 import * as sharedEntryLevel from './sharedEntryLevel'
 
-var key = contentModifier.key;
-var required = contentModifier.required;
-var dataKey = contentModifier.dataKey;
+const key = contentModifier.key;
+const required = contentModifier.required;
+const dataKey = contentModifier.dataKey;
 
 export const encounterActivities = {
   key: 'encounter',

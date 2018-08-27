@@ -6,7 +6,7 @@ import * as entryLevel from './entryLevel';
 import * as fieldLevel from './fieldLevel';
 import * as leafLevel from './leafLevel';
 
-var required = contentModifier.required;
+const required = contentModifier.required;
 
 export function allergiesSectionEntriesRequired(htmlHeader, na) {
   return {
