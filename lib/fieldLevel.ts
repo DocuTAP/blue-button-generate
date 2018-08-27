@@ -15,16 +15,16 @@ var required = contentModifier.required;
 
 var moment = require('moment');
 
-exports.templateId = function(id) {
+export function templateId(id) {
   return {
     key: 'templateId',
     attributes: {
       root: id
     }
   };
-};
+}
 
-exports.templateCode = function(name) {
+export function templateCode(name) {
   var raw = templateCodes[name];
   var result = {
     key: 'code',
@@ -36,16 +36,16 @@ exports.templateCode = function(name) {
     }
   };
   return result;
-};
+}
 
-exports.templateTitle = function(name) {
+export function templateTitle(name) {
   var raw = templateCodes[name];
   var result = {
     key: 'title',
     text: raw.name
   };
   return result;
-};
+}
 
 var id = (exports.id = {
   key: 'id',
@@ -150,7 +150,7 @@ var effectiveTime = (exports.effectiveTime = {
   existsWhen: condition.eitherKeyExists('point', 'low', 'high', 'center')
 });
 
-exports.text = function(referenceMethod) {
+export function text(referenceMethod) {
   return {
     key: 'text',
     text: leafLevel.inputProperty('free_text'),
@@ -161,16 +161,16 @@ exports.text = function(referenceMethod) {
       }
     }
   };
-};
+}
 
-exports.nullFlavor = function(name) {
+export function nullFlavor(name) {
   return {
     key: name,
     attributes: {
       nullFlavor: 'UNK'
     }
   };
-};
+}
 
 var usRealmAddress = (exports.usRealmAddress = {
   key: 'addr',

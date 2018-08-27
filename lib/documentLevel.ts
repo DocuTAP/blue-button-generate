@@ -10,7 +10,7 @@ var condition = require('./condition');
 var required = contentModifier.required;
 var dataKey = contentModifier.dataKey;
 
-exports.ccd = function(html_renderer) {
+export function ccd(html_renderer) {
   var ccd_template = {
     key: 'ClinicalDocument',
     attributes: {
@@ -161,4 +161,4 @@ exports.ccd = function(html_renderer) {
     ]
   };
   return ccd_template;
-};
+}

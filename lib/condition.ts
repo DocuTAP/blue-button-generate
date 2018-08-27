@@ -1,18 +1,18 @@
 'use strict';
 
-exports.keyExists = function(key) {
+export function keyExists(key) {
   return function(input) {
     return input.hasOwnProperty(key);
   };
-};
+}
 
-exports.keyDoesntExist = function(key) {
+export function keyDoesntExist(key) {
   return function(input) {
     return !input.hasOwnProperty(key);
   };
-};
+}
 
-exports.eitherKeyExists = function(key0, key1, key2, key3) {
+export function eitherKeyExists(key0, key1, key2, key3) {
   return function(input) {
     return (
       input.hasOwnProperty(key0) ||
@@ -21,14 +21,14 @@ exports.eitherKeyExists = function(key0, key1, key2, key3) {
       input.hasOwnProperty(key3)
     );
   };
-};
+}
 
-exports.codeOrDisplayname = function(input) {
+export function codeOrDisplayname(input) {
   return input.code || input.name;
-};
+}
 
-exports.propertyEquals = function(property, value) {
+export function propertyEquals(property, value) {
   return function(input) {
     return input && input[property] === value;
   };
-};
+}

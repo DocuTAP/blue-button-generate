@@ -50,8 +50,6 @@ var fillAttributes = function(node, input, context, template) {
   }
 };
 
-var update;
-
 var fillContent = function(node, input, context, template) {
   var content = template.content;
   if (content) {
@@ -131,7 +129,7 @@ var transformInput = function(input, template) {
   return input;
 };
 
-update = exports.update = function(xmlDoc, input, context, template) {
+export function update(xmlDoc, input, context, template) {
   input = transformInput(input, template);
   if (input) {
     if (Array.isArray(input)) {
@@ -144,14 +142,14 @@ update = exports.update = function(xmlDoc, input, context, template) {
   } else {
     addNullFlavor(template, context, xmlDoc);
   }
-};
+}
 
-exports.create = function(template, input, context) {
+export function create(template, input, context) {
   var doc = new xmlutil.newDocument();
   update(doc, input, context, template);
   var result = xmlutil.serializeToString(doc);
   return result;
-};
+}
 
 function addNullFlavor(template, context, xmlDoc) {
   if (template.required && !context.preventNullFlavor) {

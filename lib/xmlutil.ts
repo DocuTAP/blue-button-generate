@@ -2,22 +2,22 @@
 
 var libxmljs = require('libxmljs');
 
-exports.newDocument = function() {
+export function newDocument() {
   return new libxmljs.Document();
-};
+}
 
-exports.newNode = function(xmlDoc, name, text) {
+export function newNode(xmlDoc, name, text) {
   if (text === undefined || text === null) {
     return xmlDoc.node(name);
   } else {
     return xmlDoc.node(name, text);
   }
-};
+}
 
-exports.nodeAttr = function(node, attr) {
+export function nodeAttr(node, attr) {
   node.attr(attr);
-};
+}
 
-exports.serializeToString = function(xmlDoc) {
+export function serializeToString(xmlDoc) {
   return xmlDoc.toString();
-};
+}
