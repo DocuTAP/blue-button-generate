@@ -2,7 +2,7 @@
 
 var bbu = require('blue-button-util');
 
-var translate = require('./translate');
+import * as translate from './translate';
 
 var bbuo = bbu.object;
 var bbud = bbu.datetime;

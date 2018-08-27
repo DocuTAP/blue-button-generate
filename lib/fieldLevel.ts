@@ -5,7 +5,7 @@ var uuid = require('uuid');
 
 var condition = require('./condition');
 var leafLevel = require('./leafLevel');
-var translate = require('./translate');
+import * as translate from './translate';
 var contentModifier = require('./contentModifier');
 
 var templateCodes = bbm.CCDA.sections_entries_codes.codes;

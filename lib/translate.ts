@@ -5,7 +5,7 @@ var bbm = require('blue-button-meta');
 
 var css = bbm.code_systems;
 
-exports.codeFromName = function(OID) {
+export function codeFromName(OID) {
   return function(input) {
     var cs = css.find(OID);
     var code = cs ? cs.displayNameCode(input) : undefined;
@@ -17,10 +17,10 @@ exports.codeFromName = function(OID) {
       codeSystemName: systemInfo.codeSystemName
     };
   };
-};
+}
 
-exports.code = function(input) {
-  var result = {};
+export function code(input) {
+  var result: any = {};
   if (input.code) {
     result.code = input.code;
   }
@@ -40,7 +40,7 @@ exports.code = function(input) {
   }
 
   return result;
-};
+}
 
 var precisionToFormat = {
   year: 'YYYY',
@@ -52,14 +52,14 @@ var precisionToFormat = {
   subsecond: 'YYYYMMDDHHmmss.SSSZZ'
 };
 
-exports.time = function(input) {
+export function time(input) {
   var m = moment.parseZone(input.date);
   var formatSpec = precisionToFormat[input.precision];
   var result = m.format(formatSpec);
   return result;
-};
+}
 
-var acronymize = (exports.acronymize = function(string) {
+export function acronymize(string) {
   var ret = string.split(' ');
   var fL = ret[0].slice(0, 1);
   var lL = ret[1].slice(0, 1);
@@ -73,15 +73,15 @@ var acronymize = (exports.acronymize = function(string) {
     ret = 'H';
   }
   return ret;
-});
+}
 
-exports.telecom = function(input) {
+export function telecom(input) {
   var transformPhones = function(input) {
     var phones = input.phone;
     if (phones) {
       return phones.reduce(function(r, phone) {
         if (phone && phone.number) {
-          var attrs = {
+          var attrs: any = {
             value: 'tel:' + phone.number
           };
           if (phone.type) {
@@ -101,7 +101,7 @@ exports.telecom = function(input) {
     if (emails) {
       return emails.reduce(function(r, email) {
         if (email && email.address) {
-          var attrs = {
+          var attrs: any = {
             value: 'mailto:' + email.address
           };
           if (email.type) {
@@ -118,7 +118,7 @@ exports.telecom = function(input) {
 
   var result = [].concat(transformPhones(input), transformEmails(input));
   return result.length === 0 ? null : result;
-};
+}
 
 var nameSingle = function(input) {
   var given = null;
@@ -136,7 +136,7 @@ var nameSingle = function(input) {
   };
 };
 
-exports.name = function(input) {
+export function name(input) {
   if (Array.isArray(input)) {
     return input.map(function(e) {
       return nameSingle(e);
@@ -144,4 +144,4 @@ exports.name = function(input) {
   } else {
     return nameSingle(input);
   }
-};
+}
