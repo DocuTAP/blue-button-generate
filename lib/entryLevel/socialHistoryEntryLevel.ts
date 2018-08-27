@@ -1,13 +1,13 @@
 'use strict';
 
-var fieldLevel = require('../fieldLevel');
-var leafLevel = require('../leafLevel');
+import * as fieldLevel from '../fieldLevel'
+import * as leafLevel from '../leafLevel'
 
-var contentModifier = require('../contentModifier');
+import * as contentModifier from '../contentModifier'
 
 var required = contentModifier.required;
 
-exports.socialHistoryObservation = {
+export const socialHistoryObservation = {
   key: 'observation',
   attributes: {
     classCode: 'OBS',
@@ -52,7 +52,7 @@ exports.socialHistoryObservation = {
   }
 };
 
-exports.smokingStatusObservation = {
+export const smokingStatusObservation = {
   key: 'observation',
   attributes: {
     classCode: 'OBS',

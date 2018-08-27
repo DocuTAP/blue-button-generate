@@ -1,10 +1,10 @@
 'use strict';
 
-var fieldLevel = require('../fieldLevel');
-var leafLevel = require('../leafLevel');
-var condition = require('../condition');
+import * as fieldLevel from '../fieldLevel'
+import * as leafLevel from '../leafLevel'
+import * as condition from '../condition'
 
-var contentModifier = require('../contentModifier');
+import * as contentModifier from '../contentModifier'
 
 var required = contentModifier.required;
 
@@ -63,7 +63,7 @@ var vitalSignObservation = {
   notImplemented: ['constant statusCode', 'methodCode', 'targetSiteCode', 'author']
 };
 
-exports.vitalSignsOrganizer = {
+export const vitalSignsOrganizer = {
   key: 'organizer',
   attributes: {
     classCode: 'CLUSTER',

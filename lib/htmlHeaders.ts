@@ -1,11 +1,9 @@
 'use strict';
 
-var bbu = require('blue-button-util');
+import * as bbu from 'blue-button-util';
 
-var fieldLevel = require('./fieldLevel');
-var entryLevel = require('./entryLevel');
-var leafLevel = require('./leafLevel');
-var contentModifier = require('./contentModifier');
+import * as leafLevel from './leafLevel';
+import * as contentModifier from './contentModifier';
 
 var required = contentModifier.required;
 var bbud = bbu.datetime;
@@ -13,72 +11,7 @@ var bbuo = bbu.object;
 
 var nda = 'No Data Available';
 
-var condition = require('./condition');
-
-var getText = function(topArrayKey, headers, values) {
-  var result = {
-    key: 'text',
-    existsWhen: condition.keyExists(topArrayKey),
-
-    content: [
-      {
-        key: 'table',
-        attributes: {
-          border: '1',
-          width: '100%'
-        },
-        content: [
-          {
-            key: 'thead',
-            content: [
-              {
-                key: 'tr',
-                content: []
-              }
-            ]
-          },
-          {
-            key: 'tbody',
-            content: [
-              {
-                key: 'tr',
-                content: [],
-                dataKey: topArrayKey
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  };
-  var headerTarget = result.content[0].content[0].content[0].content;
-  headers.forEach(function(header) {
-    var element = {
-      key: 'th',
-      text: header
-    };
-    headerTarget.push(element);
-  });
-  var valueTarget = result.content[0].content[1].content[0].content;
-  values.forEach(function(value, valueIndex) {
-    var data;
-    if (typeof value !== 'function') {
-      data = leafLevel.deepInputProperty(value, '');
-    } else {
-      data = value;
-    }
-
-    var referenceName = headers[valueIndex].replace(/\s/g, '_').toLowerCase();
-
-    var element = {
-      key: 'td',
-      attributes: { ID: leafLevel.nextReferenceId(referenceName) },
-      text: data
-    };
-    valueTarget.push(element);
-  });
-  return result;
-};
+import * as condition from './condition';
 
 var allergiesTextHeaders = [
   'Substance',
@@ -150,7 +83,7 @@ exports.problemsSectionEntriesRequiredHtmlHeader = getText(
   problemsTextRow
 );
 
-exports.proceduresSectionEntriesRequiredHtmlHeader = {
+export const proceduresSectionEntriesRequiredHtmlHeader = {
   key: 'text',
   existsWhen: condition.keyExists('procedures'),
 
@@ -231,7 +164,7 @@ exports.proceduresSectionEntriesRequiredHtmlHeader = {
   ]
 };
 
-exports.resultsSectionEntriesRequiredHtmlHeader = {
+export const resultsSectionEntriesRequiredHtmlHeader = {
   key: 'text',
   existsWhen: condition.keyExists('results'),
 
@@ -324,7 +257,7 @@ exports.resultsSectionEntriesRequiredHtmlHeader = {
   ]
 };
 
-exports.encountersSectionEntriesOptionalHtmlHeader = {
+export const encountersSectionEntriesOptionalHtmlHeader = {
   key: 'text',
   existsWhen: condition.keyExists('encounters'),
 
@@ -424,7 +357,7 @@ exports.immunizationsSectionEntriesOptionalHtmlHeader = getText(
   immunizationsTextRow
 );
 
-exports.payersSectionHtmlHeader = {
+export const payersSectionHtmlHeader = {
   key: 'text',
   existsWhen: condition.keyExists('payers'),
 
@@ -556,3 +489,68 @@ exports.payersSectionHtmlHeaderNA = 'Not Available';
 exports.planOfCareSectionHtmlHeaderNA = 'Not Available';
 exports.socialHistorySectionHtmlHeaderNA = 'Not Available';
 exports.vitalSignsSectionEntriesOptionalHtmlHeaderNA = 'Not Available';
+
+function getText(topArrayKey, headers, values) {
+  var result = {
+    key: 'text',
+    existsWhen: condition.keyExists(topArrayKey),
+
+    content: [
+      {
+        key: 'table',
+        attributes: {
+          border: '1',
+          width: '100%'
+        },
+        content: [
+          {
+            key: 'thead',
+            content: [
+              {
+                key: 'tr',
+                content: []
+              }
+            ]
+          },
+          {
+            key: 'tbody',
+            content: [
+              {
+                key: 'tr',
+                content: [],
+                dataKey: topArrayKey
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  };
+  var headerTarget = result.content[0].content[0].content[0].content;
+  headers.forEach(function(header) {
+    var element = {
+      key: 'th',
+      text: header
+    };
+    headerTarget.push(element);
+  });
+  var valueTarget = result.content[0].content[1].content[0].content;
+  values.forEach(function(value, valueIndex) {
+    var data;
+    if (typeof value !== 'function') {
+      data = leafLevel.deepInputProperty(value, '');
+    } else {
+      data = value;
+    }
+
+    var referenceName = headers[valueIndex].replace(/\s/g, '_').toLowerCase();
+
+    var element = {
+      key: 'td',
+      attributes: { ID: leafLevel.nextReferenceId(referenceName) },
+      text: data
+    };
+    valueTarget.push(element);
+  });
+  return result;
+}

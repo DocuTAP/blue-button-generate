@@ -1,11 +1,11 @@
 'use strict';
 
-var headerLevel = require('./headerLevel');
-var fieldLevel = require('./fieldLevel');
-var leafLevel = require('./leafLevel');
-var sectionLevel = require('./sectionLevel');
-var contentModifier = require('./contentModifier');
-var condition = require('./condition');
+import * as headerLevel from './headerLevel';
+import * as fieldLevel from './fieldLevel';
+import * as leafLevel from './leafLevel';
+import * as sectionLevel from './sectionLevel';
+import * as contentModifier from './contentModifier';
+import * as condition from './condition';
 
 var required = contentModifier.required;
 var dataKey = contentModifier.dataKey;

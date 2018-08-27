@@ -1,19 +1,19 @@
 'use strict';
 
-var bbm = require('blue-button-meta');
-var uuid = require('uuid');
+import * as bbm from 'blue-button-meta';
+import * as uuid from 'uuid';
 
-var condition = require('./condition');
-var leafLevel = require('./leafLevel');
+import * as condition from './condition';
+import * as leafLevel from './leafLevel';
 import * as translate from './translate';
-var contentModifier = require('./contentModifier');
+import * as contentModifier from './contentModifier';
 
 var templateCodes = bbm.CCDA.sections_entries_codes.codes;
 
 var key = contentModifier.key;
 var required = contentModifier.required;
 
-var moment = require('moment');
+import * as moment from 'moment'
 
 export function templateId(id) {
   return {
@@ -47,7 +47,7 @@ export function templateTitle(name) {
   return result;
 }
 
-var id = (exports.id = {
+export const id = {
   key: 'id',
   attributes: {
     root: leafLevel.inputProperty('identifier'),
@@ -56,9 +56,9 @@ var id = (exports.id = {
   dataKey: 'identifiers',
   existsWhen: condition.keyExists('identifier'),
   required: true
-});
+};
 
-exports.uniqueId = {
+export const uniqueId = {
   key: 'id',
   attributes: {
     root: function(input, context) {
@@ -73,49 +73,49 @@ exports.uniqueId = {
   }
 };
 
-exports.statusCodeCompleted = {
+export const statusCodeCompleted = {
   key: 'statusCode',
   attributes: {
     code: 'completed'
   }
 };
 
-exports.statusCode = {
+export const statusCode = {
   key: 'statusCode',
   attributes: {
     code: leafLevel.inputProperty('status')
   }
 };
 
-exports.statusCodeActive = {
+export const statusCodeActive = {
   key: 'statusCode',
   attributes: {
     code: 'active'
   }
 };
 
-exports.statusCodeNew = {
+export const statusCodeNew = {
   key: 'statusCode',
   attributes: {
     code: 'new'
   }
 };
 
-var effectiveTimeNow = (exports.effectiveTimeNow = {
+export const effectiveTimeNow = {
   key: 'effectiveTime',
   attributes: {
     value: moment().format('YYYYMMDDHHMMSSZZ')
   }
-});
+};
 
-var timeNow = (exports.timeNow = {
+export const timeNow = {
   key: 'time',
   attributes: {
     value: moment().format('YYYYMMDDHHMMSSZZ')
   }
-});
+};
 
-var effectiveTime = (exports.effectiveTime = {
+export const effectiveTime = {
   key: 'effectiveTime',
   attributes: {
     value: (input) =>
@@ -148,7 +148,7 @@ var effectiveTime = (exports.effectiveTime = {
   ],
   dataKey: 'date_time',
   existsWhen: condition.eitherKeyExists('point', 'low', 'high', 'center')
-});
+};
 
 export function text(referenceMethod) {
   return {
@@ -172,7 +172,7 @@ export function nullFlavor(name) {
   };
 }
 
-var usRealmAddress = (exports.usRealmAddress = {
+export const usRealmAddress = {
   key: 'addr',
   attributes: {
     use: leafLevel.codeOnlyFromName('2.16.840.1.113883.5.1119', 'use')
@@ -201,9 +201,9 @@ var usRealmAddress = (exports.usRealmAddress = {
     }
   ],
   dataKey: 'addresses'
-});
+};
 
-var usRealmName = (exports.usRealmName = {
+export const usRealmName = {
   key: 'name',
   content: [
     {
@@ -226,18 +226,18 @@ var usRealmName = (exports.usRealmName = {
   ],
   dataKey: 'name',
   dataTransform: translate.name
-});
+};
 
-var telecom = (exports.telecom = {
+export const telecom = {
   key: 'telecom',
   attributes: {
     value: leafLevel.inputProperty('value'),
     use: leafLevel.inputProperty('use')
   },
   dataTransform: translate.telecom
-});
+};
 
-var representedOrganization = (exports.representedOrganization = {
+export const representedOrganization = {
   key: 'representedOrganization',
   content: [
     id,
@@ -271,9 +271,9 @@ var representedOrganization = (exports.representedOrganization = {
     usRealmAddress
   ],
   dataKey: 'organization'
-});
+};
 
-var assignedEntity = (exports.assignedEntity = {
+export const assignedEntity = {
   key: 'assignedEntity',
   content: [
     id,
@@ -293,9 +293,9 @@ var assignedEntity = (exports.assignedEntity = {
     representedOrganization
   ],
   existsWhen: condition.eitherKeyExists('address', 'identifiers', 'organization', 'name')
-});
+};
 
-exports.author = {
+export const author = {
   key: 'author',
   content: [
     {
@@ -330,7 +330,7 @@ exports.author = {
   dataKey: 'author'
 };
 
-exports.performer = {
+export const performer = {
   key: 'performer',
   content: [[assignedEntity, required]],
   dataKey: 'performer'

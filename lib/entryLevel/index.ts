@@ -1,45 +1,45 @@
 'use strict';
 
-var allergyEntryLevel = require('./allergyEntryLevel');
-var resultEntryLevel = require('./resultEntryLevel');
-var socialHistoryEntryLevel = require('./socialHistoryEntryLevel');
-var payerEntryLevel = require('./payerEntryLevel');
-var vitalSignEntryLevel = require('./vitalSignEntryLevel');
-var planOfCareEntryLevel = require('./planOfCareEntryLevel');
-var procedureEntryLevel = require('./procedureEntryLevel');
-var problemEntryLevel = require('./problemEntryLevel');
-var encounterEntryLevel = require('./encounterEntryLevel');
-var immunizationEntryLevel = require('./immunizationEntryLevel');
-var medicationEntryLevel = require('./medicationEntryLevel');
+import * as allergyEntryLevel from './allergyEntryLevel';
+import * as resultEntryLevel from './resultEntryLevel';
+import * as socialHistoryEntryLevel from './socialHistoryEntryLevel';
+import * as payerEntryLevel from './payerEntryLevel';
+import * as vitalSignEntryLevel from './vitalSignEntryLevel';
+import * as planOfCareEntryLevel from './planOfCareEntryLevel';
+import * as procedureEntryLevel from './procedureEntryLevel';
+import * as problemEntryLevel from './problemEntryLevel';
+import * as encounterEntryLevel from './encounterEntryLevel';
+import * as immunizationEntryLevel from './immunizationEntryLevel';
+import * as medicationEntryLevel from './medicationEntryLevel';
 
-exports.allergyProblemAct = allergyEntryLevel.allergyProblemAct;
+export const allergyProblemAct = allergyEntryLevel.allergyProblemAct;
 
-exports.medicationActivity = medicationEntryLevel.medicationActivity;
+export const medicationActivity = medicationEntryLevel.medicationActivity;
 
-exports.immunizationActivity = immunizationEntryLevel.immunizationActivity;
+export const immunizationActivity = immunizationEntryLevel.immunizationActivity;
 
-exports.problemConcernAct = problemEntryLevel.problemConcernAct;
+export const problemConcernAct = problemEntryLevel.problemConcernAct;
 
-exports.encounterActivities = encounterEntryLevel.encounterActivities;
+export const encounterActivities = encounterEntryLevel.encounterActivities;
 
-exports.procedureActivityAct = procedureEntryLevel.procedureActivityAct;
-exports.procedureActivityProcedure = procedureEntryLevel.procedureActivityProcedure;
-exports.procedureActivityObservation = procedureEntryLevel.procedureActivityObservation;
+export const procedureActivityAct = procedureEntryLevel.procedureActivityAct;
+export const procedureActivityProcedure = procedureEntryLevel.procedureActivityProcedure;
+export const procedureActivityObservation = procedureEntryLevel.procedureActivityObservation;
 
-exports.planOfCareActivityAct = planOfCareEntryLevel.planOfCareActivityAct;
-exports.planOfCareActivityObservation = planOfCareEntryLevel.planOfCareActivityObservation;
-exports.planOfCareActivityProcedure = planOfCareEntryLevel.planOfCareActivityProcedure;
-exports.planOfCareActivityEncounter = planOfCareEntryLevel.planOfCareActivityEncounter;
-exports.planOfCareActivitySubstanceAdministration =
+export const planOfCareActivityAct = planOfCareEntryLevel.planOfCareActivityAct;
+export const planOfCareActivityObservation = planOfCareEntryLevel.planOfCareActivityObservation;
+export const planOfCareActivityProcedure = planOfCareEntryLevel.planOfCareActivityProcedure;
+export const planOfCareActivityEncounter = planOfCareEntryLevel.planOfCareActivityEncounter;
+export const planOfCareActivitySubstanceAdministration =
   planOfCareEntryLevel.planOfCareActivitySubstanceAdministration;
-exports.planOfCareActivitySupply = planOfCareEntryLevel.planOfCareActivitySupply;
-exports.planOfCareActivityInstructions = planOfCareEntryLevel.planOfCareActivityInstructions;
+export const planOfCareActivitySupply = planOfCareEntryLevel.planOfCareActivitySupply;
+export const planOfCareActivityInstructions = planOfCareEntryLevel.planOfCareActivityInstructions;
 
-exports.coverageActivity = payerEntryLevel.coverageActivity;
+export const coverageActivity = payerEntryLevel.coverageActivity;
 
-exports.vitalSignsOrganizer = vitalSignEntryLevel.vitalSignsOrganizer;
+export const vitalSignsOrganizer = vitalSignEntryLevel.vitalSignsOrganizer;
 
-exports.resultOrganizer = resultEntryLevel.resultOrganizer;
+export const resultOrganizer = resultEntryLevel.resultOrganizer;
 
-exports.socialHistoryObservation = socialHistoryEntryLevel.socialHistoryObservation;
-exports.smokingStatusObservation = socialHistoryEntryLevel.smokingStatusObservation;
+export const socialHistoryObservation = socialHistoryEntryLevel.socialHistoryObservation;
+export const smokingStatusObservation = socialHistoryEntryLevel.smokingStatusObservation;

@@ -1,6 +1,6 @@
 'use strict';
 
-var bbu = require('blue-button-util');
+import * as bbu from 'blue-button-util';
 
 import * as translate from './translate';
 
@@ -9,13 +9,13 @@ var bbud = bbu.datetime;
 
 export function input(input) {
   return input;
-};
+}
 
 export function inputProperty(key) {
   return function(input) {
     return input && input[key];
   };
-};
+}
 
 export function boolInputProperty(key) {
   return function(input) {
@@ -25,11 +25,11 @@ export function boolInputProperty(key) {
       return null;
     }
   };
-};
+}
 
-exports.code = translate.code;
+export const code = translate.code;
 
-exports.codeFromName = translate.codeFromName;
+export const codeFromName = translate.codeFromName;
 
 export function codeOnlyFromName(OID, key) {
   var f = translate.codeFromName(OID);
@@ -40,9 +40,9 @@ export function codeOnlyFromName(OID, key) {
       return null;
     }
   };
-};
+}
 
-exports.time = translate.time;
+export const time = translate.time;
 
 export function use(key) {
   return function(input) {
@@ -53,13 +53,13 @@ export function use(key) {
       return null;
     }
   };
-};
+}
 
-exports.typeCD = {
+export const typeCD = {
   'xsi:type': 'CD'
 };
 
-exports.typeCE = {
+export const typeCE = {
   'xsi:type': 'CE'
 };
 
@@ -67,21 +67,21 @@ export function nextReference(referenceKey) {
   return function(input, context) {
     return context.nextReference(referenceKey);
   };
-};
+}
 
 export function sameReference(referenceKey) {
   return function(input, context) {
     return context.sameReference(referenceKey);
   };
-};
+}
 
 export function nextReferenceId(referenceKey) {
   return function(input, context) {
     return context.nextReferenceId(referenceKey);
   };
-};
+}
 
-export function deepInputProperty(deepProperty, defaultValue) {
+export function deepInputProperty(deepProperty, defaultValue?) {
   return function(input) {
     var value = bbuo.deepValue(input, deepProperty);
     value = bbuo.exists(value) ? value : defaultValue;
@@ -90,7 +90,7 @@ export function deepInputProperty(deepProperty, defaultValue) {
     }
     return value;
   };
-};
+}
 
 export function deepInputDate(deepProperty, defaultValue) {
   return function(input) {
@@ -109,4 +109,4 @@ export function deepInputDate(deepProperty, defaultValue) {
       }
     }
   };
-};
+}

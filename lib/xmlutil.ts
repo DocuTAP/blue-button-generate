@@ -1,12 +1,12 @@
 'use strict';
 
-var libxmljs = require('libxmljs');
+import * as libxmljs from 'libxmljs';
 
 export function newDocument() {
   return new libxmljs.Document();
 }
 
-export function newNode(xmlDoc, name, text) {
+export function newNode(xmlDoc, name, text?) {
   if (text === undefined || text === null) {
     return xmlDoc.node(name);
   } else {

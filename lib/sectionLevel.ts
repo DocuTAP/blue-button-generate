@@ -1,10 +1,10 @@
 'use strict';
 
-var condition = require('./condition');
-var contentModifier = require('./contentModifier');
-var entryLevel = require('./entryLevel');
-var fieldLevel = require('./fieldLevel');
-var leafLevel = require('./leafLevel');
+import * as condition from './condition';
+import * as contentModifier from './contentModifier';
+import * as entryLevel from './entryLevel';
+import * as fieldLevel from './fieldLevel';
+import * as leafLevel from './leafLevel';
 
 var required = contentModifier.required;
 
