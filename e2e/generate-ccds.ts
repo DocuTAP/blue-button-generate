@@ -1,6 +1,6 @@
-const fs = require('fs');
-const util = require('util');
-const bbg = require('..');
+import * as fs from 'fs';
+import * as util from 'util';
+import * as bbg from '..';
 
 (async () => {
   getFiles().then((filePaths) => generateCCDs(filePaths));
@@ -16,7 +16,7 @@ async function generateCCD(filePath) {
   const writeFile = util.promisify(fs.writeFile);
 
   return readFile(filePath)
-    .then((inputJson) => bbg.generateCCD(JSON.parse(inputJson)))
+    .then((inputJson) => bbg.generateCCD(JSON.parse(inputJson.toString('utf8'))))
     .then((ccd) => writeFile(outFile, ccd));
 }
 

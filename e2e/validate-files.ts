@@ -1,5 +1,5 @@
-const fs = require('fs');
-const request = require('request');
+import * as fs from 'fs';
+import * as request from 'request';
 
 (async () => {
   const filePaths = await getFiles();
