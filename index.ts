@@ -58,7 +58,7 @@ export function generate(template, input, options) {
   return engine.create(documentLevel.ccd(options.html_renderer), input, context);
 }
 
-export function generateCCD(input, options) {
+export function generateCCD(input, options?) {
   options = options || {};
   options.meta = input.meta;
   return generate(documentLevel.ccd, input, options);
