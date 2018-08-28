@@ -150,7 +150,7 @@ export function proceduresSectionEntriesRequired(htmlHeader, na) {
           {
             key: 'entry',
             attributes: {
-              typeCode: function(input) {
+              typeCode: (input) => {
                 return input.procedure_type === 'procedure' ? 'DRIV' : null;
               }
             },

@@ -14,7 +14,7 @@ const bbuo = bbu.object;
 
 import * as html_renderer from './lib/htmlHeaders';
 
-const createContext = (function() {
+const createContext = (() => {
   var base = {
     nextReference: function(referenceKey) {
       var index = this.references[referenceKey] || 0;
@@ -34,7 +34,7 @@ const createContext = (function() {
     }
   };
 
-  return function(options) {
+  return (options) => {
     var result = Object.create(base);
     result.references = {};
     result.referenceIds = {};

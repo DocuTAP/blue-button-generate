@@ -1,12 +1,12 @@
 'use strict';
 
-import * as moment from 'moment'
-import * as bbm from 'blue-button-meta'
+import * as moment from 'moment';
+import * as bbm from 'blue-button-meta';
 
 const css = bbm.code_systems;
 
 export function codeFromName(OID) {
-  return function(input) {
+  return (input) => {
     var cs = css.find(OID);
     var code = cs ? cs.displayNameCode(input) : undefined;
     var systemInfo = cs.systemId(OID);
@@ -76,10 +76,10 @@ export function acronymize(string) {
 }
 
 export function telecom(input) {
-  var transformPhones = function(input) {
+  var transformPhones = (input) => {
     var phones = input.phone;
     if (phones) {
-      return phones.reduce(function(r, phone) {
+      return phones.reduce((r, phone) => {
         if (phone && phone.number) {
           var attrs: any = {
             value: 'tel:' + phone.number
@@ -96,10 +96,10 @@ export function telecom(input) {
     }
   };
 
-  var transformEmails = function(input) {
+  var transformEmails = (input) => {
     var emails = input.email;
     if (emails) {
-      return emails.reduce(function(r, email) {
+      return emails.reduce((r, email) => {
         if (email && email.address) {
           var attrs: any = {
             value: 'mailto:' + email.address
@@ -120,7 +120,7 @@ export function telecom(input) {
   return result.length === 0 ? null : result;
 }
 
-const nameSingle = function(input) {
+const nameSingle = (input) => {
   var given = null;
   if (input.first) {
     given = [input.first];
@@ -138,7 +138,7 @@ const nameSingle = function(input) {
 
 export function name(input) {
   if (Array.isArray(input)) {
-    return input.map(function(e) {
+    return input.map((e) => {
       return nameSingle(e);
     });
   } else {

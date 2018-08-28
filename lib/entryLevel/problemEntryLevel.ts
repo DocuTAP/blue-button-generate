@@ -107,7 +107,7 @@ const problemObservation = {
         typeCode: 'REFR'
       },
       content: [[problemStatus, required]],
-      dataTransform: function(input) {
+      dataTransform: (input) => {
         if (input && input.status) {
           var result = input.status;
           result.identifiers = input.identifiers;

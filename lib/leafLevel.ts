@@ -12,13 +12,13 @@ export function input(input) {
 }
 
 export function inputProperty(key) {
-  return function(input) {
+  return (input) => {
     return input && input[key];
   };
 }
 
 export function boolInputProperty(key) {
-  return function(input) {
+  return (input) => {
     if (input && input.hasOwnProperty(key)) {
       return input[key].toString();
     } else {
@@ -33,7 +33,7 @@ export const codeFromName = translate.codeFromName;
 
 export function codeOnlyFromName(OID, key) {
   var f = translate.codeFromName(OID);
-  return function(input) {
+  return (input) => {
     if (input && input[key]) {
       return f(input[key]).code;
     } else {
@@ -45,7 +45,7 @@ export function codeOnlyFromName(OID, key) {
 export const time = translate.time;
 
 export function use(key) {
-  return function(input) {
+  return (input) => {
     var value = input && input[key];
     if (value) {
       return translate.acronymize(value);
@@ -64,25 +64,25 @@ export const typeCE = {
 };
 
 export function nextReference(referenceKey) {
-  return function(input, context) {
+  return (input, context) => {
     return context.nextReference(referenceKey);
   };
 }
 
 export function sameReference(referenceKey) {
-  return function(input, context) {
+  return (input, context) => {
     return context.sameReference(referenceKey);
   };
 }
 
 export function nextReferenceId(referenceKey) {
-  return function(input, context) {
+  return (input, context) => {
     return context.nextReferenceId(referenceKey);
   };
 }
 
 export function deepInputProperty(deepProperty, defaultValue?) {
-  return function(input) {
+  return (input) => {
     var value = bbuo.deepValue(input, deepProperty);
     value = bbuo.exists(value) ? value : defaultValue;
     if (typeof value !== 'string') {
@@ -93,7 +93,7 @@ export function deepInputProperty(deepProperty, defaultValue?) {
 }
 
 export function deepInputDate(deepProperty, defaultValue) {
-  return function(input) {
+  return (input) => {
     var value = bbuo.deepValue(input, deepProperty);
     if (!bbuo.exists(value)) {
       return defaultValue;

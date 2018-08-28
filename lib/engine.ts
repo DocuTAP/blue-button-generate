@@ -2,7 +2,7 @@
 
 import * as xmlutil from './xmlutil';
 
-const expandText = function(input, template) {
+const expandText = (input, template) => {
   var text = template.text;
   if (text) {
     if (typeof text === 'function') {
@@ -17,13 +17,13 @@ const expandText = function(input, template) {
 
 const expandAttributes = function expandAttributes(input, context, attrObj, attrs) {
   if (Array.isArray(attrObj)) {
-    attrObj.forEach(function(attrObjElem) {
+    attrObj.forEach((attrObjElem) => {
       expandAttributes(input, context, attrObjElem, attrs);
     });
   } else if (typeof attrObj === 'function') {
     expandAttributes(input, context, attrObj(input, context), attrs);
   } else {
-    Object.keys(attrObj).forEach(function(attrKey) {
+    Object.keys(attrObj).forEach((attrKey) => {
       var attrVal = attrObj[attrKey];
       if (typeof attrVal === 'function') {
         attrVal = attrVal(input, context);
@@ -35,7 +35,7 @@ const expandAttributes = function expandAttributes(input, context, attrObj, attr
   }
 };
 
-const fillAttributes = function(node, input, context, template) {
+const fillAttributes = (node, input, context, template) => {
   var attrObj = template.attributes;
   if (attrObj) {
     var inputAttrKey = template.attributeKey;
@@ -50,13 +50,13 @@ const fillAttributes = function(node, input, context, template) {
   }
 };
 
-const fillContent = function(node, input, context, template) {
+const fillContent = (node, input, context, template) => {
   var content = template.content;
   if (content) {
     if (!Array.isArray(content)) {
       content = [content];
     }
-    content.forEach(function(element) {
+    content.forEach((element) => {
       if (Array.isArray(element)) {
         var actualElement = Object.create(element[0]);
         for (var i = 1; i < element.length; ++i) {
@@ -89,18 +89,18 @@ const updateUsingTemplate = function updateUsingTemplate(xmlDoc, input, context,
   addNullFlavor(template, context, xmlDoc);
 };
 
-const transformInput = function(input, template) {
+const transformInput = (input, template) => {
   var inputKey = template.dataKey;
   if (inputKey) {
     var pieces = inputKey.split('.');
-    pieces.forEach(function(piece) {
+    pieces.forEach((piece) => {
       if (Array.isArray(input) && piece !== '0') {
         var nextInputs = [];
-        input.forEach(function(inputElement) {
+        input.forEach((inputElement) => {
           var nextInput = inputElement[piece];
           if (nextInput) {
             if (Array.isArray(nextInput)) {
-              nextInput.forEach(function(nextInputElement) {
+              nextInput.forEach((nextInputElement) => {
                 if (nextInputElement) {
                   nextInputs.push(nextInputElement);
                 }
@@ -133,7 +133,7 @@ export function update(xmlDoc, input, context, template) {
   input = transformInput(input, template);
   if (input) {
     if (Array.isArray(input)) {
-      input.forEach(function(element) {
+      input.forEach((element) => {
         updateUsingTemplate(xmlDoc, element, context, template);
       });
     } else {

@@ -31,7 +31,7 @@ export const planOfCareActivityAct = {
       fieldLevel.effectiveTime
     ]
   },
-  existsWhen: function(input) {
+  existsWhen: (input) => {
     return input['types'] && input.types.includes('act');
   }
 };
@@ -58,7 +58,7 @@ export const planOfCareActivityObservation = {
       fieldLevel.effectiveTime
     ]
   },
-  existsWhen: function(input) {
+  existsWhen: (input) => {
     return input['types'] && input.types.includes('observation');
   }
 };
@@ -85,7 +85,7 @@ export const planOfCareActivityProcedure = {
       fieldLevel.effectiveTime
     ]
   },
-  existsWhen: function(input) {
+  existsWhen: (input) => {
     return input['types'] && input.types.includes('procedure');
   }
 };
@@ -112,7 +112,7 @@ export const planOfCareActivityEncounter = {
       fieldLevel.effectiveTime
     ]
   },
-  existsWhen: function(input) {
+  existsWhen: (input) => {
     return input['types'] && input.types.includes('encounter');
   }
 };
@@ -139,7 +139,7 @@ export const planOfCareActivitySubstanceAdministration = {
       fieldLevel.effectiveTime
     ]
   },
-  existsWhen: function(input) {
+  existsWhen: (input) => {
     return input['types'] && input.types.includes('substanceAdministration');
   }
 };
@@ -166,7 +166,7 @@ export const planOfCareActivitySupply = {
       fieldLevel.effectiveTime
     ]
   },
-  existsWhen: function(input) {
+  existsWhen: (input) => {
     return input['types'] && input.types.includes('supply');
   }
 };
@@ -272,7 +272,7 @@ export const planOfCareActivityInstructions = {
       required: true
     }
   ],
-  existsWhen: function(input) {
+  existsWhen: (input) => {
     return input.type === 'instructions';
   }
 };

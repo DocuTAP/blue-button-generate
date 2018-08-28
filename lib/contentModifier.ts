@@ -1,7 +1,7 @@
 'use strict';
 
 export function key(overrideKeyValue) {
-  return function(template) {
+  return (template) => {
     template.key = overrideKeyValue;
   };
 }
@@ -11,7 +11,7 @@ export function required(template) {
 }
 
 export function dataKey(overrideKeyValue) {
-  return function(template) {
+  return (template) => {
     template.dataKey = overrideKeyValue;
   };
 }

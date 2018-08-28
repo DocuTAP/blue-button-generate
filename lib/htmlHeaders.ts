@@ -37,7 +37,7 @@ exports.allergiesSectionEntriesRequiredHtmlHeader = getText(
 const medicationsTextHeaders = ['Medication Class', 'Number of fills', 'Last fill date'];
 const medicationsTextRow = [
   // Name, did not find class in the medication blue-button-data
-  function(input) {
+  (input) => {
     var value = bbuo.deepValue(input, 'product.product.name');
     if (!bbuo.exists(value)) {
       value = bbuo.deepValue(input, 'product.unencoded_name');
@@ -110,7 +110,7 @@ export const proceduresSectionEntriesRequiredHtmlHeader = {
                 {
                   key: 'th',
                   text: leafLevel.input,
-                  dataTransform: function() {
+                  dataTransform: () => {
                     return [
                       'Service',
                       'Procedure code',
@@ -191,7 +191,7 @@ export const resultsSectionEntriesRequiredHtmlHeader = {
                 {
                   key: 'th',
                   text: leafLevel.input,
-                  dataTransform: function() {
+                  dataTransform: () => {
                     return ['Test', 'Result', 'Units', 'Ref low', 'Ref high', 'Date', 'Source'];
                   }
                 }
@@ -278,7 +278,7 @@ export const encountersSectionEntriesOptionalHtmlHeader = {
                 {
                   key: 'th',
                   text: leafLevel.input,
-                  dataTransform: function() {
+                  dataTransform: () => {
                     return ['Type', 'Facility', 'Date of Service', 'Diagnosis/Complaint'];
                   }
                 }
@@ -303,7 +303,7 @@ export const encountersSectionEntriesOptionalHtmlHeader = {
                 },
                 {
                   key: 'td',
-                  text: function(input) {
+                  text: (input) => {
                     var value = bbuo.deepValue(input, 'date_time.point');
                     if (value) {
                       value = bbud.modelToDate({
@@ -384,7 +384,7 @@ export const payersSectionHtmlHeader = {
                 {
                   key: 'th',
                   text: leafLevel.input,
-                  dataTransform: function() {
+                  dataTransform: () => {
                     return [
                       'Payer Name',
                       'Group ID',
@@ -527,7 +527,7 @@ function getText(topArrayKey, headers, values) {
     ]
   };
   var headerTarget = result.content[0].content[0].content[0].content;
-  headers.forEach(function(header) {
+  headers.forEach((header) => {
     var element = {
       key: 'th',
       text: header
@@ -535,7 +535,7 @@ function getText(topArrayKey, headers, values) {
     headerTarget.push(element);
   });
   var valueTarget = result.content[0].content[1].content[0].content;
-  values.forEach(function(value, valueIndex) {
+  values.forEach((value, valueIndex) => {
     var data;
     if (typeof value !== 'function') {
       data = leafLevel.deepInputProperty(value, '');

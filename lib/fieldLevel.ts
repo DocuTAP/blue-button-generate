@@ -13,7 +13,7 @@ const templateCodes = bbm.CCDA.sections_entries_codes.codes;
 const key = contentModifier.key;
 const required = contentModifier.required;
 
-import * as moment from 'moment'
+import * as moment from 'moment';
 
 export function templateId(id) {
   return {
@@ -61,14 +61,14 @@ export const id = {
 export const uniqueId = {
   key: 'id',
   attributes: {
-    root: function(input, context) {
+    root: (input, context) => {
       return context.rootId;
     },
-    extension: function() {
+    extension: () => {
       return uuid.v4();
     }
   },
-  existsWhen: function(input, context) {
+  existsWhen: (input, context) => {
     return context.rootId;
   }
 };
@@ -260,7 +260,7 @@ export const representedOrganization = {
       attributes: [
         {
           use: 'WP',
-          value: function(input) {
+          value: (input) => {
             return input.value.number;
           }
         }
