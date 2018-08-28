@@ -86,7 +86,7 @@ const policyActivity = {
         }
       ],
       dataKey: 'participant',
-      dataTransform: function(input) {
+      dataTransform: (input) => {
         if (input.performer) {
           input.identifiers = input.performer.identifiers;
           input.address = input.performer.address;

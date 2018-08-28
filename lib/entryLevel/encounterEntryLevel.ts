@@ -1,10 +1,10 @@
 'use strict';
 
-import * as fieldLevel from '../fieldLevel'
-import * as leafLevel from '../leafLevel'
-import * as contentModifier from '../contentModifier'
+import * as fieldLevel from '../fieldLevel';
+import * as leafLevel from '../leafLevel';
+import * as contentModifier from '../contentModifier';
 
-import * as sharedEntryLevel from './sharedEntryLevel'
+import * as sharedEntryLevel from './sharedEntryLevel';
 
 const key = contentModifier.key;
 const required = contentModifier.required;
@@ -58,8 +58,8 @@ export const encounterActivities = {
       },
       content: [[sharedEntryLevel.indication, required]],
       dataKey: 'findings',
-      dataTransform: function(input) {
-        input = input.map(function(e) {
+      dataTransform: (input) => {
+        input = input.map((e) => {
           e.code = {
             code: '404684003',
             name: 'Finding',

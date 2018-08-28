@@ -56,7 +56,7 @@ const medicationInformation = {
       dataKey: 'manufacturer'
     }
   ],
-  dataTransform: function(input) {
+  dataTransform: (input) => {
     if (input.product) {
       input.product.unencoded_name = input.unencoded_name;
     }
@@ -140,7 +140,7 @@ export const medicationActivity = {
   key: 'substanceAdministration',
   attributes: {
     classCode: 'SBADM',
-    moodCode: function(input) {
+    moodCode: (input) => {
       var status = input.status;
       if (status) {
         if (status === 'prescribed') {

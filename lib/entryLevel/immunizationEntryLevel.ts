@@ -1,11 +1,11 @@
 'use strict';
 
-import * as fieldLevel from '../fieldLevel'
-import * as leafLevel from '../leafLevel'
-import * as condition from '../condition'
-import * as contentModifier from '../contentModifier'
+import * as fieldLevel from '../fieldLevel';
+import * as leafLevel from '../leafLevel';
+import * as condition from '../condition';
+import * as contentModifier from '../contentModifier';
 
-import * as sharedEntryLevel from './sharedEntryLevel'
+import * as sharedEntryLevel from './sharedEntryLevel';
 
 const key = contentModifier.key;
 const required = contentModifier.required;
@@ -59,7 +59,7 @@ const immunizationMedicationInformation = {
       dataKey: 'manufacturer'
     }
   ],
-  dataTransform: function(input) {
+  dataTransform: (input) => {
     if (input.product) {
       input.product.lot_number = input.lot_number;
     }
@@ -85,7 +85,7 @@ const immunizationRefusalReason = {
   ]
 };
 
-const immunizationActivityAttributes = function(input) {
+const immunizationActivityAttributes = (input) => {
   if (input.status) {
     if (input.status === 'refused') {
       return {
@@ -129,7 +129,7 @@ export const immunizationActivity = {
       attributes: {
         value: leafLevel.inputProperty('sequence_number')
       },
-      existsWhen: function(input) {
+      existsWhen: (input) => {
         return input.sequence_number || input.sequence_number === '';
       }
     },

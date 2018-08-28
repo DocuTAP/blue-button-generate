@@ -29,7 +29,7 @@ const resultObservation = {
     {
       key: 'value',
       attributes: {
-        'xsi:type': function(input) {
+        'xsi:type': (input) => {
           return input.text ? 'ST' : 'PQ';
         },
         value: leafLevel.inputProperty('value'),
@@ -42,7 +42,7 @@ const resultObservation = {
     {
       key: 'interpretationCode',
       attributes: {
-        code: function(input) {
+        code: (input) => {
           return input.substr(0, 1);
         },
         codeSystem: '2.16.840.1.113883.5.83',

@@ -47,7 +47,7 @@ export const socialHistoryObservation = {
       text: leafLevel.inputProperty('value')
     }
   ],
-  existsWhen: function(input) {
+  existsWhen: (input) => {
     return !input.value || input.value.indexOf('smoke') < 0;
   }
 };
@@ -72,7 +72,7 @@ export const smokingStatusObservation = {
       dataKey: 'value'
     }
   ],
-  existsWhen: function(input) {
+  existsWhen: (input) => {
     return input.value && input.value.indexOf('smoke') > -1;
   }
 };

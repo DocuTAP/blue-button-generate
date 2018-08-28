@@ -99,7 +99,7 @@ export const patient = {
           dataKey: 'proficiency',
           key: 'proficiencyLevelCode',
           attributes: {
-            code: function(input) {
+            code: (input) => {
               return input.substring(0, 1);
             },
             displayName: leafLevel.input,
@@ -111,7 +111,7 @@ export const patient = {
           dataKey: 'preferred',
           key: 'preferenceInd',
           attributes: {
-            value: function(input) {
+            value: (input) => {
               return input.toString();
             }
           }
@@ -150,7 +150,7 @@ export const provider = {
           attributes: [
             {
               use: 'WP',
-              value: function(input) {
+              value: (input) => {
                 return input.value.number;
               }
             }
@@ -203,7 +203,7 @@ export const attributed_provider = {
       attributes: [
         {
           use: 'WP',
-          value: function(input) {
+          value: (input) => {
             return input.value.number;
           }
         }
