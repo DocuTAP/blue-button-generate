@@ -9,8 +9,11 @@
       "type": "node",
       "request": "launch",
       "name": "Generate CCDs",
-      "program": "${workspaceFolder}/e2e/generate-ccds.js",
-      "console": "internalConsole"
+      "args": ["${workspaceFolder}/e2e/generate-ccds.ts"],
+      "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+      "sourceMaps": true,
+      "cwd": "${workspaceRoot}",
+      "protocol": "inspector"
     }
   ]
 }
