@@ -3,7 +3,7 @@
 import * as xmlutil from './xmlutil';
 
 const expandText = (input, template) => {
-  var text = template.text;
+  let text = template.text;
   if (text) {
     if (typeof text === 'function') {
       text = text(input);
@@ -12,10 +12,10 @@ const expandText = (input, template) => {
       return text;
     }
   }
-  return null;
+  return undefined;
 };
 
-const expandAttributes = function expandAttributes(input, context, attrObj, attrs) {
+function expandAttributes(input, context, attrObj, attrs) {
   if (Array.isArray(attrObj)) {
     attrObj.forEach((attrObjElem) => {
       expandAttributes(input, context, attrObjElem, attrs);
@@ -24,7 +24,7 @@ const expandAttributes = function expandAttributes(input, context, attrObj, attr
     expandAttributes(input, context, attrObj(input, context), attrs);
   } else {
     Object.keys(attrObj).forEach((attrKey) => {
-      var attrVal = attrObj[attrKey];
+      let attrVal = attrObj[attrKey];
       if (typeof attrVal === 'function') {
         attrVal = attrVal(input, context);
       }
@@ -33,17 +33,17 @@ const expandAttributes = function expandAttributes(input, context, attrObj, attr
       }
     });
   }
-};
+}
 
 const fillAttributes = (node, input, context, template) => {
-  var attrObj = template.attributes;
+  const attrObj = template.attributes;
   if (attrObj) {
-    var inputAttrKey = template.attributeKey;
+    const inputAttrKey = template.attributeKey;
     if (inputAttrKey) {
       input = input[inputAttrKey];
     }
     if (input) {
-      var attrs = {};
+      const attrs = {};
       expandAttributes(input, context, attrObj, attrs);
       xmlutil.nodeAttr(node, attrs);
     }
@@ -51,15 +51,15 @@ const fillAttributes = (node, input, context, template) => {
 };
 
 const fillContent = (node, input, context, template) => {
-  var content = template.content;
+  let content = template.content;
   if (content) {
     if (!Array.isArray(content)) {
       content = [content];
     }
     content.forEach((element) => {
       if (Array.isArray(element)) {
-        var actualElement = Object.create(element[0]);
-        for (var i = 1; i < element.length; ++i) {
+        const actualElement = Object.create(element[0]);
+        for (let i = 1; i < element.length; ++i) {
           element[i](actualElement);
         }
         update(node, input, context, actualElement);
@@ -70,13 +70,13 @@ const fillContent = (node, input, context, template) => {
   }
 };
 
-const updateUsingTemplate = function updateUsingTemplate(xmlDoc, input, context, template) {
-  var condition = template.existsWhen;
+function updateUsingTemplate(xmlDoc, input, context, template) {
+  const condition = template.existsWhen;
   if (!condition || condition(input, context)) {
-    var name = template.key;
-    var text = expandText(input, template);
+    const name = template.key;
+    const text = expandText(input, template);
     if ((text !== null && text !== undefined) || template.content || template.attributes) {
-      var node = xmlutil.newNode(xmlDoc, name, text);
+      const node = xmlutil.newNode(xmlDoc, name, text);
 
       fillAttributes(node, input, context, template);
       fillContent(node, input, context, template);
@@ -87,17 +87,17 @@ const updateUsingTemplate = function updateUsingTemplate(xmlDoc, input, context,
     }
   }
   addNullFlavor(template, context, xmlDoc);
-};
+}
 
 const transformInput = (input, template) => {
-  var inputKey = template.dataKey;
+  const inputKey = template.dataKey;
   if (inputKey) {
-    var pieces = inputKey.split('.');
+    const pieces = inputKey.split('.');
     pieces.forEach((piece) => {
       if (Array.isArray(input) && piece !== '0') {
-        var nextInputs = [];
+        const nextInputs = [];
         input.forEach((inputElement) => {
-          var nextInput = inputElement[piece];
+          const nextInput = inputElement[piece];
           if (nextInput) {
             if (Array.isArray(nextInput)) {
               nextInput.forEach((nextInputElement) => {
@@ -111,7 +111,7 @@ const transformInput = (input, template) => {
           }
         });
         if (nextInputs.length === 0) {
-          input = null;
+          input = undefined;
         } else {
           input = nextInputs;
         }
@@ -121,7 +121,7 @@ const transformInput = (input, template) => {
     });
   }
   if (input) {
-    var transform = template.dataTransform;
+    const transform = template.dataTransform;
     if (transform) {
       input = transform(input);
     }
@@ -145,15 +145,15 @@ export function update(xmlDoc, input, context, template) {
 }
 
 export function create(template, input, context) {
-  var doc = xmlutil.newDocument();
+  const doc = xmlutil.newDocument();
   update(doc, input, context, template);
-  var result = xmlutil.serializeToString(doc);
+  const result = xmlutil.serializeToString(doc);
   return result;
 }
 
 function addNullFlavor(template, context, xmlDoc) {
   if (template.required && !context.preventNullFlavor) {
-    var node = xmlutil.newNode(xmlDoc, template.key);
+    const node = xmlutil.newNode(xmlDoc, template.key);
     setNullFlavor(node, template);
   }
 }

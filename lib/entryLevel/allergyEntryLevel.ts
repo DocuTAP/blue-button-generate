@@ -1,9 +1,9 @@
 'use strict';
 
-import * as fieldLevel from '../fieldLevel';
-import * as leafLevel from '../leafLevel';
 import * as condition from '../condition';
 import * as contentModifier from '../contentModifier';
+import * as fieldLevel from '../fieldLevel';
+import * as leafLevel from '../leafLevel';
 
 import * as sel from './sharedEntryLevel';
 
@@ -12,7 +12,6 @@ const required = contentModifier.required;
 const dataKey = contentModifier.dataKey;
 
 const allergyStatusObservation = {
-  key: 'observation',
   attributes: {
     classCode: 'OBS',
     moodCode: 'EVN'
@@ -22,17 +21,17 @@ const allergyStatusObservation = {
     fieldLevel.templateCode('AllergyStatusObservation'),
     fieldLevel.statusCodeCompleted,
     {
-      key: 'value',
       attributes: [leafLevel.typeCE, leafLevel.code],
       existsWhen: condition.codeOrDisplayname,
+      key: 'value',
       required: true
     }
   ],
-  dataKey: 'status'
+  dataKey: 'status',
+  key: 'observation'
 };
 
 export const allergyIntoleranceObservation = {
-  key: 'observation',
   attributes: {
     classCode: 'OBS',
     moodCode: 'EVN'
@@ -44,95 +43,95 @@ export const allergyIntoleranceObservation = {
     fieldLevel.statusCodeCompleted,
     [fieldLevel.effectiveTime, required],
     {
-      key: 'value',
       attributes: [leafLevel.typeCD, leafLevel.code],
       dataKey: 'intolerance',
       existsWhen: condition.codeOrDisplayname,
+      key: 'value',
       required: true
     },
     {
-      key: 'participant',
       attributes: {
         typeCode: 'CSM'
       },
       content: [
         {
-          key: 'participantRole',
           attributes: {
             classCode: 'MANU'
           },
           content: [
             {
-              key: 'playingEntity',
               attributes: {
                 classCode: 'MMAT'
               },
               content: [
                 {
-                  key: 'code',
                   attributes: leafLevel.code,
                   content: [
                     {
-                      key: 'originalText',
                       content: [
                         {
-                          key: 'reference',
                           attributes: {
                             value: leafLevel.nextReference('substance')
-                          }
+                          },
+                          key: 'reference'
                         }
-                      ]
+                      ],
+                      key: 'originalText'
                     },
                     {
-                      key: 'translation',
                       attributes: leafLevel.code,
-                      dataKey: 'translations'
+                      dataKey: 'translations',
+                      key: 'translation'
                     }
                   ],
+                  key: 'code',
                   require: true
                 }
-              ]
+              ],
+              key: 'playingEntity'
             }
           ],
+          key: 'participantRole',
           required: true
         }
       ],
-      dataKey: 'allergen'
+      dataKey: 'allergen',
+      key: 'participant'
     },
     {
-      key: 'entryRelationship',
       attributes: {
-        typeCode: 'SUBJ',
-        inversionInd: 'true'
+        inversionInd: 'true',
+        typeCode: 'SUBJ'
       },
       content: [[allergyStatusObservation, required]],
-      existsWhen: condition.keyExists('status')
+      existsWhen: condition.keyExists('status'),
+      key: 'entryRelationship'
     },
     {
-      key: 'entryRelationship',
       attributes: {
-        typeCode: 'MFST',
-        inversionInd: 'true'
+        inversionInd: 'true',
+        typeCode: 'MFST'
       },
       content: [[sel.reactionObservation, required]],
       dataKey: 'reactions',
-      existsWhen: condition.keyExists('reaction')
+      existsWhen: condition.keyExists('reaction'),
+      key: 'entryRelationship'
     },
     {
-      key: 'entryRelationship',
       attributes: {
-        typeCode: 'SUBJ',
-        inversionInd: 'true'
+        inversionInd: 'true',
+        typeCode: 'SUBJ'
       },
       content: [[sel.severityObservation('overall_severity'), required]],
-      existsWhen: condition.keyExists('severity')
+      existsWhen: condition.keyExists('severity'),
+      key: 'entryRelationship'
     }
   ],
-  dataKey: 'observation'
+  dataKey: 'observation',
+  key: 'observation'
 };
 
 export const allergyProblemAct = {
-  key: 'act',
   attributes: {
     classCode: 'ACT',
     moodCode: 'EVN'
@@ -145,13 +144,14 @@ export const allergyProblemAct = {
     fieldLevel.statusCode,
     [fieldLevel.effectiveTime, required],
     {
-      key: 'entryRelationship',
       attributes: {
         typeCode: 'SUBJ'
       },
       content: [allergyIntoleranceObservation, required],
       existsWhen: condition.keyExists('observation'),
+      key: 'entryRelationship',
       required: true
     }
-  ]
+  ],
+  key: 'act'
 };

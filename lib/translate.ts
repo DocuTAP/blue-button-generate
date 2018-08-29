@@ -1,26 +1,25 @@
 'use strict';
 
-import * as moment from 'moment';
 import * as bbm from 'blue-button-meta';
+import * as moment from 'moment';
 
 const css = bbm.code_systems;
-
 export function codeFromName(OID) {
   return (input) => {
-    var cs = css.find(OID);
-    var code = cs ? cs.displayNameCode(input) : undefined;
-    var systemInfo = cs.systemId(OID);
+    const cs = css.find(OID);
+    const templateCode = cs ? cs.displayNameCode(input) : undefined;
+    const systemInfo = cs.systemId(OID);
     return {
-      displayName: input,
-      code: code,
+      code: templateCode,
       codeSystem: systemInfo.codeSystem,
-      codeSystemName: systemInfo.codeSystemName
+      codeSystemName: systemInfo.codeSystemName,
+      displayName: input
     };
   };
 }
 
 export function code(input) {
-  var result: any = {};
+  const result: any = {};
   if (input.code) {
     result.code = input.code;
   }
@@ -29,10 +28,10 @@ export function code(input) {
     result.displayName = input.name;
   }
 
-  var code_system =
+  const codeSystem =
     input.code_system || (input.code_system_name && css.findFromName(input.code_system_name));
-  if (code_system) {
-    result.codeSystem = code_system;
+  if (codeSystem) {
+    result.codeSystem = codeSystem;
   }
 
   if (input.code_system_name) {
@@ -43,26 +42,26 @@ export function code(input) {
 }
 
 const precisionToFormat = {
-  year: 'YYYY',
-  month: 'YYYYMM',
   day: 'YYYYMMDD',
   hour: 'YYYYMMDDHH',
   minute: 'YYYYMMDDHHmmZZ',
+  month: 'YYYYMM',
   second: 'YYYYMMDDHHmmssZZ',
-  subsecond: 'YYYYMMDDHHmmss.SSSZZ'
+  subsecond: 'YYYYMMDDHHmmss.SSSZZ',
+  year: 'YYYY'
 };
 
 export function time(input) {
-  var m = moment.parseZone(input.date);
-  var formatSpec = precisionToFormat[input.precision];
-  var result = m.format(formatSpec);
+  const m = moment.parseZone(input.date);
+  const formatSpec = precisionToFormat[input.precision];
+  const result = m.format(formatSpec);
   return result;
 }
 
-export function acronymize(string) {
-  var ret = string.split(' ');
-  var fL = ret[0].slice(0, 1);
-  var lL = ret[1].slice(0, 1);
+export function acronymize(inputString) {
+  let ret = inputString.split(' ');
+  let fL = ret[0].slice(0, 1);
+  let lL = ret[1].slice(0, 1);
   fL = fL.toUpperCase();
   lL = lL.toUpperCase();
   ret = fL + lL;
@@ -75,13 +74,13 @@ export function acronymize(string) {
   return ret;
 }
 
-export function telecom(input) {
-  var transformPhones = (input) => {
-    var phones = input.phone;
+export function telecom(telecomInput) {
+  const transformPhones = (input) => {
+    const phones = input.phone;
     if (phones) {
       return phones.reduce((r, phone) => {
         if (phone && phone.number) {
-          var attrs: any = {
+          const attrs: any = {
             value: 'tel:' + phone.number
           };
           if (phone.type) {
@@ -96,12 +95,12 @@ export function telecom(input) {
     }
   };
 
-  var transformEmails = (input) => {
-    var emails = input.email;
+  const transformEmails = (input) => {
+    const emails = input.email;
     if (emails) {
       return emails.reduce((r, email) => {
         if (email && email.address) {
-          var attrs: any = {
+          const attrs: any = {
             value: 'mailto:' + email.address
           };
           if (email.type) {
@@ -116,12 +115,12 @@ export function telecom(input) {
     }
   };
 
-  var result = [].concat(transformPhones(input), transformEmails(input));
-  return result.length === 0 ? null : result;
+  const result = [].concat(transformPhones(telecomInput), transformEmails(telecomInput));
+  return result.length === 0 ? undefined : result;
 }
 
 const nameSingle = (input) => {
-  var given = null;
+  let given;
   if (input.first) {
     given = [input.first];
     if (input.middle && input.middle[0]) {
@@ -129,9 +128,9 @@ const nameSingle = (input) => {
     }
   }
   return {
-    prefix: input.prefix,
-    given: given,
     family: input.last,
+    given,
+    prefix: input.prefix,
     suffix: input.suffix
   };
 };

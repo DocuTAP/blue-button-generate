@@ -1,11 +1,10 @@
 'use strict';
 
+import * as condition from '../condition';
 import * as fieldLevel from '../fieldLevel';
 import * as leafLevel from '../leafLevel';
-import * as condition from '../condition';
 
 export const severityObservation = (severityReference) => ({
-  key: 'observation',
   attributes: {
     classCode: 'OBS',
     moodCode: 'EVN'
@@ -16,25 +15,25 @@ export const severityObservation = (severityReference) => ({
     fieldLevel.text(leafLevel.nextReference(severityReference)),
     fieldLevel.statusCodeCompleted,
     {
-      key: 'value',
       attributes: [leafLevel.typeCD, leafLevel.code],
       dataKey: 'code',
       existsWhen: condition.codeOrDisplayname,
+      key: 'value',
       required: true
     },
     {
-      key: 'interpretationCode',
       attributes: leafLevel.code,
       dataKey: 'interpretation',
-      existsWhen: condition.codeOrDisplayname
+      existsWhen: condition.codeOrDisplayname,
+      key: 'interpretationCode'
     }
   ],
   dataKey: 'severity',
-  existsWhen: condition.keyExists('code')
+  existsWhen: condition.keyExists('code'),
+  key: 'observation'
 });
 
 export const reactionObservation = {
-  key: 'observation',
   attributes: {
     classCode: 'OBS',
     moodCode: 'EVN'
@@ -43,51 +42,50 @@ export const reactionObservation = {
     fieldLevel.templateId('2.16.840.1.113883.10.20.22.4.9'),
     fieldLevel.id,
     {
-      key: 'code',
       attributes: leafLevel.code,
       dataKey: 'code',
+      key: 'code',
       required: true
     },
     fieldLevel.text(leafLevel.nextReference('reaction')),
     fieldLevel.statusCodeCompleted,
     fieldLevel.effectiveTime,
     {
-      key: 'value',
       attributes: [leafLevel.typeCD, leafLevel.code],
       dataKey: 'reaction',
       existsWhen: condition.codeOrDisplayname,
+      key: 'value',
       required: true
     },
     {
-      key: 'entryRelationship',
       attributes: {
-        typeCode: 'SUBJ',
-        inversionInd: 'true'
+        inversionInd: 'true',
+        typeCode: 'SUBJ'
       },
       content: [severityObservation('reaction_severity')],
-      existsWhen: condition.keyExists('severity')
+      existsWhen: condition.keyExists('severity'),
+      key: 'entryRelationship'
     }
   ],
+  key: 'observation',
   notImplemented: ['Procedure Activity Procedure', 'Medication Activity']
 };
 
 export const serviceDeliveryLocation = {
-  key: 'participantRole',
   attributes: {
     classCode: 'SDLOC'
   },
   content: [
     fieldLevel.templateId('2.16.840.1.113883.10.20.22.4.32'),
     {
-      key: 'code',
       attributes: leafLevel.code,
       dataKey: 'location_type',
+      key: 'code',
       required: true
     },
     fieldLevel.usRealmAddress,
     fieldLevel.telecom,
     {
-      key: 'playingEntity',
       attributes: {
         classCode: 'PLC'
       },
@@ -95,13 +93,14 @@ export const serviceDeliveryLocation = {
         key: 'name',
         text: leafLevel.inputProperty('name')
       },
-      existsWhen: condition.keyExists('name')
+      existsWhen: condition.keyExists('name'),
+      key: 'playingEntity'
     }
-  ]
+  ],
+  key: 'participantRole'
 };
 
 export const ageObservation = {
-  key: 'observation',
   attributes: {
     classCode: 'OBS',
     moodCode: 'EVN'
@@ -111,19 +110,19 @@ export const ageObservation = {
     fieldLevel.templateCode('AgeObservation'),
     fieldLevel.statusCodeCompleted,
     {
-      key: 'value',
       attributes: {
-        'xsi:type': 'PQ',
+        unit: leafLevel.codeOnlyFromName('2.16.840.1.113883.11.20.9.21', 'onset_age_unit'),
         value: leafLevel.inputProperty('onset_age'),
-        unit: leafLevel.codeOnlyFromName('2.16.840.1.113883.11.20.9.21', 'onset_age_unit')
+        'xsi:type': 'PQ'
       },
+      key: 'value',
       required: true
     }
-  ]
+  ],
+  key: 'observation'
 };
 
 export const indication = {
-  key: 'observation',
   attributes: {
     classCode: 'OBS',
     moodCode: 'EVN'
@@ -132,69 +131,68 @@ export const indication = {
     fieldLevel.templateId('2.16.840.1.113883.10.20.22.4.19'),
     fieldLevel.id,
     {
-      key: 'code',
       attributes: leafLevel.code,
       dataKey: 'code',
+      key: 'code',
       required: true
     },
     fieldLevel.statusCodeCompleted,
     fieldLevel.effectiveTime,
     {
-      key: 'value',
       attributes: [leafLevel.typeCD, leafLevel.code],
       dataKey: 'value',
-      existsWhen: condition.codeOrDisplayname
+      existsWhen: condition.codeOrDisplayname,
+      key: 'value'
     }
   ],
+  key: 'observation',
   notImplemented: ['value should handle nullFlavor=OTH and translation']
 };
 
 export const preconditionForSubstanceAdministration = {
-  key: 'criterion',
   content: [
     fieldLevel.templateId('2.16.840.1.113883.10.20.22.4.25'),
     {
-      key: 'code',
       attributes: {
         code: leafLevel.inputProperty('code'),
         codeSystem: '2.16.840.1.113883.5.4'
       },
-      dataKey: 'code'
+      dataKey: 'code',
+      key: 'code'
     },
     {
-      key: 'value',
       attributes: [leafLevel.typeCD, leafLevel.code],
       dataKey: 'value',
-      existsWhen: condition.codeOrDisplayname
+      existsWhen: condition.codeOrDisplayname,
+      key: 'value'
     }
-  ]
+  ],
+  key: 'criterion'
 };
 
 export const drugVehicle = {
-  key: 'participantRole',
   attributes: {
     classCode: 'MANU'
   },
   content: [
     fieldLevel.templateId('2.16.840.1.113883.10.20.22.4.24'),
     {
-      key: 'code',
       attributes: {
         code: '412307009',
-        displayName: 'drug vehicle',
         codeSystem: '2.16.840.1.113883.6.96',
-        codeSystemName: 'SNOMED CT'
-      }
+        codeSystemName: 'SNOMED CT',
+        displayName: 'drug vehicle'
+      },
+      key: 'code'
     },
     {
-      key: 'playingEntity',
       attributes: {
         classCode: 'MMAT'
       },
       content: [
         {
-          key: 'code',
           attributes: leafLevel.code,
+          key: 'code',
           required: true
         },
         {
@@ -202,13 +200,14 @@ export const drugVehicle = {
           text: leafLevel.inputProperty('name')
         }
       ],
+      key: 'playingEntity',
       required: true
     }
-  ]
+  ],
+  key: 'participantRole'
 };
 
 export const instructions = {
-  key: 'act',
   attributes: {
     classCode: 'ACT',
     moodCode: 'INT'
@@ -216,12 +215,13 @@ export const instructions = {
   content: [
     fieldLevel.templateId('2.16.840.1.113883.10.20.22.4.20'),
     {
-      key: 'code',
       attributes: [leafLevel.code],
       dataKey: 'code',
+      key: 'code',
       required: true
     },
     fieldLevel.text(leafLevel.nextReference('patient_instructions')),
     fieldLevel.statusCodeCompleted
-  ]
+  ],
+  key: 'act'
 };

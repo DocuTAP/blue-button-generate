@@ -1,14 +1,12 @@
 'use strict';
 
-import * as fieldLevel from '../fieldLevel'
-import * as leafLevel from '../leafLevel'
-
-import * as contentModifier from '../contentModifier'
+import * as contentModifier from '../contentModifier';
+import * as fieldLevel from '../fieldLevel';
+import * as leafLevel from '../leafLevel';
 
 const required = contentModifier.required;
 
 export const socialHistoryObservation = {
-  key: 'observation',
   attributes: {
     classCode: 'OBS',
     moodCode: 'EVN'
@@ -18,42 +16,42 @@ export const socialHistoryObservation = {
     fieldLevel.uniqueId,
     fieldLevel.id,
     {
-      key: 'code',
       attributes: leafLevel.code,
       content: [
         {
-          key: 'originalText',
-          text: leafLevel.inputProperty('unencoded_name'),
           content: {
-            key: 'reference',
-            attributes: { value: leafLevel.nextReference('social_history_element') }
-          }
+            attributes: { value: leafLevel.nextReference('social_history_element') },
+            key: 'reference'
+          },
+          key: 'originalText',
+          text: leafLevel.inputProperty('unencoded_name')
         },
         {
-          key: 'translation',
           attributes: leafLevel.code,
-          dataKey: 'translations'
+          dataKey: 'translations',
+          key: 'translation'
         }
       ],
-      dataKey: 'code'
+      dataKey: 'code',
+      key: 'code'
     },
     fieldLevel.statusCodeCompleted,
     fieldLevel.effectiveTime,
     {
-      key: 'value',
       attributes: {
         'xsi:type': 'ST'
       },
+      key: 'value',
       text: leafLevel.inputProperty('value')
     }
   ],
   existsWhen: (input) => {
     return !input.value || input.value.indexOf('smoke') < 0;
-  }
+  },
+  key: 'observation'
 };
 
 export const smokingStatusObservation = {
-  key: 'observation',
   attributes: {
     classCode: 'OBS',
     moodCode: 'EVN'
@@ -66,13 +64,14 @@ export const smokingStatusObservation = {
     fieldLevel.statusCodeCompleted,
     [fieldLevel.effectiveTime, required],
     {
-      key: 'value',
       attributes: [{ 'xsi:type': 'CD' }, leafLevel.codeFromName('2.16.840.1.113883.11.20.9.38')],
-      required: true,
-      dataKey: 'value'
+      dataKey: 'value',
+      key: 'value',
+      required: true
     }
   ],
   existsWhen: (input) => {
     return input.value && input.value.indexOf('smoke') > -1;
-  }
+  },
+  key: 'observation'
 };

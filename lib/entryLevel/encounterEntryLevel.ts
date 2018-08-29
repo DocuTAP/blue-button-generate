@@ -1,9 +1,8 @@
 'use strict';
 
+import * as contentModifier from '../contentModifier';
 import * as fieldLevel from '../fieldLevel';
 import * as leafLevel from '../leafLevel';
-import * as contentModifier from '../contentModifier';
-
 import * as sharedEntryLevel from './sharedEntryLevel';
 
 const key = contentModifier.key;
@@ -11,7 +10,6 @@ const required = contentModifier.required;
 const dataKey = contentModifier.dataKey;
 
 export const encounterActivities = {
-  key: 'encounter',
   attributes: {
     classCode: 'ENC',
     moodCode: 'EVN'
@@ -21,38 +19,37 @@ export const encounterActivities = {
     fieldLevel.uniqueId,
     fieldLevel.id,
     {
-      key: 'code',
       attributes: leafLevel.code,
       content: [
         {
-          key: 'originalText',
           content: [
             {
-              key: 'reference',
-              attributes: { value: leafLevel.nextReference('encounter') }
+              attributes: { value: leafLevel.nextReference('encounter') },
+              key: 'reference'
             }
-          ]
+          ],
+          key: 'originalText'
         },
         {
-          key: 'translation',
           attributes: leafLevel.code,
-          dataKey: 'translations'
+          dataKey: 'translations',
+          key: 'translation'
         }
       ],
-      dataKey: 'encounter'
+      dataKey: 'encounter',
+      key: 'code'
     },
     [fieldLevel.effectiveTime, required],
     [fieldLevel.performer, dataKey('performers')],
     {
-      key: 'participant',
       attributes: {
         typeCode: 'LOC'
       },
       content: [[sharedEntryLevel.serviceDeliveryLocation, required]],
-      dataKey: 'locations'
+      dataKey: 'locations',
+      key: 'participant'
     },
     {
-      key: 'entryRelationship',
       attributes: {
         typeCode: 'RSON'
       },
@@ -62,16 +59,18 @@ export const encounterActivities = {
         input = input.map((e) => {
           e.code = {
             code: '404684003',
-            name: 'Finding',
             code_system: '2.16.840.1.113883.6.96',
-            code_system_name: 'SNOMED CT'
+            code_system_name: 'SNOMED CT',
+            name: 'Finding'
           };
           return e;
         });
         return input;
       },
+      key: 'entryRelationship',
       toDo: 'move dataTransform to blue-button-meta'
     }
   ],
+  key: 'encounter',
   notImplemented: ['entryRelationship:encounterDiagnosis', 'dishargeDispositionCode']
 };

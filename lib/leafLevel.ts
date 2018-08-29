@@ -7,22 +7,22 @@ import * as translate from './translate';
 const bbuo = bbu.object;
 const bbud = bbu.datetime;
 
-export function input(input) {
-  return input;
+export function input(templateInput) {
+  return templateInput;
 }
 
 export function inputProperty(key) {
-  return (input) => {
-    return input && input[key];
+  return (templateInput) => {
+    return templateInput && templateInput[key];
   };
 }
 
 export function boolInputProperty(key) {
-  return (input) => {
-    if (input && input.hasOwnProperty(key)) {
-      return input[key].toString();
+  return (templateInput) => {
+    if (templateInput && templateInput.hasOwnProperty(key)) {
+      return templateInput[key].toString();
     } else {
-      return null;
+      return undefined;
     }
   };
 }
@@ -32,12 +32,12 @@ export const code = translate.code;
 export const codeFromName = translate.codeFromName;
 
 export function codeOnlyFromName(OID, key) {
-  var f = translate.codeFromName(OID);
-  return (input) => {
-    if (input && input[key]) {
-      return f(input[key]).code;
+  const f = translate.codeFromName(OID);
+  return (templateInput) => {
+    if (templateInput && templateInput[key]) {
+      return f(templateInput[key]).code;
     } else {
-      return null;
+      return undefined;
     }
   };
 }
@@ -45,12 +45,12 @@ export function codeOnlyFromName(OID, key) {
 export const time = translate.time;
 
 export function use(key) {
-  return (input) => {
-    var value = input && input[key];
+  return (templateInput) => {
+    const value = templateInput && templateInput[key];
     if (value) {
       return translate.acronymize(value);
     } else {
-      return null;
+      return undefined;
     }
   };
 }
@@ -64,26 +64,26 @@ export const typeCE = {
 };
 
 export function nextReference(referenceKey) {
-  return (input, context) => {
+  return (templateInput, context) => {
     return context.nextReference(referenceKey);
   };
 }
 
 export function sameReference(referenceKey) {
-  return (input, context) => {
+  return (templateInput, context) => {
     return context.sameReference(referenceKey);
   };
 }
 
 export function nextReferenceId(referenceKey) {
-  return (input, context) => {
+  return (templateInput, context) => {
     return context.nextReferenceId(referenceKey);
   };
 }
 
 export function deepInputProperty(deepProperty, defaultValue?) {
-  return (input) => {
-    var value = bbuo.deepValue(input, deepProperty);
+  return (templateInput) => {
+    let value = bbuo.deepValue(templateInput, deepProperty);
     value = bbuo.exists(value) ? value : defaultValue;
     if (typeof value !== 'string') {
       value = value.toString();
@@ -93,8 +93,8 @@ export function deepInputProperty(deepProperty, defaultValue?) {
 }
 
 export function deepInputDate(deepProperty, defaultValue) {
-  return (input) => {
-    var value = bbuo.deepValue(input, deepProperty);
+  return (templateInput) => {
+    let value = bbuo.deepValue(templateInput, deepProperty);
     if (!bbuo.exists(value)) {
       return defaultValue;
     } else {

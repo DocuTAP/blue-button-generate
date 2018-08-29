@@ -1,10 +1,9 @@
 'use strict';
 
-import * as fieldLevel from '../fieldLevel';
-import * as leafLevel from '../leafLevel';
 import * as condition from '../condition';
 import * as contentModifier from '../contentModifier';
-
+import * as fieldLevel from '../fieldLevel';
+import * as leafLevel from '../leafLevel';
 import * as sharedEntryLevel from './sharedEntryLevel';
 
 const key = contentModifier.key;
@@ -12,7 +11,6 @@ const required = contentModifier.required;
 const dataKey = contentModifier.dataKey;
 
 const immunizationMedicationInformation = {
-  key: 'manufacturedProduct',
   attributes: {
     classCode: 'MANU'
   },
@@ -20,43 +18,43 @@ const immunizationMedicationInformation = {
     fieldLevel.templateId('2.16.840.1.113883.10.20.22.4.54'),
     fieldLevel.id,
     {
-      key: 'manufacturedMaterial',
       content: [
         {
-          key: 'code',
           attributes: leafLevel.code,
           content: [
             {
-              key: 'originalText',
-              text: leafLevel.inputProperty('unencoded_name'),
               content: {
-                key: 'reference',
-                attributes: { value: leafLevel.sameReference('vaccine') }
-              }
+                attributes: { value: leafLevel.sameReference('vaccine') },
+                key: 'reference'
+              },
+              key: 'originalText',
+              text: leafLevel.inputProperty('unencoded_name')
             },
             {
-              key: 'translation',
               attributes: leafLevel.code,
-              dataKey: 'translations'
+              dataKey: 'translations',
+              key: 'translation'
             }
-          ]
+          ],
+          key: 'code'
         },
         {
+          dataKey: 'lot_number',
           key: 'lotNumberText',
-          text: leafLevel.input,
-          dataKey: 'lot_number'
+          text: leafLevel.input
         }
       ],
       dataKey: 'product',
+      key: 'manufacturedMaterial',
       required: true
     },
     {
-      key: 'manufacturerOrganization',
       content: {
         key: 'name',
         text: leafLevel.input
       },
-      dataKey: 'manufacturer'
+      dataKey: 'manufacturer',
+      key: 'manufacturerOrganization'
     }
   ],
   dataTransform: (input) => {
@@ -64,11 +62,11 @@ const immunizationMedicationInformation = {
       input.product.lot_number = input.lot_number;
     }
     return input;
-  }
+  },
+  key: 'manufacturedProduct'
 };
 
 const immunizationRefusalReason = {
-  key: 'observation',
   attributes: {
     classCode: 'OBS',
     moodCode: 'EVN'
@@ -77,12 +75,13 @@ const immunizationRefusalReason = {
     fieldLevel.templateId('2.16.840.1.113883.10.20.22.4.53'),
     fieldLevel.id,
     {
-      key: 'code',
       attributes: leafLevel.codeFromName('2.16.840.1.113883.5.8'),
+      key: 'code',
       required: true
     },
     fieldLevel.statusCodeCompleted
-  ]
+  ],
+  key: 'observation'
 };
 
 const immunizationActivityAttributes = (input) => {
@@ -106,11 +105,10 @@ const immunizationActivityAttributes = (input) => {
       };
     }
   }
-  return null;
+  return undefined;
 };
 
 export const immunizationActivity = {
-  key: 'substanceAdministration',
   attributes: [
     {
       classCode: 'SBADM'
@@ -125,57 +123,58 @@ export const immunizationActivity = {
     fieldLevel.statusCodeCompleted,
     [fieldLevel.effectiveTime, required],
     {
-      key: 'repeatNumber',
       attributes: {
         value: leafLevel.inputProperty('sequence_number')
       },
       existsWhen: (input) => {
         return input.sequence_number || input.sequence_number === '';
-      }
-    },
-    {
-      key: 'routeCode',
-      attributes: leafLevel.code,
-      dataKey: 'administration.route'
-    },
-    {
-      key: 'approachSiteCode',
-      attributes: leafLevel.code,
-      dataKey: 'administration.body_site'
-    },
-    {
-      key: 'doseQuantity',
-      attributes: {
-        value: leafLevel.inputProperty('value'),
-        unit: leafLevel.inputProperty('unit')
       },
-      dataKey: 'administration.dose'
+      key: 'repeatNumber'
     },
     {
-      key: 'consumable',
+      attributes: leafLevel.code,
+      dataKey: 'administration.route',
+      key: 'routeCode'
+    },
+    {
+      attributes: leafLevel.code,
+      dataKey: 'administration.body_site',
+      key: 'approachSiteCode'
+    },
+    {
+      attributes: {
+        unit: leafLevel.inputProperty('unit'),
+        value: leafLevel.inputProperty('value')
+      },
+      dataKey: 'administration.dose',
+      key: 'doseQuantity'
+    },
+    {
       content: [[immunizationMedicationInformation, required]],
       dataKey: 'product',
+      key: 'consumable',
       required: true
     },
     fieldLevel.performer,
     {
-      key: 'entryRelationship',
       attributes: {
-        typeCode: 'SUBJ',
-        inversionInd: 'true'
+        inversionInd: 'true',
+        typeCode: 'SUBJ'
       },
       content: [sharedEntryLevel.instructions, required],
-      dataKey: 'instructions'
+      dataKey: 'instructions',
+      key: 'entryRelationship'
     },
     {
-      key: 'entryRelationship',
       attributes: {
         typeCode: 'RSON'
       },
       content: [immunizationRefusalReason, required],
-      dataKey: 'refusal_reason'
+      dataKey: 'refusal_reason',
+      key: 'entryRelationship'
     }
   ],
+  key: 'substanceAdministration',
   notImplemented: [
     'code',
     'administrationUnitCode',

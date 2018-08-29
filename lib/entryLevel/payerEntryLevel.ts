@@ -1,16 +1,15 @@
 'use strict';
 
-import * as fieldLevel from '../fieldLevel'
-import * as leafLevel from '../leafLevel'
-import * as condition from '../condition'
-import * as contentModifier from '../contentModifier'
+import * as condition from '../condition';
+import * as contentModifier from '../contentModifier';
+import * as fieldLevel from '../fieldLevel';
+import * as leafLevel from '../leafLevel';
 
 const key = contentModifier.key;
 const required = contentModifier.required;
 const dataKey = contentModifier.dataKey;
 
 const policyActivity = {
-  key: 'act',
   attributes: {
     classCode: 'ACT',
     moodCode: 'EVN'
@@ -18,24 +17,23 @@ const policyActivity = {
   content: [
     fieldLevel.templateId('2.16.840.1.113883.10.20.22.4.61'),
     {
-      key: 'id',
       attributes: {
-        root: leafLevel.inputProperty('identifier'),
-        extension: leafLevel.inputProperty('extension')
+        extension: leafLevel.inputProperty('extension'),
+        root: leafLevel.inputProperty('identifier')
       },
       dataKey: 'policy.identifiers',
       existsWhen: condition.keyExists('identifier'),
+      key: 'id',
       required: true
     },
 
     {
-      key: 'code',
       attributes: leafLevel.code,
-      dataKey: 'policy.code'
+      dataKey: 'policy.code',
+      key: 'code'
     },
     fieldLevel.statusCodeCompleted,
     {
-      key: 'performer',
       attributes: {
         typeCode: 'PRF'
       },
@@ -43,10 +41,10 @@ const policyActivity = {
         fieldLevel.templateId('2.16.840.1.113883.10.20.22.4.87'),
         fieldLevel.assignedEntity
       ],
-      dataKey: 'policy.insurance.performer'
+      dataKey: 'policy.insurance.performer',
+      key: 'performer'
     },
     {
-      key: 'performer',
       attributes: {
         typeCode: 'PRF'
       },
@@ -54,10 +52,10 @@ const policyActivity = {
         fieldLevel.templateId('2.16.840.1.113883.10.20.22.4.88'),
         fieldLevel.assignedEntity
       ],
-      dataKey: 'guarantor'
+      dataKey: 'guarantor',
+      key: 'performer'
     },
     {
-      key: 'participant',
       attributes: {
         typeCode: 'COV'
       },
@@ -65,7 +63,6 @@ const policyActivity = {
         fieldLevel.templateId('2.16.840.1.113883.10.20.22.4.89'),
         [fieldLevel.effectiveTime, key('time')],
         {
-          key: 'participantRole',
           attributes: {
             classCode: 'PAT'
           },
@@ -74,15 +71,16 @@ const policyActivity = {
             fieldLevel.usRealmAddress,
             fieldLevel.telecom,
             {
-              key: 'code',
               attributes: leafLevel.code,
-              dataKey: 'code'
+              dataKey: 'code',
+              key: 'code'
             },
             {
-              key: 'playingEntity',
-              content: fieldLevel.usRealmName
+              content: fieldLevel.usRealmName,
+              key: 'playingEntity'
             }
-          ]
+          ],
+          key: 'participantRole'
         }
       ],
       dataKey: 'participant',
@@ -93,30 +91,29 @@ const policyActivity = {
           input.phone = input.performer.phone;
         }
         return input;
-      }
+      },
+      key: 'participant'
     },
     {
-      key: 'participant',
       attributes: {
         typeCode: 'HLD'
       },
       content: [
         fieldLevel.templateId('2.16.840.1.113883.10.20.22.4.90'),
         {
-          key: 'participantRole',
           content: [fieldLevel.id, fieldLevel.usRealmAddress],
-          dataKey: 'performer'
+          dataKey: 'performer',
+          key: 'participantRole'
         }
       ],
-      dataKey: 'policy_holder'
+      dataKey: 'policy_holder',
+      key: 'participant'
     },
     {
-      key: 'entryRelationship',
       attributes: {
         typeCode: 'REFR'
       },
       content: {
-        key: 'act',
         attributes: {
           classCode: 'ACT',
           moodCode: 'EVN'
@@ -125,37 +122,39 @@ const policyActivity = {
           fieldLevel.templateId('2.16.840.1.113883.10.20.1.19'),
           fieldLevel.id,
           {
-            key: 'code',
-            attributes: {}
+            attributes: {},
+            key: 'code'
           },
           {
-            key: 'entryRelationship',
             attributes: {
               typeCode: 'SUBJ'
             },
             content: {
-              key: 'procedure',
               attributes: {
                 classCode: 'PROC',
                 moodCode: 'PRMS'
               },
               content: {
-                key: 'code',
                 attributes: leafLevel.code,
-                dataKey: 'code'
-              }
+                dataKey: 'code',
+                key: 'code'
+              },
+              key: 'procedure'
             },
-            dataKey: 'procedure'
+            dataKey: 'procedure',
+            key: 'entryRelationship'
           }
-        ]
+        ],
+        key: 'act'
       },
-      dataKey: 'authorization'
+      dataKey: 'authorization',
+      key: 'entryRelationship'
     }
-  ]
+  ],
+  key: 'act'
 };
 
 export const coverageActivity = {
-  key: 'act',
   attributes: {
     classCode: 'ACT',
     moodCode: 'EVN'
@@ -167,12 +166,13 @@ export const coverageActivity = {
     fieldLevel.templateCode('CoverageActivity'),
     fieldLevel.statusCodeCompleted,
     {
-      key: 'entryRelationship',
       attributes: {
         typeCode: 'COMP'
       },
       content: [[policyActivity, required]],
+      key: 'entryRelationship',
       required: true
     }
-  ]
+  ],
+  key: 'act'
 };

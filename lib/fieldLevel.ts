@@ -4,9 +4,9 @@ import * as bbm from 'blue-button-meta';
 import * as uuid from 'uuid';
 
 import * as condition from './condition';
+import * as contentModifier from './contentModifier';
 import * as leafLevel from './leafLevel';
 import * as translate from './translate';
-import * as contentModifier from './contentModifier';
 
 const templateCodes = bbm.CCDA.sections_entries_codes.codes;
 
@@ -15,32 +15,32 @@ const required = contentModifier.required;
 
 import * as moment from 'moment';
 
-export function templateId(id) {
+export function templateId(templateOid) {
   return {
-    key: 'templateId',
     attributes: {
-      root: id
-    }
+      root: templateOid
+    },
+    key: 'templateId'
   };
 }
 
 export function templateCode(name) {
-  var raw = templateCodes[name];
-  var result = {
-    key: 'code',
+  const raw = templateCodes[name];
+  const result = {
     attributes: {
       code: raw.code,
-      displayName: raw.name,
       codeSystem: raw.code_system,
-      codeSystemName: raw.code_system_name
-    }
+      codeSystemName: raw.code_system_name,
+      displayName: raw.name
+    },
+    key: 'code'
   };
   return result;
 }
 
 export function templateTitle(name) {
-  var raw = templateCodes[name];
-  var result = {
+  const raw = templateCodes[name];
+  const result = {
     key: 'title',
     text: raw.name
   };
@@ -48,75 +48,74 @@ export function templateTitle(name) {
 }
 
 export const id = {
-  key: 'id',
   attributes: {
-    root: leafLevel.inputProperty('identifier'),
-    extension: leafLevel.inputProperty('extension')
+    extension: leafLevel.inputProperty('extension'),
+    root: leafLevel.inputProperty('identifier')
   },
   dataKey: 'identifiers',
   existsWhen: condition.keyExists('identifier'),
+  key: 'id',
   required: true
 };
 
 export const uniqueId = {
-  key: 'id',
   attributes: {
-    root: (input, context) => {
-      return context.rootId;
-    },
     extension: () => {
       return uuid.v4();
+    },
+    root: (input, context) => {
+      return context.rootId;
     }
   },
   existsWhen: (input, context) => {
     return context.rootId;
-  }
+  },
+  key: 'id'
 };
 
 export const statusCodeCompleted = {
-  key: 'statusCode',
   attributes: {
     code: 'completed'
-  }
+  },
+  key: 'statusCode'
 };
 
 export const statusCode = {
-  key: 'statusCode',
   attributes: {
     code: leafLevel.inputProperty('status')
-  }
+  },
+  key: 'statusCode'
 };
 
 export const statusCodeActive = {
-  key: 'statusCode',
   attributes: {
     code: 'active'
-  }
+  },
+  key: 'statusCode'
 };
 
 export const statusCodeNew = {
-  key: 'statusCode',
   attributes: {
     code: 'new'
-  }
+  },
+  key: 'statusCode'
 };
 
 export const effectiveTimeNow = {
-  key: 'effectiveTime',
   attributes: {
     value: moment().format('YYYYMMDDHHMMSSZZ')
-  }
+  },
+  key: 'effectiveTime'
 };
 
 export const timeNow = {
-  key: 'time',
   attributes: {
     value: moment().format('YYYYMMDDHHMMSSZZ')
-  }
+  },
+  key: 'time'
 };
 
 export const effectiveTime = {
-  key: 'effectiveTime',
   attributes: {
     value: (input) =>
       condition.keyExists('point')(input) ? leafLevel.time(input.point) : undefined,
@@ -125,55 +124,55 @@ export const effectiveTime = {
   },
   content: [
     {
-      key: 'low',
       attributes: {
         value: leafLevel.time
       },
-      dataKey: 'low'
+      dataKey: 'low',
+      key: 'low'
     },
     {
-      key: 'high',
       attributes: {
         value: leafLevel.time
       },
-      dataKey: 'high'
+      dataKey: 'high',
+      key: 'high'
     },
     {
-      key: 'center',
       attributes: {
         value: leafLevel.time
       },
-      dataKey: 'center'
+      dataKey: 'center',
+      key: 'center'
     }
   ],
   dataKey: 'date_time',
-  existsWhen: condition.eitherKeyExists('point', 'low', 'high', 'center')
+  existsWhen: condition.eitherKeyExists('point', 'low', 'high', 'center'),
+  key: 'effectiveTime'
 };
 
 export function text(referenceMethod) {
   return {
-    key: 'text',
-    text: leafLevel.inputProperty('free_text'),
     content: {
-      key: 'reference',
       attributes: {
         value: referenceMethod
-      }
-    }
+      },
+      key: 'reference'
+    },
+    key: 'text',
+    text: leafLevel.inputProperty('free_text')
   };
 }
 
 export function nullFlavor(name) {
   return {
-    key: name,
     attributes: {
       nullFlavor: 'UNK'
-    }
+    },
+    key: name
   };
 }
 
 export const usRealmAddress = {
-  key: 'addr',
   attributes: {
     use: leafLevel.codeOnlyFromName('2.16.840.1.113883.5.1119', 'use')
   },
@@ -195,25 +194,25 @@ export const usRealmAddress = {
       text: leafLevel.inputProperty('zip')
     },
     {
+      dataKey: 'street_lines',
       key: 'streetAddressLine',
-      text: leafLevel.input,
-      dataKey: 'street_lines'
+      text: leafLevel.input
     }
   ],
-  dataKey: 'addresses'
+  dataKey: 'addresses',
+  key: 'addr'
 };
 
 export const usRealmName = {
-  key: 'name',
   content: [
     {
       key: 'family',
       text: leafLevel.inputProperty('family')
     },
     {
+      dataKey: 'given',
       key: 'given',
-      text: leafLevel.input,
-      dataKey: 'given'
+      text: leafLevel.input
     },
     {
       key: 'prefix',
@@ -225,38 +224,37 @@ export const usRealmName = {
     }
   ],
   dataKey: 'name',
-  dataTransform: translate.name
+  dataTransform: translate.name,
+  key: 'name'
 };
 
 export const telecom = {
-  key: 'telecom',
   attributes: {
-    value: leafLevel.inputProperty('value'),
-    use: leafLevel.inputProperty('use')
+    use: leafLevel.inputProperty('use'),
+    value: leafLevel.inputProperty('value')
   },
-  dataTransform: translate.telecom
+  dataTransform: translate.telecom,
+  key: 'telecom'
 };
 
 export const representedOrganization = {
-  key: 'representedOrganization',
   content: [
     id,
     {
-      key: 'id',
       attributes: {
         extension: leafLevel.inputProperty('extension'),
         root: leafLevel.inputProperty('root')
       },
-      dataKey: 'identity'
+      dataKey: 'identity',
+      key: 'id'
     },
     {
+      dataKey: 'name',
       key: 'name',
-      text: leafLevel.input,
-      dataKey: 'name'
+      text: leafLevel.input
     },
     telecom,
     {
-      key: 'telecom',
       attributes: [
         {
           use: 'WP',
@@ -265,73 +263,75 @@ export const representedOrganization = {
           }
         }
       ],
+      dataKey: 'phone',
       existsWhen: condition.keyExists('value'),
-      dataKey: 'phone'
+      key: 'telecom'
     },
     usRealmAddress
   ],
-  dataKey: 'organization'
+  dataKey: 'organization',
+  key: 'representedOrganization'
 };
 
 export const assignedEntity = {
-  key: 'assignedEntity',
   content: [
     id,
     {
-      key: 'code',
       attributes: leafLevel.code,
-      dataKey: 'code'
+      dataKey: 'code',
+      key: 'code'
     },
 
     usRealmAddress,
     telecom,
     {
-      key: 'assignedPerson',
       content: usRealmName,
-      existsWhen: condition.keyExists('name')
+      existsWhen: condition.keyExists('name'),
+      key: 'assignedPerson'
     },
     representedOrganization
   ],
-  existsWhen: condition.eitherKeyExists('address', 'identifiers', 'organization', 'name')
+  existsWhen: condition.eitherKeyExists('address', 'identifiers', 'organization', 'name'),
+  key: 'assignedEntity'
 };
 
 export const author = {
-  key: 'author',
   content: [
     {
-      key: 'time',
       attributes: { value: leafLevel.time },
       dataKey: 'date_time.point',
+      key: 'time',
       required: true
     },
     {
-      key: 'assignedAuthor',
       content: [
         id,
         {
-          key: 'code',
           attributes: [
             leafLevel.code,
             {
-              codeSystemName: 'Healthcare Provider Taxonomy (HIPAA)',
-              codeSystem: '2.16.840.1.113883.6.101'
+              codeSystem: '2.16.840.1.113883.6.101',
+              codeSystemName: 'Healthcare Provider Taxonomy (HIPAA)'
             }
           ],
-          dataKey: 'taxonomy_code'
+          dataKey: 'taxonomy_code',
+          key: 'code'
         },
         {
-          key: 'assignedPerson',
-          content: usRealmName
+          content: usRealmName,
+          key: 'assignedPerson'
         },
         representedOrganization
-      ]
+      ],
+      key: 'assignedAuthor'
     }
   ],
-  dataKey: 'author'
+  dataKey: 'author',
+  key: 'author'
 };
 
 export const performer = {
-  key: 'performer',
   content: [[assignedEntity, required]],
-  dataKey: 'performer'
+  dataKey: 'performer',
+  key: 'performer'
 };

@@ -1,19 +1,16 @@
 'use strict';
 
-import * as fieldLevel from '../fieldLevel'
-import * as leafLevel from '../leafLevel'
-import * as condition from '../condition'
-import * as contentModifier from '../contentModifier'
+import * as condition from '../condition';
+import * as contentModifier from '../contentModifier';
+import * as fieldLevel from '../fieldLevel';
+import * as leafLevel from '../leafLevel';
 
 const key = contentModifier.key;
 const required = contentModifier.required;
 const dataKey = contentModifier.dataKey;
 
 export const planOfCareActivityAct = {
-  key: 'entry',
-  dataKey: 'plan_of_care',
   content: {
-    key: 'act',
     attributes: {
       classCode: 'ACT',
       moodCode: 'RQO'
@@ -23,24 +20,24 @@ export const planOfCareActivityAct = {
       fieldLevel.uniqueId,
       fieldLevel.id,
       {
-        key: 'code',
         attributes: leafLevel.code,
-        dataKey: 'plan'
+        dataKey: 'plan',
+        key: 'code'
       },
       fieldLevel.statusCodeNew,
       fieldLevel.effectiveTime
-    ]
+    ],
+    key: 'act'
   },
+  dataKey: 'plan_of_care',
   existsWhen: (input) => {
-    return input['types'] && input.types.includes('act');
-  }
+    return input.types && input.types.includes('act');
+  },
+  key: 'entry'
 };
 
 export const planOfCareActivityObservation = {
-  key: 'entry',
-  dataKey: 'plan_of_care',
   content: {
-    key: 'observation',
     attributes: {
       classCode: 'OBS',
       moodCode: 'RQO'
@@ -50,24 +47,24 @@ export const planOfCareActivityObservation = {
       fieldLevel.uniqueId,
       fieldLevel.id,
       {
-        key: 'code',
         attributes: leafLevel.code,
-        dataKey: 'plan'
+        dataKey: 'plan',
+        key: 'code'
       },
       fieldLevel.statusCodeNew,
       fieldLevel.effectiveTime
-    ]
+    ],
+    key: 'observation'
   },
+  dataKey: 'plan_of_care',
   existsWhen: (input) => {
-    return input['types'] && input.types.includes('observation');
-  }
+    return input.types && input.types.includes('observation');
+  },
+  key: 'entry'
 };
 
 export const planOfCareActivityProcedure = {
-  key: 'entry',
-  dataKey: 'plan_of_care',
   content: {
-    key: 'procedure',
     attributes: {
       classCode: 'PROC',
       moodCode: 'RQO'
@@ -77,51 +74,52 @@ export const planOfCareActivityProcedure = {
       fieldLevel.uniqueId,
       fieldLevel.id,
       {
-        key: 'code',
         attributes: leafLevel.code,
-        dataKey: 'plan'
+        dataKey: 'plan',
+        key: 'code'
       },
       fieldLevel.statusCodeNew,
       fieldLevel.effectiveTime
-    ]
+    ],
+    key: 'procedure'
   },
+  dataKey: 'plan_of_care',
   existsWhen: (input) => {
-    return input['types'] && input.types.includes('procedure');
-  }
+    return input.types && input.types.includes('procedure');
+  },
+  key: 'entry'
 };
 
 export const planOfCareActivityEncounter = {
-  key: 'entry',
-  dataKey: 'plan_of_care',
   content: {
-    key: 'encounter',
     attributes: {
       classCode: 'ENC',
       moodCode: 'INT'
     },
+
     content: [
       fieldLevel.templateId('2.16.840.1.113883.10.20.22.4.40'),
       fieldLevel.uniqueId,
       fieldLevel.id,
       {
-        key: 'code',
         attributes: leafLevel.code,
-        dataKey: 'plan'
+        dataKey: 'plan',
+        key: 'code'
       },
       fieldLevel.statusCodeNew,
       fieldLevel.effectiveTime
-    ]
+    ],
+    key: 'encounter'
   },
+  dataKey: 'plan_of_care',
   existsWhen: (input) => {
-    return input['types'] && input.types.includes('encounter');
-  }
+    return input.types && input.types.includes('encounter');
+  },
+  key: 'entry'
 };
 
 export const planOfCareActivitySubstanceAdministration = {
-  key: 'entry',
-  dataKey: 'plan_of_care',
   content: {
-    key: 'substanceAdministration',
     attributes: {
       classCode: 'SBADM',
       moodCode: 'RQO'
@@ -131,24 +129,24 @@ export const planOfCareActivitySubstanceAdministration = {
       fieldLevel.uniqueId,
       fieldLevel.id,
       {
-        key: 'code',
         attributes: leafLevel.code,
-        dataKey: 'plan'
+        dataKey: 'plan',
+        key: 'code'
       },
       fieldLevel.statusCodeNew,
       fieldLevel.effectiveTime
-    ]
+    ],
+    key: 'substanceAdministration'
   },
+  dataKey: 'plan_of_care',
   existsWhen: (input) => {
-    return input['types'] && input.types.includes('substanceAdministration');
-  }
+    return input.types && input.types.includes('substanceAdministration');
+  },
+  key: 'entry'
 };
 
 export const planOfCareActivitySupply = {
-  key: 'entry',
-  dataKey: 'plan_of_care',
   content: {
-    key: 'supply',
     attributes: {
       classCode: 'SPLY',
       moodCode: 'INT'
@@ -158,21 +156,23 @@ export const planOfCareActivitySupply = {
       fieldLevel.uniqueId,
       fieldLevel.id,
       {
-        key: 'code',
         attributes: leafLevel.code,
-        dataKey: 'plan'
+        dataKey: 'plan',
+        key: 'code'
       },
       fieldLevel.statusCodeNew,
       fieldLevel.effectiveTime
-    ]
+    ],
+    key: 'supply'
   },
+  dataKey: 'plan_of_care',
   existsWhen: (input) => {
-    return input['types'] && input.types.includes('supply');
-  }
+    return input.types && input.types.includes('supply');
+  },
+  key: 'entry'
 };
 
 const goal = {
-  key: 'code',
   attributes: {
     code: leafLevel.deepInputProperty('code'),
     displayName: 'Goal'
@@ -183,11 +183,11 @@ const goal = {
       text: leafLevel.deepInputProperty('name')
     }
   ],
-  dataKey: 'goal'
+  dataKey: 'goal',
+  key: 'code'
 };
 
 const intervention = {
-  key: 'code',
   attributes: {
     code: leafLevel.deepInputProperty('code'),
     displayName: 'Intervention'
@@ -198,11 +198,11 @@ const intervention = {
       text: leafLevel.deepInputProperty('name')
     }
   ],
-  dataKey: 'intervention'
+  dataKey: 'intervention',
+  key: 'code'
 };
 
 export const planOfCareActivityInstructions = {
-  key: 'instructions',
   attributes: {
     classCode: 'ACT',
     moodCode: 'INT'
@@ -212,13 +212,12 @@ export const planOfCareActivityInstructions = {
     fieldLevel.uniqueId,
     fieldLevel.id,
     {
-      key: 'code',
       attributes: leafLevel.code,
-      dataKey: 'plan'
+      dataKey: 'plan',
+      key: 'code'
     },
     fieldLevel.statusCodeNew,
     {
-      key: 'priorityCode',
       attributes: {
         code: leafLevel.deepInputProperty('code'),
         displayName: 'Severity Code'
@@ -229,17 +228,16 @@ export const planOfCareActivityInstructions = {
           text: leafLevel.deepInputProperty('name')
         }
       ],
-      dataKey: 'severity'
+      dataKey: 'severity',
+      key: 'priorityCode'
     },
     fieldLevel.effectiveTime,
     {
-      key: 'entryRelationship',
       attributes: {
         typeCode: 'COMP'
       },
       content: [
         {
-          key: 'observation',
           attributes: {
             classCode: 'OBS',
             moodCode: 'GOL'
@@ -248,7 +246,6 @@ export const planOfCareActivityInstructions = {
             fieldLevel.effectiveTime,
             goal,
             {
-              key: 'act',
               attributes: {
                 classCode: 'ACT',
                 moodCode: 'INT'
@@ -256,23 +253,27 @@ export const planOfCareActivityInstructions = {
 
               content: [
                 {
-                  key: 'entryRelationship',
                   attributes: {
                     typeCode: 'REFR'
                   },
                   content: [intervention],
-                  dataKey: 'interventions'
+                  dataKey: 'interventions',
+                  key: 'entryRelationship'
                 }
-              ]
+              ],
+              key: 'act'
             }
           ],
-          dataKey: 'goals'
+          dataKey: 'goals',
+          key: 'observation'
         }
       ],
+      key: 'entryRelationship',
       required: true
     }
   ],
   existsWhen: (input) => {
     return input.type === 'instructions';
-  }
+  },
+  key: 'instructions'
 };

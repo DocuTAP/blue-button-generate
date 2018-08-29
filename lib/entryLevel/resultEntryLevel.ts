@@ -1,15 +1,13 @@
 'use strict';
 
-import * as fieldLevel from '../fieldLevel'
-import * as leafLevel from '../leafLevel'
-import * as condition from '../condition'
-
-import * as contentModifier from '../contentModifier'
+import * as condition from '../condition';
+import * as contentModifier from '../contentModifier';
+import * as fieldLevel from '../fieldLevel';
+import * as leafLevel from '../leafLevel';
 
 const required = contentModifier.required;
 
 const resultObservation = {
-  key: 'observation',
   attributes: {
     classCode: 'OBS',
     moodCode: 'EVN'
@@ -18,85 +16,85 @@ const resultObservation = {
     fieldLevel.templateId('2.16.840.1.113883.10.20.22.4.2'),
     fieldLevel.id,
     {
-      key: 'code',
       attributes: leafLevel.code,
       dataKey: 'result',
+      key: 'code',
       required: true
     },
     fieldLevel.text(leafLevel.nextReference('result')),
     fieldLevel.statusCodeCompleted,
     [fieldLevel.effectiveTime, required],
     {
-      key: 'value',
       attributes: {
+        unit: leafLevel.inputProperty('unit'),
+        value: leafLevel.inputProperty('value'),
         'xsi:type': (input) => {
           return input.text ? 'ST' : 'PQ';
-        },
-        value: leafLevel.inputProperty('value'),
-        unit: leafLevel.inputProperty('unit')
+        }
       },
-      text: leafLevel.inputProperty('text'),
       existsWhen: condition.eitherKeyExists('value', 'text'),
-      required: true
+      key: 'value',
+      required: true,
+      text: leafLevel.inputProperty('text')
     },
     {
-      key: 'interpretationCode',
       attributes: {
         code: (input) => {
           return input.substr(0, 1);
         },
         codeSystem: '2.16.840.1.113883.5.83',
-        displayName: leafLevel.input,
-        codeSystemName: 'ObservationInterpretation'
+        codeSystemName: 'ObservationInterpretation',
+        displayName: leafLevel.input
       },
-      dataKey: 'interpretations'
+      dataKey: 'interpretations',
+      key: 'interpretationCode'
     },
     {
-      key: 'referenceRange',
       content: {
-        key: 'observationRange',
         content: [
           {
+            dataKey: 'range',
             key: 'text',
-            text: leafLevel.input,
-            dataKey: 'range'
+            text: leafLevel.input
           },
           {
-            key: 'value',
             attributes: {
               'xsi:type': 'IVL_PQ'
             },
             content: [
               {
-                key: 'low',
                 attributes: {
-                  value: leafLevel.inputProperty('low'),
-                  unit: leafLevel.inputProperty('unit')
+                  unit: leafLevel.inputProperty('unit'),
+                  value: leafLevel.inputProperty('low')
                 },
-                existsWhen: condition.keyExists('low')
+                existsWhen: condition.keyExists('low'),
+                key: 'low'
               },
               {
-                key: 'high',
                 attributes: {
-                  value: leafLevel.inputProperty('high'),
-                  unit: leafLevel.inputProperty('unit')
+                  unit: leafLevel.inputProperty('unit'),
+                  value: leafLevel.inputProperty('high')
                 },
-                existsWhen: condition.keyExists('high')
+                existsWhen: condition.keyExists('high'),
+                key: 'high'
               }
             ],
-            existsWhen: condition.eitherKeyExists('low', 'high')
+            existsWhen: condition.eitherKeyExists('low', 'high'),
+            key: 'value'
           }
         ],
+        key: 'observationRange',
         required: true
       },
-      dataKey: 'reference_range'
+      dataKey: 'reference_range',
+      key: 'referenceRange'
     }
   ],
+  key: 'observation',
   notIplemented: ['variable statusCode', 'methodCode', 'targetSiteCode', 'author']
 };
 
 export const resultOrganizer = {
-  key: 'organizer',
   attributes: {
     classCode: 'BATTERY',
     moodCode: 'EVN'
@@ -106,23 +104,24 @@ export const resultOrganizer = {
     fieldLevel.uniqueId,
     fieldLevel.id,
     {
-      key: 'code',
       attributes: leafLevel.code,
       content: {
-        key: 'translation',
         attributes: leafLevel.code,
-        dataKey: 'translations'
+        dataKey: 'translations',
+        key: 'translation'
       },
       dataKey: 'result_set',
+      key: 'code',
       required: true
     },
     fieldLevel.statusCodeCompleted,
     {
-      key: 'component',
       content: [[resultObservation, required]],
       dataKey: 'results',
+      key: 'component',
       required: true
     }
   ],
+  key: 'organizer',
   notIplemented: ['variable @classCode', 'variable statusCode']
 };
