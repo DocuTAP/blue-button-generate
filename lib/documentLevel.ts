@@ -1,83 +1,82 @@
 'use strict';
 
-import * as headerLevel from './headerLevel';
+import * as condition from './condition';
+import * as contentModifier from './contentModifier';
 import * as fieldLevel from './fieldLevel';
+import * as headerLevel from './headerLevel';
 import * as leafLevel from './leafLevel';
 import * as sectionLevel from './sectionLevel';
-import * as contentModifier from './contentModifier';
-import * as condition from './condition';
 
 const required = contentModifier.required;
 const dataKey = contentModifier.dataKey;
 
-export function ccd(html_renderer) {
-  var ccd_template = {
-    key: 'ClinicalDocument',
+export function ccd(htmlRenderer) {
+  const ccdTemplate = {
     attributes: {
-      'xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance',
       xmlns: 'urn:hl7-org:v3',
       'xmlns:cda': 'urn:hl7-org:v3',
-      'xmlns:sdtc': 'urn:hl7-org:sdtc'
+      'xmlns:sdtc': 'urn:hl7-org:sdtc',
+      'xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance'
     },
     content: [
       {
-        key: 'realmCode',
         attributes: {
           code: 'US'
-        }
+        },
+        key: 'realmCode'
       },
       {
-        key: 'typeId',
         attributes: {
-          root: '2.16.840.1.113883.1.3',
-          extension: 'POCD_HD000040'
-        }
+          extension: 'POCD_HD000040',
+          root: '2.16.840.1.113883.1.3'
+        },
+        key: 'typeId'
       },
       fieldLevel.templateId('2.16.840.1.113883.10.20.22.1.1'),
       fieldLevel.templateId('2.16.840.1.113883.10.20.22.1.2'),
       [fieldLevel.id, dataKey('meta.identifiers')],
       {
-        key: 'code',
         attributes: {
+          code: '34133-9',
           codeSystem: '2.16.840.1.113883.6.1',
           codeSystemName: 'LOINC',
-          code: '34133-9',
           displayName: 'Summarization of Episode Note'
-        }
+        },
+        key: 'code'
       },
       {
+        dataKey: 'meta.ccda_header',
         key: 'title',
-        text: leafLevel.inputProperty('title'),
-        dataKey: 'meta.ccda_header'
+        text: leafLevel.inputProperty('title')
       },
       [fieldLevel.effectiveTimeNow, required],
       {
-        key: 'confidentialityCode',
         attributes: leafLevel.codeFromName('2.16.840.1.113883.5.25'),
-        dataKey: 'meta.confidentiality'
+        dataKey: 'meta.confidentiality',
+        key: 'confidentialityCode'
       },
       {
-        key: 'languageCode',
         attributes: {
           code: 'en-US'
-        }
-      },
-      {
-        key: 'setId',
-        attributes: {
-          root: leafLevel.inputProperty('identifier'),
-          extension: leafLevel.inputProperty('extension')
         },
-        existsWhen: condition.keyExists('identifier'),
-        dataKey: 'meta.set_id'
+        key: 'languageCode'
       },
       {
-        key: 'versionNumber',
+        attributes: {
+          extension: leafLevel.inputProperty('extension'),
+          root: leafLevel.inputProperty('identifier')
+        },
+        dataKey: 'meta.set_id',
+        existsWhen: condition.keyExists('identifier'),
+        key: 'setId'
+      },
+      {
         attributes: {
           value: leafLevel.inputProperty('version')
         },
         dataKey: 'meta.set_id',
-        existsWhen: condition.keyExists('identifier')
+        existsWhen: condition.keyExists('identifier'),
+        key: 'versionNumber'
       },
       headerLevel.recordTarget,
       headerLevel.headerAuthor,
@@ -85,70 +84,69 @@ export function ccd(html_renderer) {
       headerLevel.headerCustodian,
       headerLevel.providers,
       {
-        key: 'component',
         content: {
-          key: 'structuredBody',
           content: [
             [
               sectionLevel.allergiesSectionEntriesRequired(
-                html_renderer.allergiesSectionEntriesRequiredHtmlHeader,
-                html_renderer.allergiesSectionEntriesRequiredHtmlHeaderNA
+                htmlRenderer.allergiesSectionEntriesRequiredHtmlHeader,
+                htmlRenderer.allergiesSectionEntriesRequiredHtmlHeaderNA
               ),
               required
             ],
             [
               sectionLevel.medicationsSectionEntriesRequired(
-                html_renderer.medicationsSectionEntriesRequiredHtmlHeader,
-                html_renderer.medicationsSectionEntriesRequiredHtmlHeaderNA
+                htmlRenderer.medicationsSectionEntriesRequiredHtmlHeader,
+                htmlRenderer.medicationsSectionEntriesRequiredHtmlHeaderNA
               ),
               required
             ],
             [
               sectionLevel.problemsSectionEntriesRequired(
-                html_renderer.problemsSectionEntriesRequiredHtmlHeader,
-                html_renderer.problemsSectionEntriesRequiredHtmlHeaderNA
+                htmlRenderer.problemsSectionEntriesRequiredHtmlHeader,
+                htmlRenderer.problemsSectionEntriesRequiredHtmlHeaderNA
               ),
               required
             ],
             [
               sectionLevel.proceduresSectionEntriesRequired(
-                html_renderer.proceduresSectionEntriesRequiredHtmlHeader,
-                html_renderer.proceduresSectionEntriesRequiredHtmlHeaderNA
+                htmlRenderer.proceduresSectionEntriesRequiredHtmlHeader,
+                htmlRenderer.proceduresSectionEntriesRequiredHtmlHeaderNA
               ),
               required
             ],
             [
               sectionLevel.resultsSectionEntriesRequired(
-                html_renderer.resultsSectionEntriesRequiredHtmlHeader,
-                html_renderer.resultsSectionEntriesRequiredHtmlHeaderNA
+                htmlRenderer.resultsSectionEntriesRequiredHtmlHeader,
+                htmlRenderer.resultsSectionEntriesRequiredHtmlHeaderNA
               ),
               required
             ],
             sectionLevel.encountersSectionEntriesOptional(
-              html_renderer.encountersSectionEntriesOptionalHtmlHeader,
-              html_renderer.encountersSectionEntriesOptionalHtmlHeaderNA
+              htmlRenderer.encountersSectionEntriesOptionalHtmlHeader,
+              htmlRenderer.encountersSectionEntriesOptionalHtmlHeaderNA
             ),
             sectionLevel.immunizationsSectionEntriesOptional(
-              html_renderer.immunizationsSectionEntriesOptionalHtmlHeader,
-              html_renderer.immunizationsSectionEntriesOptionalHtmlHeaderNA
+              htmlRenderer.immunizationsSectionEntriesOptionalHtmlHeader,
+              htmlRenderer.immunizationsSectionEntriesOptionalHtmlHeaderNA
             ),
             sectionLevel.payersSection(
-              html_renderer.payersSectionHtmlHeader,
-              html_renderer.payersSectionHtmlHeaderNA
+              htmlRenderer.payersSectionHtmlHeader,
+              htmlRenderer.payersSectionHtmlHeaderNA
             ),
             sectionLevel.planOfCareSection(
-              html_renderer.planOfCareSectionHtmlHeader,
-              html_renderer.planOfCareSectionHtmlHeaderNA
+              htmlRenderer.planOfCareSectionHtmlHeader,
+              htmlRenderer.planOfCareSectionHtmlHeaderNA
             ),
             sectionLevel.socialHistorySection(
-              html_renderer.socialHistorySectionHtmlHeader,
-              html_renderer.socialHistorySectionHtmlHeaderNA
+              htmlRenderer.socialHistorySectionHtmlHeader,
+              htmlRenderer.socialHistorySectionHtmlHeaderNA
             ),
             sectionLevel.vitalSignsSectionEntriesOptional(
-              html_renderer.vitalSignsSectionEntriesOptionalHtmlHeader,
-              html_renderer.vitalSignsSectionEntriesOptionalHtmlHeaderNA
+              htmlRenderer.vitalSignsSectionEntriesOptionalHtmlHeader,
+              htmlRenderer.vitalSignsSectionEntriesOptionalHtmlHeaderNA
             )
           ],
+          key: 'structuredBody',
           notImplemented: [
             'advanceDirectivesSectionEntriesOptional',
             'familyHistorySection',
@@ -156,9 +154,11 @@ export function ccd(html_renderer) {
             'medicalEquipmentSection'
           ]
         },
-        dataKey: 'data'
+        dataKey: 'data',
+        key: 'component'
       }
-    ]
+    ],
+    key: 'ClinicalDocument'
   };
-  return ccd_template;
+  return ccdTemplate;
 }

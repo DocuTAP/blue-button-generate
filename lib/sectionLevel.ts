@@ -10,105 +10,100 @@ const required = contentModifier.required;
 
 export function allergiesSectionEntriesRequired(htmlHeader, na) {
   return {
-    key: 'component',
     content: [
       {
-        key: 'section',
-        nullFlavor: {
-          value: 'NI',
-          existsWhen: condition.keyDoesntExist('allergies')
-        },
         content: [
           fieldLevel.templateId('2.16.840.1.113883.10.20.22.2.6'),
           fieldLevel.templateId('2.16.840.1.113883.10.20.22.2.6.1'),
           fieldLevel.templateCode('AllergiesSection'),
           fieldLevel.templateTitle('AllergiesSection'),
           {
+            existsWhen: condition.keyDoesntExist('allergies'),
             key: 'text',
-            text: na,
-            existsWhen: condition.keyDoesntExist('allergies')
+            text: na
           },
           htmlHeader,
           {
-            key: 'entry',
             attributes: {
               typeCode: 'DRIV'
             },
             content: [[entryLevel.allergyProblemAct, required]],
-            dataKey: 'allergies'
+            dataKey: 'allergies',
+            key: 'entry'
           }
-        ]
+        ],
+        key: 'section',
+        nullFlavor: {
+          existsWhen: condition.keyDoesntExist('allergies'),
+          value: 'NI'
+        }
       }
-    ]
+    ],
+    key: 'component'
   };
 }
 
 export function medicationsSectionEntriesRequired(htmlHeader, na) {
   return {
-    key: 'component',
     content: [
       {
-        key: 'section',
-        nullFlavor: {
-          value: 'NI',
-          existsWhen: condition.keyDoesntExist('medications')
-        },
         content: [
           fieldLevel.templateId('2.16.840.1.113883.10.20.22.2.1'),
           fieldLevel.templateId('2.16.840.1.113883.10.20.22.2.1.1'),
           fieldLevel.templateCode('MedicationsSection'),
           fieldLevel.templateTitle('MedicationsSection'),
           {
+            existsWhen: condition.keyDoesntExist('medications'),
             key: 'text',
-            text: na,
-            existsWhen: condition.keyDoesntExist('medications')
+            text: na
           },
           htmlHeader,
           {
-            key: 'entry',
             attributes: {
               typeCode: 'DRIV'
             },
             content: [[entryLevel.medicationActivity, required]],
-            dataKey: 'medications'
+            dataKey: 'medications',
+            key: 'entry'
           }
-        ]
+        ],
+        key: 'section',
+        nullFlavor: {
+          existsWhen: condition.keyDoesntExist('medications'),
+          value: 'NI'
+        }
       }
-    ]
+    ],
+    key: 'component'
   };
 }
 
 export function problemsSectionEntriesRequired(htmlHeader, na) {
   return {
-    key: 'component',
     content: [
       {
-        key: 'section',
         content: [
           fieldLevel.templateId('2.16.840.1.113883.10.20.22.2.5'),
           fieldLevel.templateId('2.16.840.1.113883.10.20.22.2.5.1'),
           fieldLevel.templateCode('ProblemSection'),
           fieldLevel.templateTitle('ProblemSection'),
           {
+            existsWhen: condition.keyDoesntExist('problems'),
             key: 'text',
-            text: na,
-            existsWhen: condition.keyDoesntExist('problems')
+            text: na
           },
           htmlHeader,
           {
-            key: 'entry',
             attributes: {
               typeCode: 'DRIV'
             },
             content: [[entryLevel.problemConcernAct, required]],
             dataKey: 'problems',
+            key: 'entry',
             required: true
           },
           {
-            key: 'entry',
-            existsWhen: condition.keyExists('problems_comment'),
             content: {
-              key: 'act',
               attributes: {
                 classCode: 'ACT',
                 moodCode: 'EVN'
@@ -120,38 +115,40 @@ export function problemsSectionEntriesRequired(htmlHeader, na) {
                   key: 'text',
                   text: leafLevel.deepInputProperty('problems_comment')
                 }
-              ]
+              ],
+              key: 'act'
             },
-            dataKey: 'demographics.meta'
+            dataKey: 'demographics.meta',
+            existsWhen: condition.keyExists('problems_comment'),
+            key: 'entry'
           }
-        ]
+        ],
+        key: 'section'
       }
-    ]
+    ],
+    key: 'component'
   };
 }
 
 export function proceduresSectionEntriesRequired(htmlHeader, na) {
   return {
-    key: 'component',
     content: [
       {
-        key: 'section',
         content: [
           fieldLevel.templateId('2.16.840.1.113883.10.20.22.2.7'),
           fieldLevel.templateId('2.16.840.1.113883.10.20.22.2.7.1'),
           fieldLevel.templateCode('ProceduresSection'),
           fieldLevel.templateTitle('ProceduresSection'),
           {
+            existsWhen: condition.keyDoesntExist('procedures'),
             key: 'text',
-            text: na,
-            existsWhen: condition.keyDoesntExist('procedures')
+            text: na
           },
           htmlHeader,
           {
-            key: 'entry',
             attributes: {
               typeCode: (input) => {
-                return input.procedure_type === 'procedure' ? 'DRIV' : null;
+                return input.procedure_type === 'procedure' ? 'DRIV' : undefined;
               }
             },
             content: [
@@ -159,157 +156,158 @@ export function proceduresSectionEntriesRequired(htmlHeader, na) {
               entryLevel.procedureActivityProcedure,
               entryLevel.procedureActivityObservation
             ],
-            dataKey: 'procedures'
+            dataKey: 'procedures',
+            key: 'entry'
           }
-        ]
+        ],
+        key: 'section'
       }
     ],
+    key: 'component',
     notImplemented: ['entry required']
   };
 }
 
 export function resultsSectionEntriesRequired(htmlHeader, na) {
   return {
-    key: 'component',
     content: [
       {
-        key: 'section',
         content: [
           fieldLevel.templateId('2.16.840.1.113883.10.20.22.2.3'),
           fieldLevel.templateId('2.16.840.1.113883.10.20.22.2.3.1'),
           fieldLevel.templateCode('ResultsSection'),
           fieldLevel.templateTitle('ResultsSection'),
           {
+            existsWhen: condition.keyDoesntExist('results'),
             key: 'text',
-            text: na,
-            existsWhen: condition.keyDoesntExist('results')
+            text: na
           },
           htmlHeader,
           {
-            key: 'entry',
             attributes: {
               typeCode: 'DRIV'
             },
             content: [[entryLevel.resultOrganizer, required]],
             dataKey: 'results',
+            key: 'entry',
             required: true
           }
-        ]
+        ],
+        key: 'section'
       }
-    ]
+    ],
+    key: 'component'
   };
 }
 
 export function encountersSectionEntriesOptional(htmlHeader, na) {
   return {
-    key: 'component',
     content: [
       {
-        key: 'section',
         content: [
           fieldLevel.templateId('2.16.840.1.113883.10.20.22.2.22'),
           fieldLevel.templateId('2.16.840.1.113883.10.20.22.2.22.1'),
           fieldLevel.templateCode('EncountersSection'),
           fieldLevel.templateTitle('EncountersSection'),
           {
+            existsWhen: condition.keyDoesntExist('encounters'),
             key: 'text',
-            text: na,
-            existsWhen: condition.keyDoesntExist('encounters')
+            text: na
           },
           htmlHeader,
           {
-            key: 'entry',
             attributes: {
               typeCode: 'DRIV'
             },
             content: [[entryLevel.encounterActivities, required]],
-            dataKey: 'encounters'
+            dataKey: 'encounters',
+            key: 'entry'
           }
-        ]
+        ],
+        key: 'section'
       }
-    ]
+    ],
+    key: 'component'
   };
 }
 
 export function immunizationsSectionEntriesOptional(htmlHeader, na) {
   return {
-    key: 'component',
     content: [
       {
-        key: 'section',
-        nullFlavor: {
-          value: 'NI',
-          existsWhen: condition.keyDoesntExist('immunizations')
-        },
         content: [
           fieldLevel.templateId('2.16.840.1.113883.10.20.22.2.2'),
           fieldLevel.templateId('2.16.840.1.113883.10.20.22.2.2.1'),
           fieldLevel.templateCode('ImmunizationsSection'),
           fieldLevel.templateTitle('ImmunizationsSection'),
           {
+            existsWhen: condition.keyDoesntExist('immunizations'),
             key: 'text',
-            text: na,
-            existsWhen: condition.keyDoesntExist('immunizations')
+            text: na
           },
           htmlHeader,
           {
-            key: 'entry',
             attributes: {
               typeCode: 'DRIV'
             },
             content: [[entryLevel.immunizationActivity, required]],
-            dataKey: 'immunizations'
+            dataKey: 'immunizations',
+            key: 'entry'
           }
-        ]
+        ],
+        key: 'section',
+        nullFlavor: {
+          existsWhen: condition.keyDoesntExist('immunizations'),
+          value: 'NI'
+        }
       }
-    ]
+    ],
+    key: 'component'
   };
 }
 
 export function payersSection(htmlHeader, na) {
   return {
-    key: 'component',
     content: [
       {
-        key: 'section',
         content: [
           fieldLevel.templateId('2.16.840.1.113883.10.20.22.2.18'),
           fieldLevel.templateCode('PayersSection'),
           fieldLevel.templateTitle('PayersSection'),
           {
+            existsWhen: condition.keyDoesntExist('payers'),
             key: 'text',
-            text: na,
-            existsWhen: condition.keyDoesntExist('payers')
+            text: na
           },
           htmlHeader,
           {
-            key: 'entry',
             attributes: {
               typeCode: 'DRIV'
             },
             content: [[entryLevel.coverageActivity, required]],
-            dataKey: 'payers'
+            dataKey: 'payers',
+            key: 'entry'
           }
-        ]
+        ],
+        key: 'section'
       }
-    ]
+    ],
+    key: 'component'
   };
 }
 
 export function planOfCareSection(htmlHeader, na) {
   return {
-    key: 'component',
     content: [
       {
-        key: 'section',
         content: [
           fieldLevel.templateId('2.16.840.1.113883.10.20.22.2.10'),
           fieldLevel.templateCode('PlanOfCareSection'),
           fieldLevel.templateTitle('PlanOfCareSection'),
           {
+            existsWhen: condition.keyDoesntExist('plan_of_care'),
             key: 'text',
-            text: na,
-            existsWhen: condition.keyDoesntExist('plan_of_care')
+            text: na
           },
           htmlHeader,
           entryLevel.planOfCareActivityAct,
@@ -319,74 +317,76 @@ export function planOfCareSection(htmlHeader, na) {
           entryLevel.planOfCareActivitySubstanceAdministration,
           entryLevel.planOfCareActivitySupply,
           entryLevel.planOfCareActivityInstructions
-        ]
+        ],
+        key: 'section'
       }
-    ]
+    ],
+    key: 'component'
   };
 }
 
 export function socialHistorySection(htmlHeader, na) {
   return {
-    key: 'component',
     content: [
       {
-        key: 'section',
         content: [
           fieldLevel.templateId('2.16.840.1.113883.10.20.22.2.17'),
           fieldLevel.templateCode('SocialHistorySection'),
           fieldLevel.templateTitle('SocialHistorySection'),
           {
+            existsWhen: condition.keyDoesntExist('social_history'),
             key: 'text',
-            text: na,
-            existsWhen: condition.keyDoesntExist('social_history')
+            text: na
           },
           htmlHeader,
           {
-            key: 'entry',
             attributes: {
               typeCode: 'DRIV'
             },
             content: [entryLevel.smokingStatusObservation, entryLevel.socialHistoryObservation],
-            dataKey: 'social_history'
+            dataKey: 'social_history',
+            key: 'entry'
           }
-        ]
+        ],
+        key: 'section'
       }
     ],
+    key: 'component',
     notImplemented: ['pregnancyObservation', 'tobaccoUse']
   };
 }
 
 export function vitalSignsSectionEntriesOptional(htmlHeader, na) {
   return {
-    key: 'component',
     content: [
       {
-        key: 'section',
-        nullFlavor: {
-          value: 'NI',
-          existsWhen: condition.keyDoesntExist('vitals')
-        },
         content: [
           fieldLevel.templateId('2.16.840.1.113883.10.20.22.2.4'),
           fieldLevel.templateId('2.16.840.1.113883.10.20.22.2.4.1'),
           fieldLevel.templateCode('VitalSignsSection'),
           fieldLevel.templateTitle('VitalSignsSection'),
           {
+            existsWhen: condition.keyDoesntExist('vitals'),
             key: 'text',
-            text: na,
-            existsWhen: condition.keyDoesntExist('vitals')
+            text: na
           },
           htmlHeader,
           {
-            key: 'entry',
             attributes: {
               typeCode: 'DRIV'
             },
             content: [[entryLevel.vitalSignsOrganizer, required]],
-            dataKey: 'vitals'
+            dataKey: 'vitals',
+            key: 'entry'
           }
-        ]
+        ],
+        key: 'section',
+        nullFlavor: {
+          existsWhen: condition.keyDoesntExist('vitals'),
+          value: 'NI'
+        }
       }
-    ]
+    ],
+    key: 'component'
   };
 }

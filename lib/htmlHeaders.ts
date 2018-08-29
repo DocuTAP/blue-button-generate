@@ -2,8 +2,8 @@
 
 import * as bbu from 'blue-button-util';
 
-import * as leafLevel from './leafLevel';
 import * as contentModifier from './contentModifier';
+import * as leafLevel from './leafLevel';
 
 const required = contentModifier.required;
 const bbud = bbu.datetime;
@@ -38,7 +38,7 @@ const medicationsTextHeaders = ['Medication Class', 'Number of fills', 'Last fil
 const medicationsTextRow = [
   // Name, did not find class in the medication blue-button-data
   (input) => {
-    var value = bbuo.deepValue(input, 'product.product.name');
+    let value = bbuo.deepValue(input, 'product.product.name');
     if (!bbuo.exists(value)) {
       value = bbuo.deepValue(input, 'product.unencoded_name');
     }
@@ -70,7 +70,7 @@ const problemsTextHeaders = [
 const problemsTextRow = [
   leafLevel.deepInputProperty('problem.code.name', nda),
   leafLevel.deepInputProperty('problem.severity.code.name', nda),
-  (condition) => `${condition['onset_age']} ${condition['onset_age_unit']}s Old`,
+  (problem) => `${problem.onset_age} ${problem.onset_age_unit}s Old`,
   leafLevel.deepInputProperty('status.name', nda),
   leafLevel.deepInputDate('status.date_time.low', nda),
   leafLevel.deepInputDate('status.date_time.high', nda),
@@ -84,32 +84,24 @@ exports.problemsSectionEntriesRequiredHtmlHeader = getText(
 );
 
 export const proceduresSectionEntriesRequiredHtmlHeader = {
-  key: 'text',
-  existsWhen: condition.keyExists('procedures'),
-
   content: [
     {
-      key: 'table',
       content: [
         {
-          key: 'thead',
           content: [
             {
-              key: 'tr',
               content: {
-                key: 'th',
                 attributes: {
                   colspan: '5'
                 },
+                key: 'th',
                 text: 'Procedures'
-              }
+              },
+              key: 'tr'
             },
             {
-              key: 'tr',
               content: [
                 {
-                  key: 'th',
-                  text: leafLevel.input,
                   dataTransform: () => {
                     return [
                       'Service',
@@ -118,21 +110,23 @@ export const proceduresSectionEntriesRequiredHtmlHeader = {
                       'Servicing provider',
                       'Phone#'
                     ];
-                  }
+                  },
+                  key: 'th',
+                  text: leafLevel.input
                 }
-              ]
+              ],
+              key: 'tr'
             }
-          ]
+          ],
+          key: 'thead'
         },
         {
-          key: 'tbody',
           content: [
             {
-              key: 'tr',
               content: [
                 {
-                  key: 'td',
                   attributes: { ID: leafLevel.nextReferenceId('procedure') },
+                  key: 'td',
                   text: leafLevel.deepInputProperty('procedure.name', nda)
                 },
                 {
@@ -154,72 +148,71 @@ export const proceduresSectionEntriesRequiredHtmlHeader = {
                     nda
                   )
                 }
-              ]
+              ],
+              key: 'tr'
             }
           ],
-          dataKey: 'procedures'
+          dataKey: 'procedures',
+          key: 'tbody'
         }
-      ]
+      ],
+      key: 'table'
     }
-  ]
+  ],
+  existsWhen: condition.keyExists('procedures'),
+  key: 'text'
 };
 
 export const resultsSectionEntriesRequiredHtmlHeader = {
-  key: 'text',
-  existsWhen: condition.keyExists('results'),
-
   content: [
     {
-      key: 'table',
       content: [
         {
-          key: 'thead',
           content: [
             {
-              key: 'tr',
               content: {
-                key: 'th',
                 attributes: {
                   colspan: '7'
                 },
+                key: 'th',
                 text: 'Laboratory Results'
-              }
+              },
+              key: 'tr'
             },
             {
-              key: 'tr',
               content: [
                 {
-                  key: 'th',
-                  text: leafLevel.input,
                   dataTransform: () => {
                     return ['Test', 'Result', 'Units', 'Ref low', 'Ref high', 'Date', 'Source'];
-                  }
+                  },
+                  key: 'th',
+                  text: leafLevel.input
                 }
-              ]
+              ],
+              key: 'tr'
             }
-          ]
+          ],
+          key: 'thead'
         },
         {
-          key: 'tbody',
           content: [
             {
-              key: 'tr',
               content: [
                 {
-                  key: 'td',
                   attributes: {
                     colspan: '7'
                   },
+                  key: 'td',
                   text: leafLevel.deepInputProperty('result_set.name', nda)
                 }
-              ]
+              ],
+              key: 'tr'
             },
             {
-              key: 'tr',
               content: [
                 {
-                  key: 'td',
                   attributes: { ID: leafLevel.nextReferenceId('result') },
+                  key: 'td',
                   text: leafLevel.deepInputProperty('result.name', nda)
                 },
                 {
@@ -247,54 +240,53 @@ export const resultsSectionEntriesRequiredHtmlHeader = {
                   text: nda
                 }
               ],
-              dataKey: 'results'
+              dataKey: 'results',
+              key: 'tr'
             }
           ],
-          dataKey: 'results'
+          dataKey: 'results',
+          key: 'tbody'
         }
-      ]
+      ],
+      key: 'table'
     }
-  ]
+  ],
+  existsWhen: condition.keyExists('results'),
+  key: 'text'
 };
 
 export const encountersSectionEntriesOptionalHtmlHeader = {
-  key: 'text',
-  existsWhen: condition.keyExists('encounters'),
-
   content: [
     {
-      key: 'table',
       content: [
         {
           key: 'caption',
           text: 'Encounters'
         },
         {
-          key: 'thead',
           content: [
             {
-              key: 'tr',
               content: [
                 {
-                  key: 'th',
-                  text: leafLevel.input,
                   dataTransform: () => {
                     return ['Type', 'Facility', 'Date of Service', 'Diagnosis/Complaint'];
-                  }
+                  },
+                  key: 'th',
+                  text: leafLevel.input
                 }
-              ]
+              ],
+              key: 'tr'
             }
-          ]
+          ],
+          key: 'thead'
         },
         {
-          key: 'tbody',
           content: [
             {
-              key: 'tr',
               content: [
                 {
-                  key: 'td',
                   attributes: { ID: leafLevel.nextReferenceId('encounter') },
+                  key: 'td',
                   text: leafLevel.deepInputProperty('encounter.name', nda)
                 },
                 {
@@ -304,14 +296,14 @@ export const encountersSectionEntriesOptionalHtmlHeader = {
                 {
                   key: 'td',
                   text: (input) => {
-                    var value = bbuo.deepValue(input, 'date_time.point');
+                    let value = bbuo.deepValue(input, 'date_time.point');
                     if (value) {
                       value = bbud.modelToDate({
                         date: value.date,
                         precision: value.precision // workaround a bug in bbud.  Changes precision.
                       });
                       if (value) {
-                        var vps = value.split('-');
+                        const vps = value.split('-');
                         if (vps.length === 3) {
                           return [vps[1], vps[2], vps[0]].join('/');
                         }
@@ -324,14 +316,19 @@ export const encountersSectionEntriesOptionalHtmlHeader = {
                   key: 'td',
                   text: leafLevel.deepInputProperty('findings.0.value.name', nda)
                 }
-              ]
+              ],
+              key: 'tr'
             }
           ],
-          dataKey: 'encounters'
+          dataKey: 'encounters',
+          key: 'tbody'
         }
-      ]
+      ],
+      key: 'table'
     }
-  ]
+  ],
+  existsWhen: condition.keyExists('encounters'),
+  key: 'text'
 };
 
 const immunizationsTextHeaders = [
@@ -358,32 +355,24 @@ exports.immunizationsSectionEntriesOptionalHtmlHeader = getText(
 );
 
 export const payersSectionHtmlHeader = {
-  key: 'text',
-  existsWhen: condition.keyExists('payers'),
-
   content: [
     {
-      key: 'table',
       content: [
         {
-          key: 'thead',
           content: [
             {
-              key: 'tr',
               content: {
-                key: 'th',
                 attributes: {
                   colspan: '5'
                 },
+                key: 'th',
                 text: 'Payers'
-              }
+              },
+              key: 'tr'
             },
             {
-              key: 'tr',
               content: [
                 {
-                  key: 'th',
-                  text: leafLevel.input,
                   dataTransform: () => {
                     return [
                       'Payer Name',
@@ -392,17 +381,19 @@ export const payersSectionHtmlHeader = {
                       'Eligibility Start Date',
                       'Eligibility End Date'
                     ];
-                  }
+                  },
+                  key: 'th',
+                  text: leafLevel.input
                 }
-              ]
+              ],
+              key: 'tr'
             }
-          ]
+          ],
+          key: 'thead'
         },
         {
-          key: 'tbody',
           content: [
             {
-              key: 'tr',
               content: [
                 {
                   key: 'td',
@@ -430,14 +421,19 @@ export const payersSectionHtmlHeader = {
                   key: 'td',
                   text: leafLevel.deepInputProperty('participant.date_time.high.date', nda)
                 }
-              ]
+              ],
+              key: 'tr'
             }
           ],
-          dataKey: 'payers'
+          dataKey: 'payers',
+          key: 'tbody'
         }
-      ]
+      ],
+      key: 'table'
     }
-  ]
+  ],
+  existsWhen: condition.keyExists('payers'),
+  key: 'text'
 };
 
 const planOfCareTextHeaders = ['Planned Procedure', 'Planned Date'];
@@ -491,63 +487,62 @@ exports.socialHistorySectionHtmlHeaderNA = 'Not Available';
 exports.vitalSignsSectionEntriesOptionalHtmlHeaderNA = 'Not Available';
 
 function getText(topArrayKey, headers, values) {
-  var result = {
-    key: 'text',
-    existsWhen: condition.keyExists(topArrayKey),
-
+  const result = {
     content: [
       {
-        key: 'table',
         attributes: {
           border: '1',
           width: '100%'
         },
         content: [
           {
-            key: 'thead',
             content: [
               {
-                key: 'tr',
-                content: []
+                content: [],
+                key: 'tr'
               }
-            ]
+            ],
+            key: 'thead'
           },
           {
-            key: 'tbody',
             content: [
               {
-                key: 'tr',
                 content: [],
-                dataKey: topArrayKey
+                dataKey: topArrayKey,
+                key: 'tr'
               }
-            ]
+            ],
+            key: 'tbody'
           }
-        ]
+        ],
+        key: 'table'
       }
-    ]
+    ],
+    existsWhen: condition.keyExists(topArrayKey),
+    key: 'text'
   };
-  var headerTarget = result.content[0].content[0].content[0].content;
+  const headerTarget = result.content[0].content[0].content[0].content;
   headers.forEach((header) => {
-    var element = {
+    const element = {
       key: 'th',
       text: header
     };
     headerTarget.push(element);
   });
-  var valueTarget = result.content[0].content[1].content[0].content;
+  const valueTarget = result.content[0].content[1].content[0].content;
   values.forEach((value, valueIndex) => {
-    var data;
+    let data;
     if (typeof value !== 'function') {
       data = leafLevel.deepInputProperty(value, '');
     } else {
       data = value;
     }
 
-    var referenceName = headers[valueIndex].replace(/\s/g, '_').toLowerCase();
+    const referenceName = headers[valueIndex].replace(/\s/g, '_').toLowerCase();
 
-    var element = {
-      key: 'td',
+    const element = {
       attributes: { ID: leafLevel.nextReferenceId(referenceName) },
+      key: 'td',
       text: data
     };
     valueTarget.push(element);

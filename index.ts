@@ -7,27 +7,27 @@ standard XML/CCDA format) back to XML/CCDA format.
 
 import * as bbu from 'blue-button-util';
 
-import * as engine from './lib/engine';
 import * as documentLevel from './lib/documentLevel';
+import * as engine from './lib/engine';
 
 const bbuo = bbu.object;
 
 import * as html_renderer from './lib/htmlHeaders';
 
 const createContext = (() => {
-  var base = {
-    nextReference: function(referenceKey) {
-      var index = this.references[referenceKey] || 0;
+  const base = {
+    nextReference(referenceKey) {
+      let index = this.references[referenceKey] || 0;
       ++index;
       this.references[referenceKey] = index;
       return '#' + referenceKey + index;
     },
-    sameReference: function(referenceKey) {
-      var index = this.references[referenceKey] || 0;
+    sameReference(referenceKey) {
+      const index = this.references[referenceKey] || 0;
       return '#' + referenceKey + index;
     },
-    nextReferenceId: function(referenceKey) {
-      var index = this.referenceIds[referenceKey] || 0;
+    nextReferenceId(referenceKey) {
+      let index = this.referenceIds[referenceKey] || 0;
       ++index;
       this.referenceIds[referenceKey] = index;
       return referenceKey + index;
@@ -35,13 +35,13 @@ const createContext = (() => {
   };
 
   return (options) => {
-    var result = Object.create(base);
+    const result = Object.create(base);
     result.references = {};
     result.referenceIds = {};
     if (options.meta && options.addUniqueIds) {
       result.rootId = bbuo.deepValue(options.meta, 'identifiers.0.identifier');
     } else {
-      result.rootId = null;
+      result.rootId = undefined;
     }
     result.preventNullFlavor = options.preventNullFlavor;
 
@@ -54,7 +54,7 @@ export function generate(template, input, options) {
     options.html_renderer = html_renderer;
   }
 
-  var context = createContext(options);
+  const context = createContext(options);
   return engine.create(documentLevel.ccd(options.html_renderer), input, context);
 }
 
@@ -64,8 +64,8 @@ export function generateCCD(input, options?) {
   return generate(documentLevel.ccd, input, options);
 }
 
-exports.fieldLevel = require('./lib/fieldLevel');
-exports.entryLevel = require('./lib/entryLevel');
-exports.leafLevel = require('./lib/leafLevel');
-exports.contentModifier = require('./lib/contentModifier');
-exports.condition = require('./lib/condition');
+export * from './lib/fieldLevel';
+export * from './lib/entryLevel';
+export * from './lib/leafLevel';
+export * from './lib/contentModifier';
+export * from './lib/condition';

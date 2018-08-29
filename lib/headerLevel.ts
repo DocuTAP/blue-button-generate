@@ -1,9 +1,9 @@
 'use strict';
 
-import * as fieldLevel from './fieldLevel';
-import * as leafLevel from './leafLevel';
 import * as condition from './condition';
 import * as contentModifier from './contentModifier';
+import * as fieldLevel from './fieldLevel';
+import * as leafLevel from './leafLevel';
 
 const key = contentModifier.key;
 const required = contentModifier.required;
@@ -15,138 +15,135 @@ patientName.attributes = {
 };
 
 export const patient = {
-  key: 'patient',
   content: [
     patientName,
     {
+      attributes: leafLevel.codeFromName('2.16.840.1.113883.5.1'),
       dataKey: 'gender',
-      key: 'administrativeGenderCode',
-      attributes: leafLevel.codeFromName('2.16.840.1.113883.5.1')
+      key: 'administrativeGenderCode'
     },
     {
+      attributes: { value: leafLevel.time },
       dataKey: 'dob.point',
-      key: 'birthTime',
-      attributes: { value: leafLevel.time }
+      key: 'birthTime'
     },
     {
+      attributes: leafLevel.codeFromName('2.16.840.1.113883.5.2'),
       dataKey: 'marital_status',
-      key: 'maritalStatusCode',
-      attributes: leafLevel.codeFromName('2.16.840.1.113883.5.2')
+      key: 'maritalStatusCode'
     },
     {
+      attributes: leafLevel.codeFromName('2.16.840.1.113883.5.1076'),
       dataKey: 'religion',
-      key: 'religiousAffiliationCode',
-      attributes: leafLevel.codeFromName('2.16.840.1.113883.5.1076')
+      key: 'religiousAffiliationCode'
     },
     {
+      attributes: leafLevel.codeFromName('2.16.840.1.113883.6.238'),
       dataKey: 'race',
-      key: 'raceCode',
-      attributes: leafLevel.codeFromName('2.16.840.1.113883.6.238')
+      key: 'raceCode'
     },
     {
+      attributes: leafLevel.codeFromName('2.16.840.1.113883.6.238'),
       dataKey: 'ethnicity',
-      key: 'ethnicGroupCode',
-      attributes: leafLevel.codeFromName('2.16.840.1.113883.6.238')
+      key: 'ethnicGroupCode'
     },
     {
-      dataKey: 'guardians',
-      key: 'guardian',
       content: [
         {
-          dataKey: 'relation',
-          key: 'code',
           attributes: {
             code: leafLevel.inputProperty('relationship_code'),
-            displayName: leafLevel.inputProperty('display_name'),
             codeSystem: '2.16.840.1.113883.5.111',
-            codeSystemName: 'HL7 Role'
-          }
+            codeSystemName: 'HL7 Role',
+            displayName: leafLevel.inputProperty('display_name')
+          },
+          dataKey: 'relation',
+          key: 'code'
         },
         fieldLevel.usRealmAddress,
         fieldLevel.telecom,
         {
-          key: 'guardianPerson',
-          content: fieldLevel.usRealmName
+          content: fieldLevel.usRealmName,
+          key: 'guardianPerson'
         }
-      ]
+      ],
+      dataKey: 'guardians',
+      key: 'guardian'
     },
     {
-      key: 'birthplace',
-      existsWhen: condition.keyExists('birthplace'),
       content: {
-        key: 'place',
-        content: [[fieldLevel.usRealmAddress, dataKey('birthplace.address')]]
-      }
+        content: [[fieldLevel.usRealmAddress, dataKey('birthplace.address')]],
+        key: 'place'
+      },
+      existsWhen: condition.keyExists('birthplace'),
+      key: 'birthplace'
     },
     {
-      dataKey: 'languages',
-      key: 'languageCommunication',
       content: [
         {
-          dataKey: 'language',
-          key: 'languageCode',
           attributes: {
             code: leafLevel.input
-          }
+          },
+          dataKey: 'language',
+          key: 'languageCode'
         },
         {
+          attributes: leafLevel.codeFromName('2.16.840.1.113883.5.60'),
           dataKey: 'mode',
           existsWhen: condition.keyExists('modecode'),
-          key: 'modeCode',
-          attributes: leafLevel.codeFromName('2.16.840.1.113883.5.60')
+          key: 'modeCode'
         },
         {
-          dataKey: 'proficiency',
-          key: 'proficiencyLevelCode',
           attributes: {
             code: (input) => {
               return input.substring(0, 1);
             },
-            displayName: leafLevel.input,
             codeSystem: '2.16.840.1.113883.5.61',
-            codeSystemName: 'LanguageAbilityProficiency'
-          }
+            codeSystemName: 'LanguageAbilityProficiency',
+            displayName: leafLevel.input
+          },
+          dataKey: 'proficiency',
+          key: 'proficiencyLevelCode'
         },
         {
-          dataKey: 'preferred',
-          key: 'preferenceInd',
           attributes: {
             value: (input) => {
               return input.toString();
             }
-          }
+          },
+          dataKey: 'preferred',
+          key: 'preferenceInd'
         }
-      ]
+      ],
+      dataKey: 'languages',
+      key: 'languageCommunication'
     }
-  ]
+  ],
+  key: 'patient'
 };
 
 export const provider = {
-  key: 'performer',
   attributes: {
     typeCode: 'PRF'
   },
   content: [
     [fieldLevel.effectiveTime, key('time'), dataKey('date_time')],
     {
-      key: 'assignedEntity',
       content: [
         {
-          key: 'id',
           attributes: {
             extension: leafLevel.inputProperty('extension'),
             root: leafLevel.inputProperty('root')
           },
-          dataKey: 'identity'
+          dataKey: 'identity',
+          key: 'id'
         },
         {
-          key: 'code',
           attributes: leafLevel.code,
-          dataKey: 'type'
+          dataKey: 'type',
+          key: 'code'
         },
 
         {
-          key: 'telecom',
           attributes: [
             {
               use: 'WP',
@@ -155,13 +152,12 @@ export const provider = {
               }
             }
           ],
-          dataKey: 'phone'
+          dataKey: 'phone',
+          key: 'telecom'
         },
         {
-          key: 'assignedPerson',
           content: [
             {
-              key: 'name',
               content: [
                 {
                   key: 'given',
@@ -172,34 +168,36 @@ export const provider = {
                   text: leafLevel.inputProperty('last')
                 }
               ],
-              dataKey: 'name'
+              dataKey: 'name',
+              key: 'name'
             }
-          ]
+          ],
+          key: 'assignedPerson'
         }
-      ]
+      ],
+      key: 'assignedEntity'
     }
   ],
-  dataKey: 'providers'
+  dataKey: 'providers',
+  key: 'performer'
 };
 
-export const attributed_provider = {
-  key: 'providerOrganization',
+export const attributedProvider = {
   content: [
     {
-      key: 'id',
       attributes: {
         extension: leafLevel.inputProperty('extension'),
         root: leafLevel.inputProperty('root')
       },
-      dataKey: 'attributed_provider.identity'
+      dataKey: 'attributed_provider.identity',
+      key: 'id'
     },
     {
+      dataKey: 'attributed_provider.name',
       key: 'name',
-      text: leafLevel.inputProperty('full'),
-      dataKey: 'attributed_provider.name'
+      text: leafLevel.inputProperty('full')
     },
     {
-      key: 'telecom',
       attributes: [
         {
           use: 'WP',
@@ -208,121 +206,123 @@ export const attributed_provider = {
           }
         }
       ],
-      dataKey: 'attributed_provider.phone'
+      dataKey: 'attributed_provider.phone',
+      key: 'telecom'
     }
   ],
-  dataKey: 'meta'
+  dataKey: 'meta',
+  key: 'providerOrganization'
 };
 
 export const recordTarget = {
-  key: 'recordTarget',
   content: {
-    key: 'patientRole',
     content: [
       fieldLevel.id,
       fieldLevel.usRealmAddress,
       fieldLevel.telecom,
       patient,
-      attributed_provider
-    ]
+      attributedProvider
+    ],
+    key: 'patientRole'
   },
-  dataKey: 'data.demographics'
+  dataKey: 'data.demographics',
+  key: 'recordTarget'
 };
 
 export const headerAuthor = {
-  key: 'author',
   content: [
     [fieldLevel.timeNow, required],
     {
-      key: 'assignedAuthor',
       content: [
         fieldLevel.id,
         {
-          key: 'code',
           attributes: [
             leafLevel.code,
             {
-              codeSystemName: 'Healthcare Provider Taxonomy (HIPAA)',
-              codeSystem: '2.16.840.1.113883.6.101'
+              codeSystem: '2.16.840.1.113883.6.101',
+              codeSystemName: 'Healthcare Provider Taxonomy (HIPAA)'
             }
           ],
-          dataKey: 'taxonomy_code'
+          dataKey: 'taxonomy_code',
+          key: 'code'
         },
         fieldLevel.usRealmAddress,
         fieldLevel.telecom,
         {
-          key: 'assignedPerson',
-          content: [fieldLevel.usRealmName]
+          content: [fieldLevel.usRealmName],
+          key: 'assignedPerson'
         },
         fieldLevel.representedOrganization
-      ]
+      ],
+      key: 'assignedAuthor'
     }
   ],
-  dataKey: 'meta.ccda_header.author'
+  dataKey: 'meta.ccda_header.author',
+  key: 'author'
 };
 
 export const headerInformant = {
-  key: 'informant',
   content: {
-    key: 'assignedEntity',
-    //attributes: {id:}
+    // attributes: {id:}
     content: [
       {
-        key: 'id',
         attributes: {
           root: leafLevel.inputProperty('id')
         },
-        dataKey: 'informant'
+        dataKey: 'informant',
+        key: 'id'
       },
       {
-        key: 'representedOrganization',
         content: [
           {
-            key: 'id',
             attributes: {
               root: leafLevel.inputProperty('id')
             },
-            dataKey: 'informant'
+            dataKey: 'informant',
+            key: 'id'
           },
           {
+            dataKey: 'informant',
             key: 'name',
-            text: leafLevel.inputProperty('name'),
-            dataKey: 'informant'
+            text: leafLevel.inputProperty('name')
           }
-        ]
+        ],
+        key: 'representedOrganization'
       }
-    ]
+    ],
+    key: 'assignedEntity'
   },
   dataKey: 'meta.ccda_header',
-  existsWhen: condition.keyExists('informant')
+  existsWhen: condition.keyExists('informant'),
+  key: 'informant'
 };
 export const headerCustodian = {
-  key: 'custodian',
   content: {
-    key: 'assignedCustodian',
-    //attributes: {id:}
+    // attributes: {id:}
     content: [
       [
         fieldLevel.representedOrganization,
         key('representedCustodianOrganization'),
         dataKey('custodian')
       ]
-    ]
+    ],
+    key: 'assignedCustodian'
   },
-  dataKey: 'meta.ccda_header'
+  dataKey: 'meta.ccda_header',
+  key: 'custodian'
 };
 
 export const providers = {
-  key: 'documentationOf',
   attributes: {
     typeCode: 'DOC'
   },
   content: {
-    key: 'serviceEvent',
     attributes: {
       classCode: 'PCPR'
     },
     content: [[fieldLevel.effectiveTime, dataKey('event.date_time')]],
-    dataKey: 'meta'
-  }
+    dataKey: 'meta',
+    key: 'serviceEvent'
+  },
+  key: 'documentationOf'
 };

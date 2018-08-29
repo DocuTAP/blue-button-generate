@@ -1,15 +1,13 @@
 'use strict';
 
-import * as fieldLevel from '../fieldLevel'
-import * as leafLevel from '../leafLevel'
-import * as condition from '../condition'
-
-import * as contentModifier from '../contentModifier'
+import * as condition from '../condition';
+import * as contentModifier from '../contentModifier';
+import * as fieldLevel from '../fieldLevel';
+import * as leafLevel from '../leafLevel';
 
 const required = contentModifier.required;
 
 const vitalSignObservation = {
-  key: 'observation',
   attributes: {
     classCode: 'OBS',
     moodCode: 'EVN'
@@ -18,53 +16,53 @@ const vitalSignObservation = {
     fieldLevel.templateId('2.16.840.1.113883.10.20.22.4.27'),
     fieldLevel.id,
     {
-      key: 'code',
       attributes: leafLevel.code,
       content: [
         {
-          key: 'originalText',
           content: {
-            key: 'reference',
-            attributes: { value: leafLevel.nextReference('vitals') }
-          }
+            attributes: { value: leafLevel.nextReference('vitals') },
+            key: 'reference'
+          },
+          key: 'originalText'
         },
         {
-          key: 'translation',
           attributes: leafLevel.code,
-          dataKey: 'translations'
+          dataKey: 'translations',
+          key: 'translation'
         }
       ],
       dataKey: 'vital',
+      key: 'code',
       required: true
     },
     {
-      key: 'statusCode',
       attributes: {
         code: leafLevel.inputProperty('status')
-      }
+      },
+      key: 'statusCode'
     },
     [fieldLevel.effectiveTime, required],
     {
-      key: 'value',
       attributes: {
-        'xsi:type': 'PQ',
+        unit: leafLevel.inputProperty('unit'),
         value: leafLevel.inputProperty('value'),
-        unit: leafLevel.inputProperty('unit')
+        'xsi:type': 'PQ'
       },
       existsWhen: condition.keyExists('value'),
+      key: 'value',
       required: true
     },
     {
-      key: 'interpretationCode',
       attributes: leafLevel.codeFromName('2.16.840.1.113883.5.83'),
-      dataKey: 'interpretations'
+      dataKey: 'interpretations',
+      key: 'interpretationCode'
     }
   ],
+  key: 'observation',
   notImplemented: ['constant statusCode', 'methodCode', 'targetSiteCode', 'author']
 };
 
 export const vitalSignsOrganizer = {
-  key: 'organizer',
   attributes: {
     classCode: 'CLUSTER',
     moodCode: 'EVN'
@@ -75,17 +73,18 @@ export const vitalSignsOrganizer = {
     fieldLevel.id,
     fieldLevel.templateCode('VitalSignsOrganizer'),
     {
-      key: 'statusCode',
       attributes: {
         code: leafLevel.inputProperty('status')
-      }
+      },
+      key: 'statusCode'
     },
     [fieldLevel.effectiveTime, required],
     {
-      key: 'component',
       content: vitalSignObservation,
+      key: 'component',
       required: true
     }
   ],
+  key: 'organizer',
   notImplemented: ['constant statusCode']
 };

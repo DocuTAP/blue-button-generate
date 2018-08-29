@@ -1,4 +1,4 @@
-const translate = require('./translate');
+import * as translate from './translate';
 
 test.each([
   ['year', '2012'],
