@@ -1,7 +1,4 @@
-'use strict';
-
 import * as bbu from 'blue-button-util';
-
 import * as translate from './translate';
 
 const bbuo = bbu.object;

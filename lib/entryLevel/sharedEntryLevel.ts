@@ -1,5 +1,3 @@
-'use strict';
-
 import * as condition from '../condition';
 import * as fieldLevel from '../fieldLevel';
 import * as leafLevel from '../leafLevel';

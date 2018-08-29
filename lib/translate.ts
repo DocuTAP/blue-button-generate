@@ -1,5 +1,3 @@
-'use strict';
-
 import * as bbm from 'blue-button-meta';
 import * as moment from 'moment';
 

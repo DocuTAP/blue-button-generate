@@ -1,5 +1,3 @@
-'use strict';
-
 import * as contentModifier from '../contentModifier';
 import * as fieldLevel from '../fieldLevel';
 import * as leafLevel from '../leafLevel';

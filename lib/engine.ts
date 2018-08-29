@@ -1,5 +1,3 @@
-'use strict';
-
 import * as xmlutil from './xmlutil';
 
 const expandText = (input, template) => {

@@ -1,5 +1,3 @@
-'use strict';
-
 import * as allergyEntryLevel from './allergyEntryLevel';
 import * as encounterEntryLevel from './encounterEntryLevel';
 import * as immunizationEntryLevel from './immunizationEntryLevel';
