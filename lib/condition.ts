@@ -1,5 +1,3 @@
-'use strict';
-
 export function keyExists(key) {
   return (input) => {
     return input.hasOwnProperty(key);

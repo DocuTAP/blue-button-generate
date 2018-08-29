@@ -1,5 +1,3 @@
-'use strict';
-
 import * as condition from './condition';
 import * as contentModifier from './contentModifier';
 import * as entryLevel from './entryLevel';

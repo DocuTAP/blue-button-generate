@@ -1,5 +1,3 @@
-'use strict';
-
 export function key(overrideKeyValue) {
   return (template) => {
     template.key = overrideKeyValue;

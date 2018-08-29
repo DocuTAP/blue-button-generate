@@ -1,7 +1,5 @@
-'use strict';
-
 import * as bbu from 'blue-button-util';
-
+import * as condition from './condition';
 import * as contentModifier from './contentModifier';
 import * as leafLevel from './leafLevel';
 
@@ -10,8 +8,6 @@ const bbud = bbu.datetime;
 const bbuo = bbu.object;
 
 const nda = 'No Data Available';
-
-import * as condition from './condition';
 
 const allergiesTextHeaders = [
   'Substance',

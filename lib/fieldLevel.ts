@@ -1,8 +1,5 @@
-'use strict';
-
 import * as bbm from 'blue-button-meta';
 import * as uuid from 'uuid';
-
 import * as condition from './condition';
 import * as contentModifier from './contentModifier';
 import * as leafLevel from './leafLevel';
