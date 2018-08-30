@@ -911,13 +911,6 @@ blue-button-model@~1.10.0:
     lodash "~3.10.1"
     z-schema "~3.15.4"
 
-blue-button-util@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/blue-button-util/-/blue-button-util-1.5.0.tgz#fe74fde5274058f47fbb71094055b151cce1e6b6"
-  dependencies:
-    lodash "~2.4.1"
-    moment "~2.8.4"
-
 blue-button-xml@~1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/blue-button-xml/-/blue-button-xml-1.8.0.tgz#2a5a15bc268175a8dd915f857a299a02c637fd5a"
@@ -4151,10 +4144,6 @@ lodash@^4.13.1, lodash@^4.17.10, lodash@^4.17.4, lodash@^4.2.1, lodash@^4.3.0:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
-lodash@~2.4.1:
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-2.4.2.tgz#fadd834b9683073da179b3eae6d9c0d15053f73e"
-
 longest@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
@@ -4527,17 +4516,9 @@ modify-values@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
 
-moment@2.10.2:
-  version "2.10.2"
-  resolved "http://registry.npmjs.org/moment/-/moment-2.10.2.tgz#faf8c09ca82f03f94962e3b5a7239263ea50d087"
-
-moment@^2.16.0, moment@^2.17.1:
+moment@2.22.2, moment@^2.16.0, moment@^2.17.1:
   version "2.22.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
-
-moment@~2.8.4:
-  version "2.8.4"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.8.4.tgz#cc174aabb19223efff5699a9467805a2789838bf"
 
 move-concurrently@^1.0.1:
   version "1.0.1"
