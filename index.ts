@@ -1,17 +1,11 @@
-'use strict';
-
 /*
 This script converts CCDA data in JSON format (originally generated from a Continuity of Care Document (CCD) in
 standard XML/CCDA format) back to XML/CCDA format.
 */
 
-import * as bbu from 'blue-button-util';
-
+import * as _ from 'lodash';
 import * as documentLevel from './lib/documentLevel';
 import * as engine from './lib/engine';
-
-const bbuo = bbu.object;
-
 import * as html_renderer from './lib/htmlHeaders';
 
 const createContext = (() => {
@@ -39,7 +33,7 @@ const createContext = (() => {
     result.references = {};
     result.referenceIds = {};
     if (options.meta && options.addUniqueIds) {
-      result.rootId = bbuo.deepValue(options.meta, 'identifiers.0.identifier');
+      result.rootId = _.get(options.meta, 'identifiers[0].identifier');
     } else {
       result.rootId = undefined;
     }

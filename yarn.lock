@@ -392,6 +392,10 @@
   version "23.3.1"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.3.1.tgz#a4319aedb071d478e6f407d1c4578ec8156829cf"
 
+"@types/lodash@^4.14.116":
+  version "4.14.116"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.116.tgz#5ccf215653e3e8c786a58390751033a9adca0eb9"
+
 "@types/node@^10.9.2":
   version "10.9.2"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.9.2.tgz#f0ab8dced5cd6c56b26765e1c0d9e4fdcc9f2a00"
@@ -4525,7 +4529,7 @@ modify-values@^1.0.0:
 
 moment@2.10.2:
   version "2.10.2"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.10.2.tgz#faf8c09ca82f03f94962e3b5a7239263ea50d087"
+  resolved "http://registry.npmjs.org/moment/-/moment-2.10.2.tgz#faf8c09ca82f03f94962e3b5a7239263ea50d087"
 
 moment@^2.16.0, moment@^2.17.1:
   version "2.22.2"

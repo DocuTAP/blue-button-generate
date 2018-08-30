@@ -1,7 +1,7 @@
 import * as bbu from 'blue-button-util';
+import * as _ from 'lodash';
 import * as translate from './translate';
 
-const bbuo = bbu.object;
 const bbud = bbu.datetime;
 
 export function input(templateInput) {
@@ -80,8 +80,7 @@ export function nextReferenceId(referenceKey) {
 
 export function deepInputProperty(deepProperty, defaultValue?) {
   return (templateInput) => {
-    let value = bbuo.deepValue(templateInput, deepProperty);
-    value = bbuo.exists(value) ? value : defaultValue;
+    let value = _.get(templateInput, deepProperty) || defaultValue;
     if (typeof value !== 'string') {
       value = value.toString();
     }
@@ -91,15 +90,15 @@ export function deepInputProperty(deepProperty, defaultValue?) {
 
 export function deepInputDate(deepProperty, defaultValue) {
   return (templateInput) => {
-    let value = bbuo.deepValue(templateInput, deepProperty);
-    if (!bbuo.exists(value)) {
+    let value = _.get(templateInput, deepProperty);
+    if (!value) {
       return defaultValue;
     } else {
       value = bbud.modelToDate({
         date: value.date,
         precision: value.precision // workaround a bug in bbud.  Changes precision.
       });
-      if (bbuo.exists(value)) {
+      if (value) {
         return value;
       } else {
         return defaultValue;

@@ -1,11 +1,11 @@
 import * as bbu from 'blue-button-util';
+import * as _ from 'lodash';
 import * as condition from './condition';
 import * as contentModifier from './contentModifier';
 import * as leafLevel from './leafLevel';
 
 const required = contentModifier.required;
 const bbud = bbu.datetime;
-const bbuo = bbu.object;
 
 const nda = 'No Data Available';
 
@@ -32,13 +32,12 @@ exports.allergiesSectionEntriesRequiredHtmlHeader = getText(
 
 const medicationsTextHeaders = ['Medication Class', 'Number of fills', 'Last fill date'];
 const medicationsTextRow = [
-  // Name, did not find class in the medication blue-button-data
   (input) => {
-    let value = bbuo.deepValue(input, 'product.product.name');
-    if (!bbuo.exists(value)) {
-      value = bbuo.deepValue(input, 'product.unencoded_name');
+    let value = _.get(input, 'product.product.name');
+    if (!value) {
+      value = _.get(input, 'product.unencoded_name');
     }
-    if (!bbuo.exists(value)) {
+    if (!value) {
       return '';
     } else {
       return value;
@@ -292,7 +291,7 @@ export const encountersSectionEntriesOptionalHtmlHeader = {
                 {
                   key: 'td',
                   text: (input) => {
-                    let value = bbuo.deepValue(input, 'date_time.point');
+                    let value = _.get(input, 'date_time.point');
                     if (value) {
                       value = bbud.modelToDate({
                         date: value.date,
