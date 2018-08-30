@@ -50,10 +50,9 @@ const precisionToFormat = {
 };
 
 export function time(input) {
-  const m = moment.parseZone(input.date);
-  const formatSpec = precisionToFormat[input.precision];
-  const result = m.format(formatSpec);
-  return result;
+  return typeof input === 'object' && input.hasOwnProperty('date')
+    ? moment.parseZone(input.date).format(precisionToFormat[input.precision])
+    : 'Invalid date';
 }
 
 export function acronymize(inputString) {

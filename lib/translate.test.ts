@@ -16,3 +16,10 @@ test.each([
   };
   expect(translate.time(input)).toBe(expected);
 });
+
+test.each([{ date: '', precision: 'day' }, 'Not a date'])(
+  'returns "Invalid date" when input is malformed',
+  (input) => {
+    expect(translate.time(input)).toBe('Invalid date');
+  }
+);

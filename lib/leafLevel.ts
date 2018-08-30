@@ -1,8 +1,5 @@
-import * as bbu from 'blue-button-util';
 import * as _ from 'lodash';
 import * as translate from './translate';
-
-const bbud = bbu.datetime;
 
 export function input(templateInput) {
   return templateInput;
@@ -88,21 +85,13 @@ export function deepInputProperty(deepProperty, defaultValue?) {
   };
 }
 
-export function deepInputDate(deepProperty, defaultValue) {
+export function deepInputDate(deepProperty, defaultValue?) {
   return (templateInput) => {
-    let value = _.get(templateInput, deepProperty);
-    if (!value) {
+    const templateValue = _.get(templateInput, deepProperty);
+    if (!templateValue) {
       return defaultValue;
-    } else {
-      value = bbud.modelToDate({
-        date: value.date,
-        precision: value.precision // workaround a bug in bbud.  Changes precision.
-      });
-      if (value) {
-        return value;
-      } else {
-        return defaultValue;
-      }
     }
+    const datetime = translate.time(templateValue);
+    return datetime === 'Invalid date' ? defaultValue : datetime;
   };
 }

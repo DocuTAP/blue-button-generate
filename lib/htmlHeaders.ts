@@ -1,11 +1,7 @@
-import * as bbu from 'blue-button-util';
 import * as _ from 'lodash';
+import * as moment from 'moment';
 import * as condition from './condition';
-import * as contentModifier from './contentModifier';
 import * as leafLevel from './leafLevel';
-
-const required = contentModifier.required;
-const bbud = bbu.datetime;
 
 const nda = 'No Data Available';
 
@@ -291,20 +287,10 @@ export const encountersSectionEntriesOptionalHtmlHeader = {
                 {
                   key: 'td',
                   text: (input) => {
-                    let value = _.get(input, 'date_time.point');
-                    if (value) {
-                      value = bbud.modelToDate({
-                        date: value.date,
-                        precision: value.precision // workaround a bug in bbud.  Changes precision.
-                      });
-                      if (value) {
-                        const vps = value.split('-');
-                        if (vps.length === 3) {
-                          return [vps[1], vps[2], vps[0]].join('/');
-                        }
-                      }
-                    }
-                    return nda;
+                    const encounterDate = _.get(input, 'date_time.point');
+                    return encounterDate
+                      ? moment.parseZone(encounterDate).format('MMM DD, YYYY')
+                      : nda;
                   }
                 },
                 {
