@@ -1,11 +1,9 @@
-import * as bbm from 'blue-button-meta';
 import * as uuid from 'uuid';
+import { sectionEntries as templateCodes } from './code-system-maps/CCDA/sectionEntries';
 import * as condition from './condition';
 import * as contentModifier from './contentModifier';
 import * as leafLevel from './leafLevel';
 import * as translate from './translate';
-
-const templateCodes = bbm.CCDA.sections_entries_codes.codes;
 
 const key = contentModifier.key;
 const required = contentModifier.required;
@@ -22,26 +20,17 @@ export function templateId(templateOid) {
 }
 
 export function templateCode(name) {
-  const raw = templateCodes[name];
-  const result = {
-    attributes: {
-      code: raw.code,
-      codeSystem: raw.code_system,
-      codeSystemName: raw.code_system_name,
-      displayName: raw.name
-    },
+  return {
+    attributes: templateCodes[name],
     key: 'code'
   };
-  return result;
 }
 
 export function templateTitle(name) {
-  const raw = templateCodes[name];
-  const result = {
+  return {
     key: 'title',
-    text: raw.name
+    text: templateCodes[name].displayName
   };
-  return result;
 }
 
 export const id = {

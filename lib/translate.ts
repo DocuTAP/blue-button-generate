@@ -1,12 +1,11 @@
-import * as bbm from 'blue-button-meta';
 import * as moment from 'moment';
+import * as codeSystems from './code-system-maps/codeSystems';
 
-const css = bbm.code_systems;
-export function codeFromName(OID) {
+export function codeFromName(oid) {
   return (input) => {
-    const cs = css.find(OID);
-    const templateCode = cs ? cs.displayNameCode(input) : undefined;
-    const systemInfo = cs.systemId(OID);
+    const codeSystem = codeSystems.findFromOid(oid);
+    const templateCode = codeSystem && codeSystem.displayNameCode(input);
+    const systemInfo = codeSystem.systemId();
     return {
       code: templateCode,
       codeSystem: systemInfo.codeSystem,
@@ -17,26 +16,14 @@ export function codeFromName(OID) {
 }
 
 export function code(input) {
-  const result: any = {};
-  if (input.code) {
-    result.code = input.code;
-  }
-
-  if (input.name) {
-    result.displayName = input.name;
-  }
-
-  const codeSystem =
-    input.code_system || (input.code_system_name && css.findFromName(input.code_system_name));
-  if (codeSystem) {
-    result.codeSystem = codeSystem;
-  }
-
-  if (input.code_system_name) {
-    result.codeSystemName = input.code_system_name;
-  }
-
-  return result;
+  return compact({
+    code: input.code,
+    codeSystem:
+      input.codeSystem ||
+      (input.codeSystemName && codeSystems.findFromName(input.codeSystemName).oid),
+    codeSystemName: input.codeSystemName,
+    displayName: input.name
+  });
 }
 
 const precisionToFormat = {
@@ -140,4 +127,10 @@ export function name(input) {
   } else {
     return nameSingle(input);
   }
+}
+
+export function compact(inputObject: {}) {
+  return Object.keys(inputObject).reduce((newObj, key) => {
+    return inputObject[key] === undefined ? delete newObj[key] && newObj : newObj;
+  }, inputObject);
 }

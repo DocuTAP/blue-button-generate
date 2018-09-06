@@ -98,7 +98,7 @@
         "vital": {
           "name": "Height",
           "code": "8302-2",
-          "code_system_name": "LOINC"
+          "codeSystemName": "LOINC"
         },
         "status": "completed",
         "date_time": {
@@ -120,7 +120,7 @@
         "vital": {
           "name": "Patient Body Weight - Measured",
           "code": "3141-9",
-          "code_system_name": "LOINC"
+          "codeSystemName": "LOINC"
         },
         "status": "completed",
         "date_time": {
@@ -142,7 +142,7 @@
         "vital": {
           "name": "Intravascular Systolic",
           "code": "8480-6",
-          "code_system_name": "LOINC"
+          "codeSystemName": "LOINC"
         },
         "status": "completed",
         "date_time": {
@@ -164,7 +164,7 @@
         "vital": {
           "name": "Height",
           "code": "8302-2",
-          "code_system_name": "LOINC"
+          "codeSystemName": "LOINC"
         },
         "status": "completed",
         "date_time": {
@@ -186,7 +186,7 @@
         "vital": {
           "name": "Patient Body Weight - Measured",
           "code": "3141-9",
-          "code_system_name": "LOINC"
+          "codeSystemName": "LOINC"
         },
         "status": "completed",
         "date_time": {
@@ -208,7 +208,7 @@
         "vital": {
           "name": "Intravascular Systolic",
           "code": "8480-6",
-          "code_system_name": "LOINC"
+          "codeSystemName": "LOINC"
         },
         "status": "completed",
         "date_time": {
@@ -232,7 +232,7 @@
         "result_set": {
           "name": "CBC WO DIFFERENTIAL",
           "code": "43789009",
-          "code_system_name": "SNOMED CT"
+          "codeSystemName": "SNOMED CT"
         },
         "results": [
           {
@@ -244,7 +244,7 @@
             "result": {
               "name": "HGB",
               "code": "30313-1",
-              "code_system_name": "LOINC"
+              "codeSystemName": "LOINC"
             },
             "date_time": {
               "point": {
@@ -269,7 +269,7 @@
             "result": {
               "name": "WBC",
               "code": "33765-9",
-              "code_system_name": "LOINC"
+              "codeSystemName": "LOINC"
             },
             "date_time": {
               "point": {
@@ -296,7 +296,7 @@
             "result": {
               "name": "PLT",
               "code": "26515-7",
-              "code_system_name": "LOINC"
+              "codeSystemName": "LOINC"
             },
             "date_time": {
               "point": {
@@ -350,10 +350,10 @@
               {
                 "name": "Proventil 0.09 MG/ACTUAT inhalant solution",
                 "code": "573621",
-                "code_system_name": "RXNORM"
+                "codeSystemName": "RXNORM"
               }
             ],
-            "code_system_name": "RXNORM"
+            "codeSystemName": "RXNORM"
           },
           "manufacturer": "Medication Factory Inc."
         },
@@ -396,10 +396,10 @@
                 {
                   "name": "Proventil 0.09 MG/ACTUAT inhalant solution",
                   "code": "573621",
-                  "code_system_name": "RXNORM"
+                  "codeSystemName": "RXNORM"
                 }
               ],
-              "code_system_name": "RXNORM"
+              "codeSystemName": "RXNORM"
             },
             "manufacturer": "Medication Factory Inc."
           }
@@ -408,12 +408,12 @@
           "route": {
             "name": "RESPIRATORY (INHALATION)",
             "code": "C38216",
-            "code_system_name": "Medication Route FDA"
+            "codeSystemName": "Medication Route FDA"
           },
           "form": {
             "name": "INHALANT",
             "code": "C42944",
-            "code_system_name": "Medication Route FDA"
+            "codeSystemName": "Medication Route FDA"
           },
           "dose": {
             "value": 1,
@@ -446,17 +446,17 @@
         "drug_vehicle": {
           "name": "Aerosol",
           "code": "324049",
-          "code_system_name": "RXNORM"
+          "codeSystemName": "RXNORM"
         },
         "precondition": {
           "code": {
             "code": "ASSERTION",
-            "code_system_name": "ActCode"
+            "codeSystemName": "ActCode"
           },
           "value": {
             "name": "Wheezing",
             "code": "56018004",
-            "code_system_name": "SNOMED CT"
+            "codeSystemName": "SNOMED CT"
           }
         },
         "indication": {
@@ -469,7 +469,7 @@
           "code": {
             "name": "Finding",
             "code": "404684003",
-            "code_system_name": "SNOMED CT"
+            "codeSystemName": "SNOMED CT"
           },
           "date_time": {
             "low": {
@@ -480,7 +480,7 @@
           "value": {
             "name": "Pneumonia",
             "code": "233604007",
-            "code_system_name": "SNOMED CT"
+            "codeSystemName": "SNOMED CT"
           }
         },
         "dispense": {
@@ -531,10 +531,10 @@
                 {
                   "name": "Proventil 0.09 MG/ACTUAT inhalant solution",
                   "code": "573621",
-                  "code_system_name": "RXNORM"
+                  "codeSystemName": "RXNORM"
                 }
               ],
-              "code_system_name": "RXNORM"
+              "codeSystemName": "RXNORM"
             },
             "manufacturer": "Medication Factory Inc."
           }
@@ -546,12 +546,12 @@
         "encounter": {
           "name": "Office outpatient visit 15 minutes",
           "code": "99213",
-          "code_system_name": "CPT",
+          "codeSystemName": "CPT",
           "translations": [
             {
               "name": "Ambulatory",
               "code": "AMB",
-              "code_system_name": "ActCode"
+              "codeSystemName": "ActCode"
             }
           ]
         },
@@ -577,7 +577,7 @@
               {
                 "name": "General Physician",
                 "code": "59058001",
-                "code_system_name": "SNOMED CT"
+                "codeSystemName": "SNOMED CT"
               }
             ]
           }
@@ -588,7 +588,7 @@
             "location_type": {
               "name": "Urgent Care Center",
               "code": "1160-1",
-              "code_system_name": "HealthcareServiceLocation"
+              "codeSystemName": "HealthcareServiceLocation"
             },
             "addresses": [
               {
@@ -612,7 +612,7 @@
             "value": {
               "name": "Pneumonia",
               "code": "233604007",
-              "code_system_name": "SNOMED CT"
+              "codeSystemName": "SNOMED CT"
             },
             "date_time": {
               "low": {
@@ -647,12 +647,12 @@
           "allergen": {
             "name": "ALLERGENIC EXTRACT, PENICILLIN",
             "code": "314422",
-            "code_system_name": "RXNORM"
+            "codeSystemName": "RXNORM"
           },
           "intolerance": {
             "name": "Propensity to adverse reactions to drug",
             "code": "419511003",
-            "code_system_name": "SNOMED CT"
+            "codeSystemName": "SNOMED CT"
           },
           "date_time": {
             "low": {
@@ -663,7 +663,7 @@
           "status": {
             "name": "Active",
             "code": "55561003",
-            "code_system_name": "SNOMED CT"
+            "codeSystemName": "SNOMED CT"
           },
           "reactions": [
             {
@@ -685,23 +685,23 @@
               "reaction": {
                 "name": "Nausea",
                 "code": "422587007",
-                "code_system_name": "SNOMED CT"
+                "codeSystemName": "SNOMED CT"
               },
               "code": {
                 "name": "Propensity to adverse reactions to drug",
                 "code": "419511003",
-                "code_system_name": "SNOMED CT"
+                "codeSystemName": "SNOMED CT"
               },
               "severity": {
                 "code": {
                   "name": "Mild",
                   "code": "255604002",
-                  "code_system_name": "SNOMED CT"
+                  "codeSystemName": "SNOMED CT"
                 },
                 "interpretation": {
                   "name": "Suceptible",
                   "code": "S",
-                  "code_system_name": "Observation Interpretation"
+                  "codeSystemName": "Observation Interpretation"
                 }
               }
             }
@@ -710,12 +710,12 @@
             "code": {
               "name": "Moderate to severe",
               "code": "371924009",
-              "code_system_name": "SNOMED CT"
+              "codeSystemName": "SNOMED CT"
             },
             "interpretation": {
               "name": "Normal",
               "code": "N",
-              "code_system_name": "Observation Interpretation"
+              "codeSystemName": "Observation Interpretation"
             }
           }
         }
@@ -742,12 +742,12 @@
           "allergen": {
             "name": "Codeine",
             "code": "2670",
-            "code_system_name": "RXNORM"
+            "codeSystemName": "RXNORM"
           },
           "intolerance": {
             "name": "Propensity to adverse reactions to drug",
             "code": "419511003",
-            "code_system_name": "SNOMED CT"
+            "codeSystemName": "SNOMED CT"
           },
           "date_time": {
             "low": {
@@ -758,7 +758,7 @@
           "status": {
             "name": "Active",
             "code": "55561003",
-            "code_system_name": "SNOMED CT"
+            "codeSystemName": "SNOMED CT"
           },
           "reactions": [
             {
@@ -780,23 +780,23 @@
               "reaction": {
                 "name": "Wheezing",
                 "code": "56018004",
-                "code_system_name": "SNOMED CT"
+                "codeSystemName": "SNOMED CT"
               },
               "code": {
                 "name": "Propensity to adverse reactions to drug",
                 "code": "419511003",
-                "code_system_name": "SNOMED CT"
+                "codeSystemName": "SNOMED CT"
               },
               "severity": {
                 "code": {
                   "name": "Mild",
                   "code": "255604002",
-                  "code_system_name": "SNOMED CT"
+                  "codeSystemName": "SNOMED CT"
                 },
                 "interpretation": {
                   "name": "Suceptible",
                   "code": "S",
-                  "code_system_name": "Observation Interpretation"
+                  "codeSystemName": "Observation Interpretation"
                 }
               }
             }
@@ -805,12 +805,12 @@
             "code": {
               "name": "Moderate",
               "code": "6736007",
-              "code_system_name": "SNOMED CT"
+              "codeSystemName": "SNOMED CT"
             },
             "interpretation": {
               "name": "Normal",
               "code": "N",
-              "code_system_name": "Observation Interpretation"
+              "codeSystemName": "Observation Interpretation"
             }
           }
         }
@@ -837,12 +837,12 @@
           "allergen": {
             "name": "Aspirin",
             "code": "1191",
-            "code_system_name": "RXNORM"
+            "codeSystemName": "RXNORM"
           },
           "intolerance": {
             "name": "Drug intolerance",
             "code": "59037007",
-            "code_system_name": "SNOMED CT"
+            "codeSystemName": "SNOMED CT"
           },
           "date_time": {
             "low": {
@@ -853,7 +853,7 @@
           "status": {
             "name": "Active",
             "code": "55561003",
-            "code_system_name": "SNOMED CT"
+            "codeSystemName": "SNOMED CT"
           },
           "reactions": [
             {
@@ -875,23 +875,23 @@
               "reaction": {
                 "name": "Hives",
                 "code": "247472004",
-                "code_system_name": "SNOMED CT"
+                "codeSystemName": "SNOMED CT"
               },
               "code": {
                 "name": "Drug intolerance",
                 "code": "59037007",
-                "code_system_name": "SNOMED CT"
+                "codeSystemName": "SNOMED CT"
               },
               "severity": {
                 "code": {
                   "name": "Mild to moderate",
                   "code": "371923003",
-                  "code_system_name": "SNOMED CT"
+                  "codeSystemName": "SNOMED CT"
                 },
                 "interpretation": {
                   "name": "Suceptible",
                   "code": "S",
-                  "code_system_name": "Observation Interpretation"
+                  "codeSystemName": "Observation Interpretation"
                 }
               }
             }
@@ -900,12 +900,12 @@
             "code": {
               "name": "Mild to moderate",
               "code": "371923003",
-              "code_system_name": "SNOMED CT"
+              "codeSystemName": "SNOMED CT"
             },
             "interpretation": {
               "name": "Normal",
               "code": "N",
-              "code_system_name": "Observation Interpretation"
+              "codeSystemName": "Observation Interpretation"
             }
           }
         }
@@ -929,12 +929,12 @@
           "product": {
             "name": "Influenza virus vaccine",
             "code": "88",
-            "code_system_name": "CVX",
+            "codeSystemName": "CVX",
             "translations": [
               {
                 "name": "Influenza, seasonal, injectable",
                 "code": "141",
-                "code_system_name": "CVX"
+                "codeSystemName": "CVX"
               }
             ]
           },
@@ -945,7 +945,7 @@
           "route": {
             "name": "Intramuscular injection",
             "code": "C28161",
-            "code_system_name": "Medication Route FDA"
+            "codeSystemName": "Medication Route FDA"
           },
           "dose": {
             "value": 50,
@@ -989,7 +989,7 @@
           "code": {
             "name": "immunization education",
             "code": "171044003",
-            "code_system_name": "SNOMED CT"
+            "codeSystemName": "SNOMED CT"
           },
           "free_text": "Possible flu-like symptoms for three days."
         }
@@ -1011,12 +1011,12 @@
           "product": {
             "name": "Influenza virus vaccine",
             "code": "88",
-            "code_system_name": "CVX",
+            "codeSystemName": "CVX",
             "translations": [
               {
                 "name": "Influenza, seasonal, injectable",
                 "code": "141",
-                "code_system_name": "CVX"
+                "codeSystemName": "CVX"
               }
             ]
           },
@@ -1027,7 +1027,7 @@
           "route": {
             "name": "Intramuscular injection",
             "code": "C28161",
-            "code_system_name": "Medication Route FDA"
+            "codeSystemName": "Medication Route FDA"
           },
           "dose": {
             "value": 50,
@@ -1071,7 +1071,7 @@
           "code": {
             "name": "immunization education",
             "code": "171044003",
-            "code_system_name": "SNOMED CT"
+            "codeSystemName": "SNOMED CT"
           },
           "free_text": "Possible flu-like symptoms for three days."
         }
@@ -1093,12 +1093,12 @@
           "product": {
             "name": "Pneumococcal polysaccharide vaccine",
             "code": "33",
-            "code_system_name": "CVX",
+            "codeSystemName": "CVX",
             "translations": [
               {
                 "name": "Pneumococcal NOS",
                 "code": "109",
-                "code_system_name": "CVX"
+                "codeSystemName": "CVX"
               }
             ]
           },
@@ -1109,7 +1109,7 @@
           "route": {
             "name": "Intramuscular injection",
             "code": "C28161",
-            "code_system_name": "Medication Route FDA"
+            "codeSystemName": "Medication Route FDA"
           },
           "dose": {
             "value": 50,
@@ -1167,12 +1167,12 @@
           "product": {
             "name": "Tetanus and diphtheria toxoids - preservative free",
             "code": "103",
-            "code_system_name": "CVX",
+            "codeSystemName": "CVX",
             "translations": [
               {
                 "name": "Tetanus and diphtheria toxoids - preservative free",
                 "code": "09",
-                "code_system_name": "CVX"
+                "codeSystemName": "CVX"
               }
             ]
           },
@@ -1183,7 +1183,7 @@
           "route": {
             "name": "Intramuscular injection",
             "code": "C28161",
-            "code_system_name": "Medication Route FDA"
+            "codeSystemName": "Medication Route FDA"
           },
           "dose": {
             "value": 50,
@@ -1268,7 +1268,7 @@
         "code": {
           "name": "Tobacco use and exposure",
           "code": "229819007",
-          "code_system_name": "SNOMED CT"
+          "codeSystemName": "SNOMED CT"
         },
         "value": "1 pack per day"
       },
@@ -1287,7 +1287,7 @@
         "code": {
           "name": "Tobacco use and exposure",
           "code": "229819007",
-          "code_system_name": "SNOMED CT"
+          "codeSystemName": "SNOMED CT"
         },
         "value": "None"
       },
@@ -1306,7 +1306,7 @@
         "code": {
           "name": "Alcohol consumption",
           "code": "160573003",
-          "code_system_name": "SNOMED CT"
+          "codeSystemName": "SNOMED CT"
         },
         "value": "None"
       }
@@ -1332,7 +1332,7 @@
           "code": {
             "name": "Pneumonia",
             "code": "233604007",
-            "code_system_name": "SNOMED CT"
+            "codeSystemName": "SNOMED CT"
           },
           "date_time": {
             "low": {
@@ -1387,7 +1387,7 @@
           "code": {
             "name": "Asthma",
             "code": "195967001",
-            "code_system_name": "SNOMED CT"
+            "codeSystemName": "SNOMED CT"
           },
           "date_time": {
             "low": {
@@ -1424,7 +1424,7 @@
         "procedure": {
           "name": "Colonoscopy",
           "code": "73761001",
-          "code_system_name": "SNOMED CT"
+          "codeSystemName": "SNOMED CT"
         },
         "identifiers": [
           {
@@ -1442,7 +1442,7 @@
           {
             "name": "Abdomen and pelvis",
             "code": "416949008",
-            "code_system_name": "SNOMED CT"
+            "codeSystemName": "SNOMED CT"
           }
         ],
         "specimen": {
@@ -1454,7 +1454,7 @@
           "code": {
             "name": "colonic polyp sample",
             "code": "309226005",
-            "code_system_name": "SNOMED CT"
+            "codeSystemName": "SNOMED CT"
           }
         },
         "performer": [
@@ -1513,7 +1513,7 @@
         "procedure": {
           "name": "Colonic polypectomy",
           "code": "274025005",
-          "code_system_name": "SNOMED CT"
+          "codeSystemName": "SNOMED CT"
         },
         "identifiers": [
           {
@@ -1532,13 +1532,13 @@
           {
             "name": "Abdomen and pelvis",
             "code": "416949008",
-            "code_system_name": "SNOMED CT"
+            "codeSystemName": "SNOMED CT"
           }
         ],
         "priority": {
           "name": "Callback results",
           "code": "CR",
-          "code_system_name": "ActPriority"
+          "codeSystemName": "ActPriority"
         },
         "performer": [
           {
@@ -1596,7 +1596,7 @@
             "location_type": {
               "name": "Gastroenterology Clinic",
               "code": "1118-9",
-              "code_system_name": "HealthcareServiceLocation"
+              "codeSystemName": "HealthcareServiceLocation"
             },
             "addresses": [
               {
@@ -1615,7 +1615,7 @@
         "procedure": {
           "name": "Colonic polypectomy",
           "code": "274025005",
-          "code_system_name": "SNOMED CT"
+          "codeSystemName": "SNOMED CT"
         },
         "identifiers": [
           {
@@ -1633,7 +1633,7 @@
         "priority": {
           "name": "Callback results",
           "code": "CR",
-          "code_system_name": "ActPriority"
+          "codeSystemName": "ActPriority"
         },
         "performer": [
           {
@@ -1691,7 +1691,7 @@
             "location_type": {
               "name": "Gastroenterology Clinic",
               "code": "1118-9",
-              "code_system_name": "HealthcareServiceLocation"
+              "codeSystemName": "HealthcareServiceLocation"
             },
             "addresses": [
               {
@@ -1712,7 +1712,7 @@
         "plan": {
           "name": "Colonoscopy",
           "code": "73761001",
-          "code_system_name": "SNOMED CT"
+          "codeSystemName": "SNOMED CT"
         },
         "identifiers": [
           {
@@ -1743,12 +1743,12 @@
           ],
           "code": {
             "code": "SELF",
-            "code_system_name": "HL7 RoleCode"
+            "codeSystemName": "HL7 RoleCode"
           },
           "insurance": {
             "code": {
               "code": "PAYOR",
-              "code_system_name": "HL7 RoleCode"
+              "codeSystemName": "HL7 RoleCode"
             },
             "performer": {
               "identifiers": [
@@ -1796,7 +1796,7 @@
               "code": [
                 {
                   "code": "PAYOR",
-                  "code_system_name": "HL7 RoleCode"
+                  "codeSystemName": "HL7 RoleCode"
                 }
               ]
             }
@@ -1805,7 +1805,7 @@
         "guarantor": {
           "code": {
             "code": "GUAR",
-            "code_system_name": "HL7 RoleCode"
+            "codeSystemName": "HL7 RoleCode"
           },
           "identifiers": [
             {
@@ -1841,7 +1841,7 @@
           "code": {
             "name": "Self",
             "code": "SELF",
-            "code_system_name": "HL7 Role"
+            "codeSystemName": "HL7 Role"
           },
           "performer": {
             "identifiers": [
@@ -1864,7 +1864,7 @@
               {
                 "name": "Self",
                 "code": "SELF",
-                "code_system_name": "HL7 Role"
+                "codeSystemName": "HL7 Role"
               }
             ]
           },
@@ -1907,7 +1907,7 @@
             "code": {
               "name": "Colonoscopy",
               "code": "73761001",
-              "code_system_name": "SNOMED CT"
+              "codeSystemName": "SNOMED CT"
             }
           }
         }
