@@ -58,7 +58,7 @@ export const encounterActivities = {
           e.code = {
             code: '404684003',
             code_system: '2.16.840.1.113883.6.96',
-            code_system_name: 'SNOMED CT',
+            codeSystemName: 'SNOMED CT',
             name: 'Finding'
           };
           return e;

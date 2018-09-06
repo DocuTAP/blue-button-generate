@@ -143,7 +143,7 @@
           "code": {
             "name": "Asthma",
             "code": "195967001",
-            "code_system_name": "SNOMED CT"
+            "codeSystemName": "SNOMED CT"
           },
           "date_time": {
             "low": {
@@ -178,7 +178,7 @@
           "code": {
             "name": "Pneumonia",
             "code": "233604007",
-            "code_system_name": "SNOMED CT"
+            "codeSystemName": "SNOMED CT"
           },
           "date_time": {
             "low": {
@@ -213,7 +213,7 @@
           "code": {
             "name": "Pneumonia",
             "code": "233604007",
-            "code_system_name": "SNOMED CT"
+            "codeSystemName": "SNOMED CT"
           },
           "date_time": {
             "low": {
@@ -243,7 +243,7 @@
           "code": {
             "name": "Myocardial infarction",
             "code": "22298006",
-            "code_system_name": "SNOMED CT"
+            "codeSystemName": "SNOMED CT"
           },
           "date_time": {
             "low": {
@@ -273,7 +273,7 @@
         "encounter": {
           "name": "General",
           "code": "GENRL",
-          "code_system_name": "ActCode"
+          "codeSystemName": "ActCode"
         },
         "identifiers": [
           {
@@ -298,7 +298,7 @@
         "procedure": {
           "name": "Total hip replacement",
           "code": "52734007",
-          "code_system_name": "SNOMED CT"
+          "codeSystemName": "SNOMED CT"
         },
         "identifiers": [
           {
@@ -325,7 +325,7 @@
         "result_set": {
           "name": "CBC WO DIFFERENTIAL",
           "code": "43789009",
-          "code_system_name": "SNOMED CT"
+          "codeSystemName": "SNOMED CT"
         },
         "results": [
           {
@@ -337,7 +337,7 @@
             "result": {
               "name": "HGB",
               "code": "30313-1",
-              "code_system_name": "LOINC"
+              "codeSystemName": "LOINC"
             },
             "date_time": {
               "point": {
@@ -362,7 +362,7 @@
             "result": {
               "name": "WBC",
               "code": "33765-9",
-              "code_system_name": "LOINC"
+              "codeSystemName": "LOINC"
             },
             "date_time": {
               "point": {
@@ -389,7 +389,7 @@
             "result": {
               "name": "PLT",
               "code": "26515-7",
-              "code_system_name": "LOINC"
+              "codeSystemName": "LOINC"
             },
             "date_time": {
               "point": {
@@ -418,7 +418,7 @@
         "result_set": {
           "name": "LYTES",
           "code": "20109005",
-          "code_system_name": "SNOMED CT"
+          "codeSystemName": "SNOMED CT"
         },
         "results": [
           {
@@ -430,7 +430,7 @@
             "result": {
               "name": "NA",
               "code": "2951-2",
-              "code_system_name": "LOINC"
+              "codeSystemName": "LOINC"
             },
             "date_time": {
               "point": {
@@ -457,7 +457,7 @@
             "result": {
               "name": "K",
               "code": "2823-3",
-              "code_system_name": "LOINC"
+              "codeSystemName": "LOINC"
             },
             "date_time": {
               "point": {
@@ -484,7 +484,7 @@
             "result": {
               "name": "CL",
               "code": "2075-0",
-              "code_system_name": "LOINC"
+              "codeSystemName": "LOINC"
             },
             "date_time": {
               "point": {
@@ -511,7 +511,7 @@
             "result": {
               "name": "HCO3",
               "code": "1963-8",
-              "code_system_name": "LOINC"
+              "codeSystemName": "LOINC"
             },
             "date_time": {
               "point": {
@@ -548,7 +548,7 @@
           "code": {
             "name": "Extended healthcare",
             "code": "EHCPOL",
-            "code_system_name": "ActCode"
+            "codeSystemName": "ActCode"
           },
           "insurance": {
             "performer": {
@@ -569,7 +569,7 @@
           "code": {
             "name": "Self",
             "code": "SELF",
-            "code_system_name": "HL7 Role"
+            "codeSystemName": "HL7 Role"
           },
           "name": {
             "last": "Levin",
@@ -588,7 +588,7 @@
               {
                 "name": "Self",
                 "code": "SELF",
-                "code_system_name": "HL7 Role"
+                "codeSystemName": "HL7 Role"
               }
             ]
           }
@@ -603,7 +603,7 @@
             "code": {
               "name": "Colonoscopy",
               "code": "73761001",
-              "code_system_name": "SNOMED CT"
+              "codeSystemName": "SNOMED CT"
             }
           }
         }

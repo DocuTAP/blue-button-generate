@@ -23,3 +23,8 @@ test.each([{ date: '', precision: 'day' }, 'Not a date'])(
     expect(translate.time(input)).toBe('Invalid date');
   }
 );
+
+test('compact will remove undefined values from an object', () => {
+  const mockObject = { a: 1, b: undefined, c: 2, d: false };
+  expect(translate.compact(mockObject)).toEqual({ a: 1, c: 2, d: false });
+});
